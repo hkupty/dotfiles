@@ -18,7 +18,9 @@ Plugin  'bling/vim-airline'
 Plugin  'mhinz/vim-signify'
 Plugin  'ekalinin/Dockerfile.vim'
 Plugin  'tfnico/vim-gradle'
-
+Plugin  'derekwyatt/vim-scala'
+Plugin  'gregsexton/gitv'
+Plugin  'scrooloose/nerdcommenter'
 
 
 call vundle#end()
@@ -42,7 +44,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 set t_Co=256
 set laststatus=2
-set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
+"set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
 set noswapfile
 set autowriteall
 
@@ -89,7 +91,7 @@ map <leader>e :tabe $MYVIMRC<CR>
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
 
-" Also, let me have settings per project
+ "Also, let me have settings per project
 set exrc
 set secure
 
