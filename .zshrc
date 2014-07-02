@@ -3,7 +3,7 @@ ZSH_THEME="ingvij"
 HIST_STAMPS="dd/mm/yyyy"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode virtualenv python docker)
+plugins=(git python docker catimg fabric sudo web-search)
 
 source $ZSH/oh-my-zsh.sh
 

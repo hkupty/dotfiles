@@ -19,7 +19,7 @@ Plugin  'mhinz/vim-signify'
 Plugin  'ekalinin/Dockerfile.vim'
 Plugin  'tfnico/vim-gradle'
 Plugin  'gregsexton/gitv'
-
+Plugin  'scrooloose/nerdcommenter' 
 
 
 call vundle#end()
@@ -79,6 +79,11 @@ map <leader>a yiw:Ag <C-r>"
 " Git stuff
 map <leader>gp :call GitPush()<CR>
 map <leader>ga :Gstatus<CR>
+map <leader>gv :Gitv<CR>
+
+" Comment fix
+map <leader>c<space> <plug>NERDCommenterToggle
+
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
