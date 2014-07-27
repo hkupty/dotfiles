@@ -4,24 +4,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin  'gmarik/Vundle'
+Plugin 'gmarik/Vundle'
 
-Plugin  'nanotech/jellybeans.vim'
-Plugin  'tpope/vim-surround'
-Plugin  'tpope/vim-unimpaired'
-Plugin  'tpope/vim-fugitive'
-Plugin  'xolox/vim-misc'
-Plugin  'klen/python-mode'
-Plugin  'mileszs/ack.vim'
-Plugin  'kien/ctrlp.vim'
-Plugin  'bling/vim-airline'
-Plugin  'mhinz/vim-signify'
-Plugin  'ekalinin/Dockerfile.vim'
-Plugin  'tfnico/vim-gradle'
-Plugin  'derekwyatt/vim-scala'
-Plugin  'gregsexton/gitv'
-Plugin  'scrooloose/nerdcommenter'
-
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
+Plugin 'xolox/vim-misc'
+Plugin 'klen/python-mode'
+Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'mhinz/vim-signify'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'tfnico/vim-gradle'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'gregsexton/gitv'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 
