@@ -20,6 +20,7 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'gregsexton/gitv'
 Plugin 'scrooloose/nerdcommenter' 
 Plugin 'scrooloose/nerdtree'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
@@ -108,4 +109,5 @@ let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 
 " Airline config
 " let g:airline_symbols.branch = ''
+
 
