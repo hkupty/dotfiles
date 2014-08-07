@@ -4,23 +4,48 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Allmighty Vundle
 Plugin 'gmarik/Vundle'
+" Dark colors
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fugitive'
-Plugin 'xolox/vim-misc'
+
+" Python
 Plugin 'klen/python-mode'
+
+" Utilities
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'xolox/vim-misc'
+
+" Docker
 Plugin 'ekalinin/Dockerfile.vim'
+
+" Scala & Gradle
 Plugin 'tfnico/vim-gradle'
+
+" Git
 Plugin 'gregsexton/gitv'
+Plugin 'tpope/vim-fugitive'
+
+" NERD Stuff
 Plugin 'scrooloose/nerdcommenter' 
 Plugin 'scrooloose/nerdtree'
+
+" TMUX
 Plugin 'christoomey/vim-tmux-navigator'
+
+" React
+Plugin 'justinj/vim-react-snippets'
+
+" Snippets!
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -75,6 +100,9 @@ set cc=80
 " Good 'ol search made easy
 vmap <leader>a y<esc>:Ag <C-r>"
 map <leader>a yiw:Ag <C-r>"
+
+" Python stuff
+map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
 
 " Git stuff
 map <leader>gp :call GitPush()<CR>
