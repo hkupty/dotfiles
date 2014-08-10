@@ -4,23 +4,49 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Allmighty Vundle
 Plugin 'gmarik/Vundle'
 
+" Dark colors
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-fugitive'
-Plugin 'xolox/vim-misc'
+
+" Python
 Plugin 'klen/python-mode'
-Plugin 'mileszs/ack.vim'
+
+" Utilities
+Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'xolox/vim-misc'
+
+" Docker
 Plugin 'ekalinin/Dockerfile.vim'
+
+" Scala & Gradle
 Plugin 'tfnico/vim-gradle'
-Plugin 'derekwyatt/vim-scala'
+
+" Git
 Plugin 'gregsexton/gitv'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
+
+" NERD Stuff
+Plugin 'scrooloose/nerdcommenter' 
+Plugin 'scrooloose/nerdtree'
+
+" TMUX
+Plugin 'christoomey/vim-tmux-navigator'
+
+" React
+Plugin 'justinj/vim-react-snippets'
+
+" Snippets!
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -73,16 +99,20 @@ set expandtab
 set cc=80
 
 " Good 'ol search made easy
-vmap <leader>a y<esc>:Ack <C-r>"
-map <leader>a yiw:Ack <C-r>"
+vmap <leader>a y<esc>:Ag <C-r>"
+map <leader>a yiw:Ag <C-r>"
 
-function! GitPush()
-    :silent :! git push -u
-endfunction
+" Python stuff
+map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
 
 " Git stuff
 map <leader>gp :call GitPush()<CR>
 map <leader>ga :Gstatus<CR>
+map <leader>gv :Gitv<CR>
+
+" Comment fix
+map <leader>c<space> <plug>NERDCommenterToggle
+
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
@@ -103,4 +133,10 @@ let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_signs = 1
 let g:pymode_rope = 1
-let g:pymode_lint_checkers = ['pylint', 'pyflakes', 'pep8', 'mccabe']
+
+let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
+
+" Airline config
+" let g:airline_symbols.branch = ''
+
+

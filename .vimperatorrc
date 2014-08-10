@@ -1,0 +1,1 @@
+nmap <C-b> :panorama switch 
