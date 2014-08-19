@@ -12,6 +12,9 @@ Plugin 'nanotech/jellybeans.vim'
 " Python
 Plugin 'klen/python-mode'
 
+" Haskell
+Plugin 'dag/vim2hs'
+
 " Utilities
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
@@ -19,6 +22,8 @@ Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
 Plugin 'xolox/vim-misc'
 
 " Docker
@@ -38,14 +43,14 @@ Plugin 'scrooloose/nerdtree'
 " TMUX
 Plugin 'christoomey/vim-tmux-navigator'
 
-" React
-Plugin 'justinj/vim-react-snippets'
-
 " Snippets!
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+" React
+Plugin 'justinj/vim-react-snippets'
 
 call vundle#end()
 
@@ -96,6 +101,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cc=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Good 'ol search made easy
 vmap <leader>a y<esc>:Ag <C-r>"
@@ -138,4 +145,9 @@ let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 " Airline config
 " let g:airline_symbols.branch = ''
 
+" Quickly toggle lines.
+nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+
+" Copy selection
+vnoremap <C-c> :w !xclip -sel c<CR><ESC>
 
