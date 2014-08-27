@@ -25,6 +25,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'xolox/vim-misc'
+Plugin 'mattn/webapi-vim'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
@@ -35,6 +36,7 @@ Plugin 'tfnico/vim-gradle'
 " Git
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/gist-vim'
 
 " NERD Stuff
 Plugin 'scrooloose/nerdcommenter' 
@@ -119,12 +121,20 @@ map <leader>gv :Gitv<CR>
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 
+" Quickly toggle lines.
+nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+
+" Copy selection
+vnoremap <C-c> :w !xclip -sel c<CR><ESC>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
+
+" Clear window
+map <leader>o :only<CR>
 
 " Also, let me have settings per project
 set exrc
@@ -145,9 +155,4 @@ let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 " Airline config
 " let g:airline_symbols.branch = ''
 
-" Quickly toggle lines.
-nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
-
-" Copy selection
-vnoremap <C-c> :w !xclip -sel c<CR><ESC>
 
