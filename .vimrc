@@ -13,6 +13,9 @@ Plugin 'nanotech/jellybeans.vim'
 " Python
 Plugin 'klen/python-mode'
 
+" Haskell
+Plugin 'dag/vim2hs'
+
 " Utilities
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
@@ -20,7 +23,10 @@ Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
 Plugin 'xolox/vim-misc'
+Plugin 'mattn/webapi-vim'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
@@ -31,6 +37,7 @@ Plugin 'tfnico/vim-gradle'
 " Git
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/gist-vim'
 
 " NERD Stuff
 Plugin 'scrooloose/nerdcommenter' 
@@ -39,14 +46,14 @@ Plugin 'scrooloose/nerdtree'
 " TMUX
 Plugin 'christoomey/vim-tmux-navigator'
 
-" React
-Plugin 'justinj/vim-react-snippets'
-
 " Snippets!
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+" React
+Plugin 'justinj/vim-react-snippets'
 
 call vundle#end()
 
@@ -97,6 +104,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cc=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Good 'ol search made easy
 vmap <leader>a y<esc>:Ag <C-r>"
@@ -113,6 +122,11 @@ map <leader>gv :Gitv<CR>
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 
+" Quickly toggle lines.
+nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+
+" Copy selection
+vnoremap <C-c> :w !xclip -sel c<CR><ESC>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
@@ -120,7 +134,10 @@ map <leader>e :tabe $MYVIMRC<CR>
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
 
- "Also, let me have settings per project
+" Clear window
+map <leader>o :only<CR>
+
+" Also, let me have settings per project
 set exrc
 set secure
 
