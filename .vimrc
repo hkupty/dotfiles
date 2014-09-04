@@ -92,6 +92,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+nnoremap <C-R> <C-w>=
 
 " Ease things out
 let mapleader = ","
@@ -126,6 +127,7 @@ nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
 
 " Copy selection
 vnoremap <C-c> :w !xclip -sel c<CR><ESC>
+nnoremap <C-c> viw :w !xclip -sel c<CR><ESC>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
@@ -135,6 +137,8 @@ map <leader>rr :so $MYVIMRC<CR>
 
 " Clear window
 map <leader>o :only<CR>
+
+map <leader><leader> :q!<CR>
 
 " Also, let me have settings per project
 set exrc
@@ -151,8 +155,3 @@ let g:pymode_lint_signs = 1
 let g:pymode_rope = 1
 
 let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
-
-" Airline config
-" let g:airline_symbols.branch = ''
-
-
