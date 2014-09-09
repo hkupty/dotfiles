@@ -6,6 +6,7 @@ call vundle#begin()
 
 " Allmighty Vundle
 Plugin 'gmarik/Vundle'
+
 " Dark colors
 Plugin 'nanotech/jellybeans.vim'
 
@@ -75,7 +76,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 set t_Co=256
 set laststatus=2
-set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
+"set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
 set noswapfile
 set autowriteall
 
