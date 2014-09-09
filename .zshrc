@@ -1,9 +1,9 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="bureau"
+ZSH_THEME="flazz"
 HIST_STAMPS="dd/mm/yyyy"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python docker catimg fabric sudo web-search)
+plugins=(vi-mode git python docker catimg fabric sudo web-search)
 
 source $ZSH/oh-my-zsh.sh
 
