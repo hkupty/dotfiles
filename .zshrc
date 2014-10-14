@@ -4,7 +4,7 @@ ZSH_THEME="ingvij"
 HIST_STAMPS="dd/mm/yyyy"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode gitfast git-extras jsontools sudo systemd python docker archlinux catimg common-aliases fabric web-search)
+plugins=(gitfast git-extras jsontools sudo systemd python docker archlinux catimg common-aliases fabric web-search)
 
 source $ZSH/oh-my-zsh.sh
 
