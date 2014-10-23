@@ -69,6 +69,7 @@ colorscheme jellybeans
 " Some basic stuff
 set number
 set relativenumber
+set cursorline
 set hidden
 
 " Airline stuff
