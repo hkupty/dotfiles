@@ -68,8 +68,8 @@ colorscheme jellybeans
 
 " Some basic stuff
 set number
-set relativenumber
 set cursorline
+set relativenumber
 set hidden
 
 " Airline stuff
@@ -134,6 +134,9 @@ nnoremap <C-c> viw :w !xclip -sel c<CR><ESC>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
+
+" Buffer nav
+map <leader>. :ls<CR>:b 
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
