@@ -1,0 +1,14 @@
+[push]
+    default = simple
+[color]
+    ui = true
+    diff = true
+[github]
+    user = hkupty
+[gc]
+    auto=1
+[merge]
+    summary=true
+[rerere]
+    enabled = 1
+    autoupdate = true
