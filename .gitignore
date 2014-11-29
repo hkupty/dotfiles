@@ -1,3 +1,5 @@
-.vim/
 *.swp
 *.old
+
+vimperator/.vimperator/info/*
+vim/.vim/bundle/
