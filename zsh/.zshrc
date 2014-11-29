@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=/opt/dotfiles/zsh
-ZSH_THEME="ingvij"
+ZSH_THEME="theunraveler"
 HIST_STAMPS="dd/mm/yyyy"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)
