@@ -16,6 +16,10 @@ Plugin 'klen/python-mode'
 " Haskell
 Plugin 'dag/vim2hs'
 
+" Scala
+Plugin 'ktvoelker/sbt-vim'
+Plugin 'derekwyatt/vim-scala'
+
 " Utilities
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
@@ -26,6 +30,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-abolish'
+Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
 Plugin 'mattn/webapi-vim'
 
@@ -48,13 +53,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Snippets!
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 
-" React
-Plugin 'justinj/vim-react-snippets'
+"Syntastic
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
@@ -161,3 +165,16 @@ let g:pymode_lint_signs = 1
 let g:pymode_rope = 1
 
 let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
+
+let g:notes_directories = ['~/m2g/Notes']
+
+
+" Syntastic stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
