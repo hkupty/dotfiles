@@ -169,6 +169,7 @@ let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 
 let g:notes_directories = ['~/m2g/Notes']
 
+let g:airline_powerline_fonts = 1
 
 " taskwarrior
 let g:task_report_name     = 'next'
