@@ -3,3 +3,4 @@
 
 vimperator/.vimperator/info/*
 vim/.vim/bundle/
+nvim/.nvim/bundle
