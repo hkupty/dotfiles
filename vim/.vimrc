@@ -52,13 +52,10 @@ Plugin 'scrooloose/nerdtree'
 " TMUX
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Snippets!
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+" Thrift
+Plugin 'solarnz/thrift.vim'
 
-"Syntastic
-Plugin 'scrooloose/syntastic'
+Plugin 'farseer90718/vim-taskwarrior'
 
 call vundle#end()
 
@@ -84,7 +81,6 @@ set t_Co=256
 set laststatus=2
 "set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
 set noswapfile
-set autowriteall
 
 "Let me save whe focus is out
 au FocusLost * silent! wa
@@ -110,9 +106,14 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set cc=80
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+augroup filetype_settings
+    au!
+    au FileType python
+                \   set cc=80
+                \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+                \ | match OverLength /\%81v.\+/
+augroup END
+
 
 " Good 'ol search made easy
 vmap <leader>a y<esc>:Ag <C-r>"
@@ -169,12 +170,13 @@ let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 let g:notes_directories = ['~/m2g/Notes']
 
 
-" Syntastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" taskwarrior
+let g:task_report_name     = 'next'
+let g:task_highlight_field = 1
+let g:task_rc_override     = 'rc.defaultwidth=999'
+let g:task_info_vsplit     = 0
+let g:task_info_size       = 15
+let g:task_info_position   = 'belowright'
+let g:task_log_max         = '20'
+let g:task_left_arrow      = ' <<'
+let g:task_left_arrow      = '>> '
