@@ -55,6 +55,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Thrift
 Plugin 'solarnz/thrift.vim'
 
+" Task
 Plugin 'farseer90718/vim-taskwarrior'
 
 call vundle#end()
