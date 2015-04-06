@@ -25,7 +25,7 @@ Plug 'xolox/vim-misc'
 Plug 'mattn/webapi-vim'
 
 " Docker
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala & Gradle
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
@@ -34,6 +34,7 @@ Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
 
 " NERD Stuff
 Plug 'scrooloose/nerdcommenter' 
@@ -42,9 +43,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " TMUX
 Plug 'christoomey/vim-tmux-navigator'
 
+" Thrift
+Plug 'solarnz/thrift.vim'
+
+" Task
+Plug 'farseer90718/vim-taskwarrior'
+"
 " Make
 Plug 'benekastah/neomake'
-
 
 call plug#end()
 
@@ -68,7 +74,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 set t_Co=256
 set laststatus=2
-"set rtp+=$HOME/.local/lib/python3.3/site-packages/powerline/bindings/vim/
 set noswapfile
 set autowriteall
 
@@ -81,11 +86,11 @@ set autowriteall
 
 au FocusLost * silent! wa
 
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-R> <C-w>=
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-R> <C-w>=
 
 " Ease things out
 let mapleader = ","
@@ -133,13 +138,15 @@ map <leader><leader> :q!<CR>
 set exrc
 set secure
 
+" Global taboptions
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 augroup filetype_settings
     au!
     au FileType python
         \   set smartindent
-        \ | set tabstop=4
-        \ | set shiftwidth=4
-        \ | set expandtab
         \ | set cc=80
         \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
         \ | match OverLength /\%81v.\+/
