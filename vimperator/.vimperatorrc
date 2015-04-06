@@ -2,5 +2,6 @@ nmap <C-b> :panorama switch
 
 autocmd LocationChange .*                             js modes.passAllKeys = false
 autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange cacoo\\.com/diagrams           js modes.passAllKeys = true
 autocmd LocationChange docs\\.google\\.com            js modes.passAllKeys = true
 autocmd LocationChange .*\\.facebook\\.com            js modes.passAllKeys = true
