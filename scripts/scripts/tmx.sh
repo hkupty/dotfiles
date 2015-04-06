@@ -27,7 +27,7 @@ base_session="$1"
 tmux_nb=$(trim `tmux ls | grep "^$base_session" | wc -l`)
 if [[ "$tmux_nb" == "0" ]]; then
     echo "Launching tmux base session $base_session ..."
-    tmux -2 new-session -s $base_session 
+    TERM=screen-256color tmux -2 new-session -s $base_session 
 else
     # Make sure we are not already in a tmux session
     if [[ -z "$TMUX" ]]; then
@@ -36,12 +36,12 @@ else
         session_id=`date +%Y%m%d%H%M%S`
         # Create a new session (without attaching it) and link to base session 
         # to share windows
-        tmux -2 new-session -d -t $base_session -s $session_id
+        TERM=screen-256color tmux -2 new-session -d -t $base_session -s $session_id
         if [[ "$2" == "1" ]]; then
             # Create a new window in that session
-            tmux -2 new-window
+            TERM=screen-256color tmux -2 new-window
         fi
         # Attach to the new session & kill it once orphaned
-        tmux -2 attach-session -t $session_id \; set-option destroy-unattached
+        TERM=screen-256color tmux -2 attach-session -t $session_id \; set-option destroy-unattached
     fi
 fi
