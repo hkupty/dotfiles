@@ -1,0 +1,60 @@
+filetype off
+
+call plug#begin('~/.vim/plugged')
+
+" Dark colors
+Plug 'nanotech/jellybeans.vim'
+
+" Python
+
+" Haskell
+Plug 'dag/vim2hs', { 'for': 'haskell' }
+
+" Utilities
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'xolox/vim-misc'
+Plug 'mattn/webapi-vim'
+
+" Docker
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
+
+" Scala & Gradle
+Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+
+" Git
+Plug 'gregsexton/gitv'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
+
+" NERD Stuff
+Plug 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" TMUX
+Plug 'christoomey/vim-tmux-navigator'
+
+" Thrift
+Plug 'solarnz/thrift.vim'
+
+" Task
+Plug 'farseer90718/vim-taskwarrior'
+"
+" Make
+Plug 'benekastah/neomake'
+
+call plug#end()
+
+" Syntax'n'stuff
+syntax on
+filetype plugin indent on
+
+" vi:syntax=vim

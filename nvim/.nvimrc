@@ -1,153 +1,18 @@
-set nocompatible
-filetype off
-
-call plug#begin('~/.vim/plugged')
-
-" Dark colors
-Plug 'nanotech/jellybeans.vim'
-
-" Python
-
-" Haskell
-Plug 'dag/vim2hs', { 'for': 'haskell' }
-
-" Utilities
-Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline'
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
-Plug 'xolox/vim-misc'
-Plug 'mattn/webapi-vim'
-
-" Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
-
-" Scala & Gradle
-Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-
-" Git
-Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
-Plug 'mattn/gist-vim'
-Plug 'airblade/vim-gitgutter'
-
-" NERD Stuff
-Plug 'scrooloose/nerdcommenter' 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" TMUX
-Plug 'christoomey/vim-tmux-navigator'
-
-" Thrift
-Plug 'solarnz/thrift.vim'
-
-" Task
-Plug 'farseer90718/vim-taskwarrior'
+" Plugin Management
+source $NVIM_CONFIG_HOME/.nvim_dependencies
 "
-" Make
-Plug 'benekastah/neomake'
-
-call plug#end()
-
-" Syntax'n'stuff
-syntax on
-filetype plugin indent on
+" All plugin related configuration
+source $NVIM_CONFIG_HOME/.nvim_plugin_conf
 
 " Eyecandy
-set background=dark
-colorscheme jellybeans
+source $NVIM_CONFIG_HOME/.nvim_style
 
-" Some basic stuff
-set number
-set cursorline
-set relativenumber
-set hidden
+" Keyboard stuff
+source $NVIM_CONFIG_HOME/.nvim_bindings
 
-" Airline stuff
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" Config defaults
+source $NVIM_CONFIG_HOME/.nvim_bindings
 
-set t_Co=256
-set laststatus=2
-set noswapfile
-set autowriteall
+" Autostuff done automatically
+source $NVIM_CONFIG_HOME/.nvim_autocommands
 
-"Let me save whe focus is out
-au FocusLost * silent! wa
-
-" Window remaps
-set noswapfile
-set autowriteall
-
-au FocusLost * silent! wa
-
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-map <C-R> <C-w>=
-
-" Ease things out
-let mapleader = ","
-nnoremap ; :
-
-" Python stuff
-
-" Good 'ol search made easy
-vmap <leader>a y<esc>:Ag <C-r>"
-map <leader>a yiw:Ag <C-r>"
-
-" Python stuff
-map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
-
-" Git stuff
-map <leader>gp :call GitPush()<CR>
-map <leader>ga :Gstatus<CR>
-map <leader>gv :Gitv<CR>
-
-" Comment fix
-map <leader>c<space> <plug>NERDCommenterToggle
-
-" Quickly toggle lines.
-nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
-
-" Copy selection
-vnoremap <C-c> :w !xclip -sel c<CR><ESC>
-nnoremap <C-c> viw :w !xclip -sel c<CR><ESC>
-
-" Edit me!
-map <leader>e :tabe $MYVIMRC<CR>
-
-" Buffer nav
-map <leader>. :ls<CR>:b 
-
-" Refresh me!
-map <leader>rr :so $MYVIMRC<CR>
-
-" Clear window
-map <leader>o :only<CR>
-
-map <leader><leader> :q!<CR>
-
-" Also, let me have settings per project
-set exrc
-set secure
-
-" Global taboptions
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-augroup filetype_settings
-    au!
-    au FileType python
-        \   set smartindent
-        \ | set cc=80
-        \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-        \ | match OverLength /\%81v.\+/
-augroup END

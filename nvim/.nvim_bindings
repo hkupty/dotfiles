@@ -1,0 +1,42 @@
+" Window stuff
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-R> <C-w>=
+
+" Leader as ','
+let mapleader = ","
+
+" Sometimes I type faster than I can handle..
+nnoremap ; :
+
+" Me loves ag!
+vmap <leader>a y<esc>:Ag <C-r>"
+map <leader>a yiw:Ag <C-r>"
+
+" Comment fix
+map <leader>c<space> <plug>NERDCommenterToggle
+
+" Quickly toggle lines.
+nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+
+" Copy selection
+vnoremap <C-c> :w !xclip -sel c<CR><ESC>
+nnoremap <C-c> viw :w !xclip -sel c<CR><ESC>
+
+" Edit me!
+map <leader>e :tabe $MYVIMRC<CR>
+
+" Buffer nav
+map <leader>. :ls<CR>:b 
+
+" Refresh me!
+map <leader>rr :so $MYVIMRC<CR>
+
+" Clear window
+map <leader>o :only<CR>
+
+map <leader><leader> :q!<CR>
+
+" vi:syntax=vim

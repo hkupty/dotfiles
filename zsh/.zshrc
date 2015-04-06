@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/scripts:$HOME/bin:/usr/local/bin:$PATH
 export EDITOR='vim'
 export UPDATE_ZSH_DAYS=13
+export NVIM_CONFIG_HOME=/opt/dotfiles/nvim
 
 unset GREP_OPTIONS
 

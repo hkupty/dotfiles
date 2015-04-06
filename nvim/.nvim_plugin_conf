@@ -1,0 +1,8 @@
+" Airline stuff
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Ctrl-p
+let g:ctrlp_show_hidden = 1
+
+" vi:syntax=vim

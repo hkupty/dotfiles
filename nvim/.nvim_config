@@ -1,0 +1,16 @@
+" Base sanity stuff
+set t_Co=256
+set laststatus=2
+set noswapfile
+set autowriteall
+
+" Also, let me have settings per project
+set exrc
+set secure
+
+" Global taboptions
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" vi:syntax=vim
