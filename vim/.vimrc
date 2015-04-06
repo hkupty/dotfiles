@@ -44,6 +44,8 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/gist-vim'
+Plugin 'airblade/vim-gitgutter'
+
 
 " NERD Stuff
 Plugin 'scrooloose/nerdcommenter' 
@@ -57,6 +59,8 @@ Plugin 'solarnz/thrift.vim'
 
 " Task
 Plugin 'farseer90718/vim-taskwarrior'
+
+Plugin 'asp.vim'
 
 call vundle#end()
 
@@ -107,21 +111,30 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Python stuff
 augroup filetype_settings
     au!
     au FileType python
                 \   set cc=80
                 \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
                 \ | match OverLength /\%81v.\+/
+                \ | map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
+                \ | let g:pymode = 0
+                "\ | let g:pymode_trim_whitespaces = 1
+                "\ | let g:pymode_options = 1
+                "\ | let g:pymode_motion = 1
+                "\ | let g:pymode_lint = 1
+                "\ | let g:pymode_lint_on_write = 1
+                "\ | let g:pymode_lint_signs = 1
+                "\ | let g:pymode_rope = 1
+                "\ | let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 augroup END
 
 
 " Good 'ol search made easy
 vmap <leader>a y<esc>:Ag <C-r>"
 map <leader>a yiw:Ag <C-r>"
-
-" Python stuff
-map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
 
 " Git stuff
 map <leader>gp :call GitPush()<CR>
@@ -157,16 +170,6 @@ set exrc
 set secure
 
 " Pymode on!
-let g:pymode = 1
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options = 1
-let g:pymode_motion = 1
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_signs = 1
-let g:pymode_rope = 1
-
-let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 
 let g:notes_directories = ['~/m2g/Notes']
 
