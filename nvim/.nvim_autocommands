@@ -7,7 +7,7 @@ augroup filetype_settings
         \ | set cc=80
         \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
         \ | match OverLength /\%81v.\+/
-	\ | map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
+        \ | map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
 augroup END
 
 " vi:syntax=vim

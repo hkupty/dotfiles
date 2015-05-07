@@ -11,8 +11,12 @@ source $NVIM_CONFIG_HOME/.nvim_style
 source $NVIM_CONFIG_HOME/.nvim_bindings
 
 " Config defaults
-source $NVIM_CONFIG_HOME/.nvim_bindings
+source $NVIM_CONFIG_HOME/.nvim_config
 
 " Autostuff done automatically
 source $NVIM_CONFIG_HOME/.nvim_autocommands
 
+" Autostuff done automatically
+source $NVIM_CONFIG_HOME/.nvim_tmux
+
+source $NVIM_CONFIG_HOME/.nvim_private

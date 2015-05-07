@@ -5,7 +5,11 @@ call plug#begin('~/.vim/plugged')
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
 
+" Coding
+" Plug 'shougo/deoplete.nvim'
+
 " Python
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 " Haskell
 Plug 'dag/vim2hs', { 'for': 'haskell' }
@@ -28,22 +32,24 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala & Gradle
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
+Plug 'jaxbot/github-issues.vim'
 Plug 'airblade/vim-gitgutter'
 
 " NERD Stuff
-Plug 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " TMUX
 Plug 'christoomey/vim-tmux-navigator'
 
 " Thrift
-Plug 'solarnz/thrift.vim'
+Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
 
 " Task
 Plug 'farseer90718/vim-taskwarrior'

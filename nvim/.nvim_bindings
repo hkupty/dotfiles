@@ -1,10 +1,3 @@
-" Window stuff
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-map <C-R> <C-w>=
-
 " Leader as ','
 let mapleader = ","
 
@@ -38,5 +31,12 @@ map <leader>rr :so $MYVIMRC<CR>
 map <leader>o :only<CR>
 
 map <leader><leader> :q!<CR>
+
+tnoremap <A-]> <C-\><C-n>
+tnoremap <C-]> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><C-w><C-h>
+tnoremap <C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-l> <C-\><C-n><C-w><C-l>
 
 " vi:syntax=vim
