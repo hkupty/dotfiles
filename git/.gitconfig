@@ -17,3 +17,4 @@
     autoupdate = true
 [core]
 	excludesfile = /home/hkupty/.gitignore_global
+	editor = nvim

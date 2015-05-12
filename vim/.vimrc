@@ -33,6 +33,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-misc'
 Plugin 'mattn/webapi-vim'
+Plugin 'mnpk/vim-jira-complete'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
