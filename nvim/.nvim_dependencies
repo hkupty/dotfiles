@@ -33,6 +33,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 " Scala & Gradle
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'derekwyatt/vim-sbt'
 
 " Git
 Plug 'gregsexton/gitv'
