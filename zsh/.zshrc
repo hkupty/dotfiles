@@ -15,6 +15,6 @@ export NVIM_CONFIG_HOME=/opt/dotfiles/nvim
 
 unset GREP_OPTIONS
 
-alias vim=nvim
+alias vim=/usr/bin/nvim
+alias vi=/usr/bin/vim
 
-source ~/.vars
