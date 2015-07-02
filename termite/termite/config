@@ -1,30 +1,27 @@
 [options]
-    resize_grip = false
-    scroll_on_output = false
-    scroll_on_keystroke = true
-    audible_bell = true
-    visible_bell = false
-    mouse_autohide = true
-    allow_bold = true
-    dynamic_title = true
-    urgent_on_bell = true
-    clickable_url = true
-    font = TerminusRegular 12
-    scrollback_lines = 1000
-    search_wrap = true
+scroll_on_output = false
+scroll_on_keystroke = true
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Terminess Powerline Regular 12
+scrollback_lines = 1000
+search_wrap = true
 
 [color]
-    background: #fdf6e3
-    foreground: #839496
-    fadeColor: #fdf6e3
-    cursorColor: #586e75
-    pointerColorBackground: #93a1a1
-    pointerColorForeground: #586e75
-    color0: #073642
-    color8: #fdf6e3
-    color10: #93a1a1
-    color11: #839496
-    color12: #657b83
-    color14: #586e75
-    color7: #839496
-    color15: #002b36
+background: #fdf6e3
+foreground: #839496
+fadeColor: #fdf6e3
+cursorColor: #586e75
+pointerColorBackground: #93a1a1
+pointerColorForeground: #586e75
+color0: #073642
+color8: #fdf6e3
+color10: #93a1a1
+color11: #839496
+color12: #657b83
+color14: #586e75
+color7: #839496
+color15: #002b36

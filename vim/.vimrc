@@ -60,7 +60,6 @@ Plugin 'solarnz/thrift.vim'
 " Task
 Plugin 'farseer90718/vim-taskwarrior'
 
-Plugin 'asp.vim'
 
 call vundle#end()
 
@@ -120,15 +119,15 @@ augroup filetype_settings
                 \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
                 \ | match OverLength /\%81v.\+/
                 \ | map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
-                \ | let g:pymode = 0
-                "\ | let g:pymode_trim_whitespaces = 1
-                "\ | let g:pymode_options = 1
-                "\ | let g:pymode_motion = 1
-                "\ | let g:pymode_lint = 1
-                "\ | let g:pymode_lint_on_write = 1
-                "\ | let g:pymode_lint_signs = 1
-                "\ | let g:pymode_rope = 1
-                "\ | let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
+                \ | let g:pymode = 1
+                \ | let g:pymode_trim_whitespaces = 1
+                \ | let g:pymode_options = 1
+                \ | let g:pymode_motion = 1
+                \ | let g:pymode_lint = 1
+                \ | let g:pymode_lint_on_write = 1
+                \ | let g:pymode_lint_signs = 1
+                \ | let g:pymode_rope = 1
+                \ | let g:pymode_lint_checkers = ['pep257', 'pylint', 'pyflakes', 'pep8', 'mccabe']
 augroup END
 
 
@@ -170,8 +169,6 @@ set exrc
 set secure
 
 " Pymode on!
-
-let g:notes_directories = ['~/m2g/Notes']
 
 let g:airline_powerline_fonts = 1
 
