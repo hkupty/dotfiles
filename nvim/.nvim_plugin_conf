@@ -2,7 +2,13 @@
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
 " Ctrl-p
 let g:ctrlp_show_hidden = 1
+
+" Python-mode
+let g:pymode_rope_goto_definition_bind = "<C-]>"
 
 " vi:syntax=vim
