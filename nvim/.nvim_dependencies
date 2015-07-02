@@ -1,18 +1,21 @@
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
 
 " Coding
-" Plug 'shougo/deoplete.nvim'
+Plug 'shougo/deoplete.nvim'
+
+" JIRA
+" Plug 'mnpk/vim-jira-complete'
 
 " Python
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'klen/python-mode', { 'for': 'python' }
 
 " Haskell
-Plug 'dag/vim2hs', { 'for': 'haskell' }
+" Plug 'dag/vim2hs', { 'for': 'haskell' }
 
 " Utilities
 Plug 'rking/ag.vim'
@@ -31,15 +34,15 @@ Plug 'mattn/webapi-vim'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala & Gradle
-Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'derekwyatt/vim-sbt'
+" Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+" Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+" Plug 'derekwyatt/vim-sbt'
 
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
-Plug 'jaxbot/github-issues.vim'
+" Plug 'jaxbot/github-issues.vim'
 Plug 'airblade/vim-gitgutter'
 
 " NERD Stuff
@@ -48,9 +51,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " TMUX
 Plug 'christoomey/vim-tmux-navigator'
-
-" Thrift
-Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
 
 " Task
 Plug 'farseer90718/vim-taskwarrior'
