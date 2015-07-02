@@ -1,3 +1,11 @@
+set background=dark
+colorscheme jellybeans
+
+set number
+set cursorline
+set relativenumber
+set hidden
+
 " Base sanity stuff
 set t_Co=256
 set laststatus=2
@@ -12,5 +20,7 @@ set secure
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set wildmode=full
 
 " vi:syntax=vim

@@ -4,9 +4,6 @@ source $NVIM_CONFIG_HOME/.nvim_dependencies
 " All plugin related configuration
 source $NVIM_CONFIG_HOME/.nvim_plugin_conf
 
-" Eyecandy
-source $NVIM_CONFIG_HOME/.nvim_style
-
 " Keyboard stuff
 source $NVIM_CONFIG_HOME/.nvim_bindings
 
