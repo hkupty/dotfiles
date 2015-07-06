@@ -18,12 +18,10 @@ HOME_DIR=/home/$USRN
 AUR_DIR=${AUR_DIR:-$HOME_DIR/aur}
 
 NEOVIM_URL="https://aur4.archlinux.org/neovim-git.git/"
-NEOVIM_DEPS=("https://aur4.archlinux.org/unibilium.git/" "https://aur4.archlinux.org/libtermkey-bzr.git/" "https://aur4.archlinux.org/libvterm-bzr.git/")
-
-if [ ! $USRN ]
-then
-    exit 1
-fi
+NEOVIM_DEPS=("https://aur4.archlinux.org/unibilium.git/" /
+             "https://aur4.archlinux.org/libtermkey-bzr.git/" /
+             "https://aur4.archlinux.org/libvterm-bzr.git/" /
+             "https://aur4.archlinux.org/lua-messagepack.git/")
 
 # Packages
 pacman -Sy $PACKAGES --noconfirm
@@ -40,9 +38,9 @@ cat /etc/sudoers
 # AUR Stuff
 mkdir -p $AUR_DIR
 git clone https://aur4.archlinux.org/neovim-git.git/ $AUR_DIR/neovim-git 
-chown -R $USRN:users $AUR_DIR/neovim-git/ && cd $AUR_DIR/neovim-git/ || exit 3
+chown -R $USRN:users $AUR_DIR && cd $AUR_DIR/neovim-git/ || exit 3
 
-for MOD in $NEOVIM_DEPS
+for MOD in ${NEOVIM_DEPS[@]}
 do
     git submodule add -f $MOD
     SUB_PATH=`dname $MOD`
