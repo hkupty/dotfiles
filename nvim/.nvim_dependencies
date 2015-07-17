@@ -29,6 +29,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'xolox/vim-misc'
 Plug 'mattn/webapi-vim'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
