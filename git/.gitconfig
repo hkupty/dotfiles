@@ -15,3 +15,5 @@
 [rerere]
     enabled = 1
     autoupdate = true
+[core]
+	excludesfile = /home/hkupty/.gitignore_global
