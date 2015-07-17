@@ -23,6 +23,12 @@ if [[ "$1" == "ls" ]]; then
 fi
 
 base_session="$1"
+
+if [ -e $base_session ]
+then
+    cd $base_session
+fi
+
 # This actually works without the trim() on all systems except OSX
 tmux_nb=$(trim `tmux ls | grep "^$base_session" | wc -l`)
 if [[ "$tmux_nb" == "0" ]]; then
