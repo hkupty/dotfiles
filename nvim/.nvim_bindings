@@ -6,7 +6,7 @@ nnoremap ; :
 
 " Me loves ag!
 vmap <leader>a y<esc>:Ag <C-r>"
-map <leader>a yiw:Ag <C-r>"
+nmap <leader>a yiw:Ag <C-r>"
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
@@ -30,7 +30,7 @@ map <leader>rr :so $MYVIMRC<CR>
 " Clear window
 map <leader>o :only<CR>
 
-map <leader><leader> :q!<CR>
+map <leader><leader> :nohl<CR>
 
 tnoremap <A-]> <C-\><C-n>
 tnoremap <C-]> <C-\><C-n>
@@ -38,5 +38,22 @@ tnoremap <C-h> <C-\><C-n><C-w><C-h>
 tnoremap <C-j> <C-\><C-n><C-w><C-j>
 tnoremap <C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-l> <C-\><C-n><C-w><C-l>
+
+" visor style terminal buffer
+ let s:termbuf = 0
+ function! ToggleTerm()
+     bel 15 split
+     try
+         exe 'buffer' . s:termbuf
+         startinsert
+     catch
+         terminal
+         let s:termbuf=bufnr('%')
+         tnoremap <buffer> <A-t>  <C-\><C-n>:close<cr>
+     endtry
+ endfunction
+
+ com! ToggleTerm call ToggleTerm()
+ nnoremap <A-t> :ToggleTerm<cr>
 
 " vi:syntax=vim
