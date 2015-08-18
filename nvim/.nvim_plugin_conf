@@ -9,6 +9,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_show_hidden = 1
 
 " Python-mode
+let g:pymode_lint_on_write = 1
 let g:pymode_rope_goto_definition_bind = "<C-]>"
+" let g:pymode_virtualenv = 1
+let g:pymode_quickfix_maxheight = 5
+" let g:pymode_python = 'python'
+
+let g:pymode_rope = 1
 
 " vi:syntax=vim

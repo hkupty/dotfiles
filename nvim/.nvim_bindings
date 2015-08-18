@@ -10,26 +10,24 @@ nmap <leader>a yiw:Ag <C-r>"
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
+map <leader>n :NERDTreeToggle<CR>
 
 " Quickly toggle lines.
 nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
-
-" Copy selection
-vnoremap <C-c> :w !xclip -sel c<CR><ESC>
-nnoremap <C-c> viw :w !xclip -sel c<CR><ESC>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
 
 " Buffer nav
 map <leader>. :ls<CR>:b 
+map <leader>; :ls<CR>:bd 
+
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
 
 " Clear window
 map <leader>o :only<CR>
-
 map <leader><leader> :nohl<CR>
 
 tnoremap <A-]> <C-\><C-n>

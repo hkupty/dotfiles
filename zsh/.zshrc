@@ -3,7 +3,7 @@ ZSH_CUSTOM=/opt/dotfiles/zsh
 ZSH_THEME="gallois"
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(gitfast git-extras jsontools sudo systemd python docker archlinux catimg common-aliases fabric web-search)
+plugins=(gitfast git-extras jsontools sudo systemd python docker archlinux catimg common-aliases fabric web-search ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 

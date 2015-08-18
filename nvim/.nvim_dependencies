@@ -30,6 +30,8 @@ Plug 'tpope/vim-abolish'
 Plug 'xolox/vim-misc'
 Plug 'mattn/webapi-vim'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'cazador481/fakeclip.neovim'
+Plug 'unblevable/quick-scope'
 
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }

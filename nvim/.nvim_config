@@ -7,7 +7,6 @@ set relativenumber
 set hidden
 
 " Base sanity stuff
-set t_Co=256
 set laststatus=2
 set noswapfile
 set autowriteall
