@@ -5,14 +5,11 @@ call plug#begin('~/.nvim/plugged')
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
 
-" Coding
+" Coding 
 Plug 'shougo/deoplete.nvim'
 
 " JIRA
 " Plug 'mnpk/vim-jira-complete'
-
-" Python
-Plug 'klen/python-mode', { 'for': 'python' }
 
 " Haskell
 " Plug 'dag/vim2hs', { 'for': 'haskell' }
@@ -32,14 +29,13 @@ Plug 'mattn/webapi-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cazador481/fakeclip.neovim'
 Plug 'unblevable/quick-scope'
+Plug 'terryma/vim-expand-region' 
 
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala & Gradle
-" Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
-" Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-" Plug 'derekwyatt/vim-sbt'
+ Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 
 " Git
 Plug 'gregsexton/gitv'
@@ -57,7 +53,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Task
 Plug 'farseer90718/vim-taskwarrior'
-"
+
 " Make
 Plug 'benekastah/neomake'
 

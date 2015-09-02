@@ -1,5 +1,7 @@
 au FocusLost * silent! wa
 
+autocmd! BufWritePost * Neomake
+
 augroup filetype_settings
     au!
     au FileType python
