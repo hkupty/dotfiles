@@ -1,12 +1,21 @@
 #!/bin/bash
 
-PROJ_DIR=${PROJ_DIR:-$HOME/titans/projects}
+PROJ_DIR=${PROJ_DIR:-$HOME/titans/develop/}
 REQ_FILES=("requirements-dev.txt" "requirements-devel.txt" "requirements.txt")
 VENV_STR=.venv/bin/activate
 
 at () {
     # Find matching target
-    if [ ! -d "$PROJ_DIR/$1" ];
+    if [ -z "$1" ]
+    then
+        if [ ! -z "$VIRTUAL_ENV" ]; then
+            deactivate
+        fi
+        pushd $PROJ_DIR > /dev/null
+        return 0
+    fi
+
+    if [ ! -d "$PROJ_DIR/$1" ]
     then
         if [ -e "$PROJ_DIR/.projcd" ]; then
             source $PROJ_DIR/.projcd
