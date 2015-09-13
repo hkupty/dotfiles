@@ -7,3 +7,4 @@ nvim/.nvim/bundle
 nvim/.nvim/.netrwhist
 nvim/.nvim/autoload
 vim/.vim/plugged
+nvim/.nvim/plugged
