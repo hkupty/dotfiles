@@ -8,3 +8,4 @@ nvim/.nvim/.netrwhist
 nvim/.nvim/autoload
 vim/.vim/plugged
 nvim/.nvim/plugged
+nvim/.nvim_private
