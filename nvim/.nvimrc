@@ -13,7 +13,5 @@ source $NVIM_CONFIG_HOME/.nvim_config
 " Autostuff done automatically
 source $NVIM_CONFIG_HOME/.nvim_autocommands
 
-" Autostuff done automatically
-source $NVIM_CONFIG_HOME/.nvim_tmux
-
-source $NVIM_CONFIG_HOME/.nvim_private
+" General conf
+source $NVIM_CONFIG_HOME/.nvim_config

@@ -30,12 +30,14 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'cazador481/fakeclip.neovim'
 Plug 'unblevable/quick-scope'
 Plug 'terryma/vim-expand-region' 
+Plug 'mattn/emmet-vim'
 
 " Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
+Plug 'ekalinin/Dockerfile.vim'
 
 " Scala & Gradle
- Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 " Git
 Plug 'gregsexton/gitv'
@@ -43,6 +45,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
 " Plug 'jaxbot/github-issues.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'mnpk/vim-jira-complete' "JIRA
 
 " NERD Stuff
 Plug 'scrooloose/nerdcommenter'
@@ -56,6 +59,9 @@ Plug 'farseer90718/vim-taskwarrior'
 
 " Make
 Plug 'benekastah/neomake'
+
+" Front
+Plug 'digitaltoad/vim-jade'
 
 call plug#end()
 
