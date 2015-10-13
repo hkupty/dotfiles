@@ -37,21 +37,18 @@ tnoremap <C-j> <C-\><C-n><C-w><C-j>
 tnoremap <C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-l> <C-\><C-n><C-w><C-l>
 
-" visor style terminal buffer
- let s:termbuf = 0
- function! ToggleTerm()
-     bel 15 split
-     try
-         exe 'buffer' . s:termbuf
-         startinsert
-     catch
-         terminal
-         let s:termbuf=bufnr('%')
-         tnoremap <buffer> <A-t>  <C-\><C-n>:close<cr>
-     endtry
- endfunction
+function! InsertTabWrapper(m)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    elseif a:m == 0
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
 
- com! ToggleTerm call ToggleTerm()
- nnoremap <A-t> :ToggleTerm<cr>
+inoremap <TAB> <C-R>=InsertTabWrapper(1)<CR>
+inoremap <S-TAB> <C-R>=InsertTabWrapper(0)<CR>
 
 " vi:syntax=vim

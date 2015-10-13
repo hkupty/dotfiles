@@ -1,5 +1,10 @@
 set background=dark
-colorscheme jellybeans
+
+colors jellybeans
+
+hi TermCursor ctermfg=red
+
+let g:airline_theme='bubblegum'
 
 set number
 set cursorline
@@ -20,6 +25,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set guifont=Anonymice\ Powerline\ Regular\ 12
+
 set wildmode=full
+
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 " vi:syntax=vim

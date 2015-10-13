@@ -4,6 +4,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><C-@> deoplete#mappings#manual_complete()
+
+let NERDTreeIgnore = ['\.pyc$']
 
 " Ctrl-p
 let g:ctrlp_show_hidden = 1
@@ -21,6 +24,6 @@ endif
 
 " Expand Region
 map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <C-K> <Plug>(expand_region_shrink)
 
 " vi:syntax=vim

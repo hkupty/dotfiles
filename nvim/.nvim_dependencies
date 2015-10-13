@@ -4,6 +4,8 @@ call plug#begin('~/.nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
+Plug 'sjl/badwolf'
+Plug 'baskerville/bubblegum'
 
 " Coding 
 Plug 'shougo/deoplete.nvim'
@@ -11,10 +13,9 @@ Plug 'shougo/deoplete.nvim'
 " JIRA
 " Plug 'mnpk/vim-jira-complete'
 
-" Haskell
-" Plug 'dag/vim2hs', { 'for': 'haskell' }
-
 " Utilities
+Plug 'kassio/neoterm'
+Plug 'gcmt/taboo.vim'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -29,7 +30,7 @@ Plug 'mattn/webapi-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'cazador481/fakeclip.neovim'
 Plug 'unblevable/quick-scope'
-Plug 'terryma/vim-expand-region' 
+Plug 'terryma/vim-expand-region'
 Plug 'mattn/emmet-vim'
 
 " Docker
@@ -38,6 +39,9 @@ Plug 'ekalinin/Dockerfile.vim'
 " Scala & Gradle
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 " Git
 Plug 'gregsexton/gitv'
