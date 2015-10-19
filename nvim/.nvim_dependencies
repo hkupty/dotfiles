@@ -15,7 +15,6 @@ Plug 'shougo/deoplete.nvim'
 
 " Utilities
 Plug 'kassio/neoterm'
-Plug 'gcmt/taboo.vim'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -47,9 +46,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
+
 " Plug 'jaxbot/github-issues.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'mnpk/vim-jira-complete' "JIRA
+" Plug 'mnpk/vim-jira-complete' "JIRA
 
 " NERD Stuff
 Plug 'scrooloose/nerdcommenter'
