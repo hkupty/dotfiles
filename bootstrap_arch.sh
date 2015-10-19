@@ -8,8 +8,10 @@ function dname {
 }
 
 # Vars
-# PACKAGES="alsa-firmware alsa-tools alsa-utils autoconf automake awesome baobab bash binutils bison bzip2 clusterssh coreutils cryptsetup dconf-editor device-mapper dhcpcd diffutils docker e2fsprogs efibootmgr empathy eog epiphany evince fakeroot ffmpeg file filesystem findutils firefox flex gawk gcc gcc-libs gdm gettext git glibc gnome-backgrounds gnome-calculator gnome-contacts gnome-control-center gnome-desktop gnome-dictionary gnome-disk-utility gnome-font-viewer gnome-keyring gnome-power-manager gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-system-log gnome-system-monitor gnome-terminal gnome-themes-standard gnome-tweak-tool gnome-user-docs gnome-user-share gnumeric graphviz grep grilo-plugins gucharmap gzip htop imagemagick inetutils iproute2 iputils jfsutils less libtool licenses linux logrotate lvm2 m4 make man-db man-pages mdadm mousetweaks mumble mutter mysql-python nano nautilus netctl nodejs npm openssh pacman patch pciutils pcmciautils perl pkg-config procps-ng psmisc pulseaudio pulseaudio-alsa python python-pip python-virtualenv python2-pip python2-virtualenv reiserfsprogs s-nail sed shadow stow sudo sushi sysfsutils systemd-sysvcompat tar task termite texinfo the_silver_searcher tmux totem tracker ttf-anonymous-pro ttf-dejavu unclutter usbutils util-linux vi vim vino vte3-ng which xclip xdg-user-dirs-gtk xf86-input-libinput xf86-input-synaptics xf86-video-intel xfsprogs xorg-server xorg-server-utils xorg-xinit yelp zsh"
-PACKAGES="git zsh base-devel"
+PACKAGES="base base-devel"
+MINIMAL_PACK="git zsh the_silver_searcher python python2"
+EXTRA_PACKAGES="$MINIMAL_PACK docker python-pip python-virtualenv python2-pip python2-virtualenv"
+GUI_PACKAGES="termite xclip firefox gnome"
 
 DOTFILES=/opt/dotfiles
 
@@ -17,14 +19,26 @@ USRN=${USRN:-hkupty}
 HOME_DIR=/home/$USRN
 AUR_DIR=${AUR_DIR:-$HOME_DIR/aur}
 
-NEOVIM_URL="https://aur4.archlinux.org/neovim-git.git/"
-NEOVIM_DEPS=("https://aur4.archlinux.org/unibilium.git/" /
-             "https://aur4.archlinux.org/libtermkey-bzr.git/" /
-             "https://aur4.archlinux.org/libvterm-bzr.git/" /
-             "https://aur4.archlinux.org/lua-messagepack.git/")
+NEOVIM_URL="https://aur.archlinux.org/neovim-git.git/"
+NEOVIM_DEPS=("https://aur.archlinux.org/unibilium.git/" /
+             "https://aur.archlinux.org/libtermkey-bzr.git/" /
+             "https://aur.archlinux.org/libvterm-bzr.git/" /
+             "https://aur.archlinux.org/lua-messagepack.git/")
 
 # Packages
-pacman -Sy $PACKAGES --noconfirm
+if [ -f /.dockerinit ]; then  # Inside a Docker container
+    pacman -Sy $MINIMAL_PACK --noconfirm
+else
+    pacman -Sy $PACKAGES --noconfirm
+
+    if [ ! -z "$INSTALL_EXTRA"]; then
+     pacman -S $EXTRA_PACKAGES --noconfirm
+    fi
+
+    if [ ! -z "$INSTALL_GUI"]; then
+     pacman -S $GUI_PACKAGES --noconfirm
+    fi
+fi
 
 # Dotfiles
 mkdir -p $DOTFILES
@@ -36,17 +50,37 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 cat /etc/sudoers
 
 # AUR Stuff
+NVIM_AUR_DIR=$AUR_DIR/neovim-git
+
 mkdir -p $AUR_DIR
-git clone https://aur4.archlinux.org/neovim-git.git/ $AUR_DIR/neovim-git 
+
+git clone https://aur.archlinux.org/neovim-git.git/ $NVIM_AUR_DIR
 chown -R $USRN:users $AUR_DIR && cd $AUR_DIR/neovim-git/ || exit 3
+
+pushd $NVIM_AUR_DIR >> /dev/null
 
 for MOD in ${NEOVIM_DEPS[@]}
 do
     git submodule add -f $MOD
     SUB_PATH=`dname $MOD`
-    chown -R $USRN:users $SUB_PATH && cd $SUB_PATH 
+    echo $SUB_PATH
+    chown -R $USRN:users $SUB_PATH
+
+    cd $SUB_PATH
     su $USRN -c 'makepkg -sic --noconfirm'
     cd -
 done
 
 su $USRN -c 'makepkg -sic --noconfirm'
+
+# Install project helpers
+export TGT_INSTALL=$HOME_DIR/.swissknife/
+curl -L https://raw.githubusercontent.com/hkupty/swissknife/master/install-me | bash
+
+$TGT_INSTALL/feature-switch turn-on addproj
+$TGT_INSTALL/feature-switch turn-on new-proj
+$TGT_INSTALL/feature-switch turn-on bootstrap
+$TGT_INSTALL/feature-switch turn-on sd
+
+echo "#!/bin/env bash" >> ~/.vars
+echo "source $TGT_INSTALL/tools" >> ~/.vars
