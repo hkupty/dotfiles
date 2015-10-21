@@ -12,11 +12,9 @@ source $NVIM_CONFIG_HOME/.nvim_config
 
 " Autostuff done automatically
 source $NVIM_CONFIG_HOME/.nvim_autocommands
-
-" General conf
-source $NVIM_CONFIG_HOME/.nvim_config
-
+"
 " Autostuff done automatically
 source $NVIM_CONFIG_HOME/.nvim_tmux
 
+" Private stuff, won't put on git. Better rewrite every time
 source $NVIM_CONFIG_HOME/.nvim_private

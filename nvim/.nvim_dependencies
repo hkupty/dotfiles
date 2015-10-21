@@ -7,33 +7,51 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 Plug 'baskerville/bubblegum'
 
-" Coding 
+" Code completion and templating
 Plug 'shougo/deoplete.nvim'
+Plug 'drmingdrmer/xptemplate'
 
-" JIRA
-" Plug 'mnpk/vim-jira-complete'
-
-" Utilities
+" Terminal
 Plug 'kassio/neoterm'
-Plug 'rking/ag.vim'
+
+" Filesystem tinkering
 Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Grep out things
+Plug 'rking/ag.vim'
+
+" Beauty airline
 Plug 'bling/vim-airline'
+
+" Gutters
 Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
+
+" Tpope stuff
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'xolox/vim-misc'
+
+
+" Web requests
 Plug 'mattn/webapi-vim'
-Plug 'dhruvasagar/vim-table-mode'
+
+" If tables needed be..
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+
+" Clipboard
 Plug 'cazador481/fakeclip.neovim'
+
+" Code navigation
 Plug 'unblevable/quick-scope'
 Plug 'terryma/vim-expand-region'
-Plug 'mattn/emmet-vim'
 
 " Docker
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala & Gradle
 Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
@@ -47,18 +65,13 @@ Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
 
-" Plug 'jaxbot/github-issues.vim'
-Plug 'airblade/vim-gitgutter'
-" Plug 'mnpk/vim-jira-complete' "JIRA
-
 " NERD Stuff
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " TMUX
 Plug 'christoomey/vim-tmux-navigator'
 
-" Task
+" Tasks
 Plug 'farseer90718/vim-taskwarrior'
 
 " Make
@@ -66,10 +79,15 @@ Plug 'benekastah/neomake'
 
 " Front
 Plug 'digitaltoad/vim-jade'
+Plug 'mattn/emmet-vim'
+
+" One day those might work
+" Plug 'jaxbot/github-issues.vim'
+" Plug 'mnpk/vim-jira-complete' "JIRA
 
 call plug#end()
 
-" Syntax'n'stuff
+" Fix stuff back
 syntax on
 filetype plugin indent on
 

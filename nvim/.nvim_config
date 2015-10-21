@@ -2,10 +2,13 @@ set background=dark
 
 colors jellybeans
 
+" Term cursor highlight 
 hi TermCursor ctermfg=red
 
+" I prefer this colorscheme for airline
 let g:airline_theme='bubblegum'
 
+" Better nav
 set number
 set cursorline
 set relativenumber
@@ -25,10 +28,13 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Eyecandy
 set guifont=Anonymice\ Powerline\ Regular\ 12
 
+" Option complete
 set wildmode=full
 
+" Make whitespaces visible
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
 " vi:syntax=vim

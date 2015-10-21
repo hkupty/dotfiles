@@ -1,7 +1,10 @@
+" Save on exit
 au FocusLost * silent! wa
 
+" Make on save
 autocmd! BufWritePost * Neomake
 
+" Project/Language specific config
 augroup filetype_settings
     au!
     au FileType python

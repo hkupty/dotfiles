@@ -22,6 +22,8 @@ map <leader>e :tabe $MYVIMRC<CR>
 map <leader>. :ls<CR>:b 
 map <leader>; :ls<CR>:bd 
 
+" CtrlPBuffer
+map <C-S-P> :CtrlPBuffer<CR>
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
