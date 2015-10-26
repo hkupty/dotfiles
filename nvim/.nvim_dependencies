@@ -22,7 +22,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rking/ag.vim'
 
 " Beauty airline
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 " Gutters
 Plug 'mhinz/vim-signify'

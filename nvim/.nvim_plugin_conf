@@ -26,4 +26,12 @@ endif
 map K <Plug>(expand_region_expand)
 map <C-K> <Plug>(expand_region_shrink)
 
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&readonly?"":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
 " vi:syntax=vim

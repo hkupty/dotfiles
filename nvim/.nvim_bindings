@@ -19,11 +19,10 @@ nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
 map <leader>e :tabe $MYVIMRC<CR>
 
 " Buffer nav
-map <leader>. :ls<CR>:b 
+map <leader>. :CtrlPBuffer<CR>
 map <leader>; :ls<CR>:bd 
 
 " CtrlPBuffer
-map <C-S-P> :CtrlPBuffer<CR>
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
