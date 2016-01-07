@@ -5,15 +5,16 @@ let mapleader = ","
 nnoremap ; :
 
 " Me loves ag!
-vmap <leader>a y<esc>:Ag <C-r>"
-nmap <leader>a yiw:Ag <C-r>"
+nnoremap <leader>g :Grepper  -tool git -open -noswitch<cr>
+nnoremap <leader>a  :Grepper! -tool ag  -open -switch<cr>
+nnoremap <leader>k   :Grepper! -tool ack -cword<cr>
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
-map <leader>n :NERDTreeToggle<CR>
+nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 " Quickly toggle lines.
-nnoremap <F2> :set number!<CR>:set relativenumber!<CR>
+nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>

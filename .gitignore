@@ -2,10 +2,9 @@
 *.old
 
 vimperator/.vimperator/info/*
-vim/.vim/bundle/
-nvim/.nvim/bundle
-nvim/.nvim/.netrwhist
-nvim/.nvim/autoload
-vim/.vim/plugged
-nvim/.nvim/plugged
-nvim/.nvim_private
+nvim/nvim/bundle
+nvim/nvim/.netrwhist
+nvim/nvim/autoload
+nvim/nvim/plugged
+tags
+nvim/nvim/.init.vim-rplugin~

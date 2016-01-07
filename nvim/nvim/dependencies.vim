@@ -1,28 +1,38 @@
 filetype off
 
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 Plug 'baskerville/bubblegum'
 
-" Code completion and templating
+" Code Completion
 Plug 'shougo/deoplete.nvim'
-Plug 'drmingdrmer/xptemplate'
+
+" Ctags
+Plug 'ludovicchabant/vim-gutentags'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Terminal
 Plug 'kassio/neoterm'
 
 " Filesystem tinkering
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Grep out things
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
 
 " Beauty airline
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
+
+" Code commenting
+Plug 'scrooloose/nerdcommenter'
 
 " Gutters
 Plug 'mhinz/vim-signify'
@@ -34,8 +44,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'xolox/vim-misc'
+Plug 'tpope/vim-projectionist'
 
+" Misc 
+Plug 'xolox/vim-misc'
 
 " Web requests
 Plug 'mattn/webapi-vim'
@@ -46,16 +58,28 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Clipboard
 Plug 'cazador481/fakeclip.neovim'
 
+" Better start screen
+Plug 'mhinz/vim-startify'
+
 " Code navigation
 Plug 'unblevable/quick-scope'
 Plug 'terryma/vim-expand-region'
 
+" Eyecandy
+Plug 'ryanoasis/vim-devicons'
+
+"-- Syntax specific and some more stuff
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
-" Scala & Gradle
-Plug 'tfnico/vim-gradle', { 'for': 'gradle' }
+" Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'spiroid/vim-ultisnip-scala'
+Plug 'ensime/ensime-vim'
+
+" Scala Build Tool - SBT
+Plug 'derekwyatt/vim-sbt'
+Plug 'dscleaver/sbt-quickfix'
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -64,9 +88,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
-
-" NERD Stuff
-Plug 'scrooloose/nerdcommenter'
 
 " TMUX
 Plug 'christoomey/vim-tmux-navigator'

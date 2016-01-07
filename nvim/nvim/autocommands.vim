@@ -12,11 +12,10 @@ augroup filetype_settings
         \ | set cc=80
         \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
         \ | match OverLength /\%81v.\+/
-        \ | map <leader>ii iimport ipdb;ipdb.set_trace()<ESC>
-        \ | filetype plugin indent on
-        \ | au FileType py set autoindent
-        \ | au FileType py set smartindent
-        \ | au FileType py set textwidth=79
+        \ | map <leader>ii i import ipdb;ipdb.set_trace()<ESC>
+        \ | set autoindent
+        \ | set smartindent
+        \ | set textwidth=79
 augroup END
 
 " vi:syntax=vim

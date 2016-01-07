@@ -2,7 +2,7 @@ set background=dark
 
 colors jellybeans
 
-" Term cursor highlight 
+" Term cursor highlight
 hi TermCursor ctermfg=red
 
 " Better nav
@@ -21,8 +21,8 @@ set exrc
 set secure
 
 " Global taboptions
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Option complete
@@ -30,5 +30,8 @@ set wildmode=full
 
 " Make whitespaces visible
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+
+" Default copy is equals to <C-c>
+set clipboard=unnamedplus
 
 " vi:syntax=vim
