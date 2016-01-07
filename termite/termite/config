@@ -6,12 +6,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Terminess Powerline Regular 12
+font = Terminess Powerline 12
 scrollback_lines = 1000
 search_wrap = true
 
 [colors]
-background = rgba(30, 30, 40, 0.9)
+background = rgb(30, 30, 30)
 /*foreground = #8a9a9a*/
 /*fadeColor = #fdf6e3*/
 /*cursorColor = #586e75*/
