@@ -8,3 +8,4 @@ nvim/nvim/autoload
 nvim/nvim/plugged
 tags
 nvim/nvim/.init.vim-rplugin~
+tmux/.tmux/plugins/
