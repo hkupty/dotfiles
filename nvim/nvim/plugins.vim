@@ -25,12 +25,12 @@ else
 endif
 
 " Expand Region
-map K <Plug>(expand_region_expand)
-map <C-K> <Plug>(expand_region_shrink)
+map <A-k> <Plug>(expand_region_expand)
+map <A-K> <Plug>(expand_region_shrink)
 
 " vim-grepper's config
-command! -nargs=* -complete=file GG Grepper! -tool git -query <args>
-command! -nargs=* -complete=file Ag Grepper! -tool ag -query <args>
+command! -nargs=* -complete=file GG Grepper -tool git -query <args>
+command! -nargs=* -complete=file Ag Grepper -tool ag -query <args>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"

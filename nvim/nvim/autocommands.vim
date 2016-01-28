@@ -16,6 +16,8 @@ augroup filetype_settings
         \ | set autoindent
         \ | set smartindent
         \ | set textwidth=79
+    au FileType clojure
+        \ call PareditInitBuffer()
 augroup END
 
 " vi:syntax=vim

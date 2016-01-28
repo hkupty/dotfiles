@@ -36,7 +36,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Gutters
 Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
 
 " Tpope stuff
 Plug 'tpope/vim-surround'
@@ -83,6 +82,11 @@ Plug 'dscleaver/sbt-quickfix'
 
 " Rust
 Plug 'rust-lang/rust.vim'
+
+" Clojure
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'kovisoft/paredit'
 
 " Git
 Plug 'gregsexton/gitv'

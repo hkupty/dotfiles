@@ -31,7 +31,5 @@ set wildmode=full
 " Make whitespaces visible
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 
-" Default copy is equals to <C-c>
-set clipboard=unnamedplus
 
 " vi:syntax=vim
