@@ -1,12 +1,5 @@
 # oh-my-zsh Bureau Theme
 
- MODE_INDICATOR="%{$fg_bold[red]%}:%{$reset_color%}%{$fg[red]%}::%{$reset_color%}"
-
-### NVM
-
-ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡%b "
-ZSH_THEME_NVM_PROMPT_SUFFIX=""
-
 ### Git [±master ▾●]
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg_bold[green]%}±%{$reset_color%}%{$fg_bold[white]%}"
@@ -69,13 +62,7 @@ bureau_git_prompt () {
   echo $_result
 }
 
-_vi_status() {
-     if {echo $fpath | grep -q "plugins/vi-mode"}; then
-         echo "$(vi_mode_prompt_info)"
-     fi
- }
-
-_PATH="%{$fg_bold[white]%}%~%{$reset_color%}"
+_PATH="%{$fg_bold[white]%}%3~%{$reset_color%}"
 
 if [[ $EUID -eq 0 ]]; then
   _USERNAME="%{$fg_bold[red]%}%n"
@@ -84,17 +71,40 @@ else
   _USERNAME="%{$fg_bold[white]%}%n"
   _LIBERTY="%{$fg[green]%}$"
 fi
-_USERNAME="$_USERNAME%{$reset_color%}@%m"
+_USERNAME="$_USERNAME%{$reset_color%}"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
 
+
+taskwr_proj_status () {
+  _git=$(command git rev-parse --show-toplevel 2> /dev/null)
+  _GIT_DIR=$(echo "${_git:t}" | sed s/\-/_/g )
+
+  if [[ "${_GIT_DIR}x" != "x" ]]; then
+    local _tasks=$(task count project:$_GIT_DIR)
+
+    if [[ "${_tasks}x" != "x" ]]; then
+     echo "%{$fg_bold[red]%}[${_tasks}]%{$reset_color%}"
+    fi
+
+  fi
+}
+
+taskwr_next_task () {
+  _git=$(command git rev-parse --show-toplevel 2> /dev/null)
+  _GIT_DIR=$(echo "${_git:t}" | sed s/\-/_/g )
+
+  if [[ "${_GIT_DIR}x" != "x" ]]; then
+    echo "%{$fg_bold[blue]%}[$(task project:${_GIT_DIR} top | sed -n 4p)]%{$reset_color%}"
+  fi
+}
 
 get_space () {
   local STR=$1$2
   local zero='%([BSUbfksu]|([FB]|){*})'
-  local LENGTH=${#${(S%%)STR//$~zero/}} 
+  local LENGTH=${#${(S%%)STR//$~zero/}}
   local SPACES=""
   (( LENGTH = ${COLUMNS} - $LENGTH - 1))
-  
+
   for i in {0..$LENGTH}
     do
       SPACES="$SPACES "
@@ -108,13 +118,13 @@ _1RIGHT="[%*] "
 
 bureau_precmd () {
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
-  print 
+  print
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
 
 setopt prompt_subst
 PROMPT='> $_LIBERTY '
-RPROMPT='$(nvm_prompt_info) $(_vi_status) $(bureau_git_prompt)'
+RPROMPT='$(taskwr_next_task) $(taskwr_proj_status) $(bureau_git_prompt)'
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd bureau_precmd
