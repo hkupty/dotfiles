@@ -27,7 +27,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-grepper'
 
 " Beauty airline
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Code commenting
 Plug 'scrooloose/nerdcommenter'
@@ -43,7 +44,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-projectionist'
 
-" Misc 
+" Misc
 Plug 'xolox/vim-misc'
 
 " Web requests
@@ -72,7 +73,8 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'spiroid/vim-ultisnip-scala'
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
+Plug 'mdreves/vim-scaladoc'
 
 " Scala Build Tool - SBT
 Plug 'derekwyatt/vim-sbt'
@@ -106,7 +108,6 @@ Plug 'mattn/emmet-vim'
 
 " One day those might work
 " Plug 'jaxbot/github-issues.vim'
-" Plug 'mnpk/vim-jira-complete' "JIRA
 
 call plug#end()
 
