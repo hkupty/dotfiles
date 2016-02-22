@@ -1,5 +1,3 @@
-filetype off
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Dark colors
@@ -111,9 +109,5 @@ Plug 'mattn/emmet-vim'
 " Plug 'mnpk/vim-jira-complete' "JIRA
 
 call plug#end()
-
-" Fix stuff back
-syntax on
-filetype plugin indent on
 
 " vi:syntax=vim
