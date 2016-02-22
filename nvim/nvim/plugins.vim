@@ -8,7 +8,7 @@ let NERDTreeIgnore = ['\.pyc$']
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='badwolf' 
+let g:airline_theme='badwolf'
 
 " Ctrl-p
 let g:ctrlp_show_hidden = 1
@@ -42,4 +42,19 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
 
+let g:gutentags_tagfile = ".tags"
+
+function! neomake#makers#ft#scala#scalastyle()
+    return {
+        \ 'args': [
+            \ '--config', '$HOME/.config/scalastyle/scalastyle_config.xml'
+        \ ],
+        \ 'errorformat':
+            \ '%trror file=%f message=%m line=%l column=%c,' .
+            \ '%trror file=%f message=%m line=%l,' .
+            \ '%tarning file=%f message=%m line=%l column=%c,' .
+            \ '%tarning file=%f message=%m line=%l'
+        \ }
+endfunction
+"
 " vi:syntax=vim

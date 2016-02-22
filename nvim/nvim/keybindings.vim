@@ -1,9 +1,6 @@
 " Leader as ','
 let mapleader = ","
 
-" Sometimes I type faster than I can handle..
-nnoremap ; :
-
 " Me loves ag!
 nnoremap <leader>g :Grepper  -tool git -open -noswitch<cr>
 nnoremap <leader>a  :Grepper! -tool ag  -open -switch<cr>
@@ -21,7 +18,7 @@ map <leader>e :tabe $MYVIMRC<CR>
 
 " Buffer nav
 map <leader>. :CtrlPBuffer<CR>
-map <leader>; :ls<CR>:bd 
+map <leader>; :ls<CR>:bd<space>
 
 " CtrlPBuffer
 
