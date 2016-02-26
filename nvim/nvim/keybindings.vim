@@ -2,9 +2,8 @@
 let mapleader = ","
 
 " Me loves ag!
-nnoremap <leader>g :Grepper  -tool git -open -noswitch<cr>
-nnoremap <leader>a  :Grepper! -tool ag  -open -switch<cr>
-nnoremap <leader>k   :Grepper! -tool ack -cword<cr>
+nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
+nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle

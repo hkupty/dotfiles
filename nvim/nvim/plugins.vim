@@ -56,5 +56,7 @@ function! neomake#makers#ft#scala#scalastyle()
             \ '%tarning file=%f message=%m line=%l'
         \ }
 endfunction
-"
+
+let g:signify_vcs_list = [ 'git' ]
+
 " vi:syntax=vim
