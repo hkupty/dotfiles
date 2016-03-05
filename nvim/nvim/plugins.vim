@@ -59,4 +59,6 @@ endfunction
 
 let g:signify_vcs_list = [ 'git' ]
 
+let g:gutentags_tagfile = ".tags"
+
 " vi:syntax=vim

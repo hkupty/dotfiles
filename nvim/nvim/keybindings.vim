@@ -19,7 +19,10 @@ map <leader>e :tabe $MYVIMRC<CR>
 map <leader>. :CtrlPBuffer<CR>
 map <leader>; :ls<CR>:bd<space>
 
-" CtrlPBuffer
+" Tag Searching
+map <leader>l :CtrlPBufTag<CR>
+map <leader>k :CtrlPBufTagAll<CR>
+map <leader>t :CtrlPTag<CR>
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>

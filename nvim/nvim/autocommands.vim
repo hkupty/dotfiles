@@ -18,6 +18,8 @@ augroup filetype_settings
         \ | set textwidth=79
     au FileType clojure
         \ call PareditInitBuffer()
+    au FileType scala
+        \   set wildignore+=target/*,project/target/*,*.class
 augroup END
 
 " vi:syntax=vim
