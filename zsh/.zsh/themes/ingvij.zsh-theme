@@ -94,7 +94,10 @@ taskwr_next_task () {
   _GIT_DIR=$(echo "${_git:t}" | sed s/\-/_/g )
 
   if [[ "${_GIT_DIR}x" != "x" ]]; then
-    echo "%{$fg_bold[blue]%}[$(task project:${_GIT_DIR} top | sed -n 4p)]%{$reset_color%}"
+    task project:${_GIT_DIR} 2> /dev/null
+    if [[ $? == 0 ]]; then
+      echo "%{$fg_bold[blue]%}[$(task project:${_GIT_DIR} top | sed -n 4p)]%{$reset_color%}"
+    fi
   fi
 }
 
