@@ -5,6 +5,10 @@ let mapleader = ","
 nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
 nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
 
+" Git
+nnoremap gs :Gstatus<CR>
+nnoremap gvs :Gvdiff<CR>
+
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
@@ -31,13 +35,6 @@ map <leader>rr :so $MYVIMRC<CR>
 map <leader>o :only<CR>
 map <leader><leader> :nohl<CR>
 
-tnoremap <A-]> <C-\><C-n>
-tnoremap <C-]> <C-\><C-n>
-tnoremap <C-h> <C-\><C-n><C-w><C-h>
-tnoremap <C-j> <C-\><C-n><C-w><C-j>
-tnoremap <C-k> <C-\><C-n><C-w><C-k>
-tnoremap <C-l> <C-\><C-n><C-w><C-l>
-
 function! InsertTabWrapper(m)
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -51,5 +48,14 @@ endfunction
 
 inoremap <TAB> <C-R>=InsertTabWrapper(1)<CR>
 inoremap <S-TAB> <C-R>=InsertTabWrapper(0)<CR>
+
+if exists('$TMUX')
+  tnoremap <A-]> <C-\><C-n>
+  tnoremap <C-]> <C-\><C-n>
+  tnoremap <C-h> <C-\><C-n><C-w><C-h>
+  tnoremap <C-j> <C-\><C-n><C-w><C-j>
+  tnoremap <C-k> <C-\><C-n><C-w><C-k>
+  tnoremap <C-l> <C-\><C-n><C-w><C-l>
+endif
 
 " vi:syntax=vim

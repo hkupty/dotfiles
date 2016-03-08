@@ -15,6 +15,9 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Tmux substitute
+Plug 'hkupty/nvimux'
+
 " Terminal
 Plug 'kassio/neoterm'
 

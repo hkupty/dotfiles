@@ -61,4 +61,6 @@ let g:signify_vcs_list = [ 'git' ]
 
 let g:gutentags_tagfile = ".tags"
 
+let g:neoterm_position = "vertical"
+
 " vi:syntax=vim
