@@ -80,7 +80,7 @@ taskwr_proj_status () {
   _GIT_DIR=$(echo "${_git:t}" | sed s/\-/_/g )
 
   if [[ "${_GIT_DIR}x" != "x" ]]; then
-    local _tasks=$(task count project:$_GIT_DIR)
+    local _tasks=$(task count project:$_GIT_DIR status:pending)
 
     if [[ "${_tasks}x" != "x" ]]; then
      echo "%{$fg_bold[red]%}[${_tasks}]%{$reset_color%}"

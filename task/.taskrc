@@ -28,5 +28,8 @@ dateformat=d-m-Y
 #include /usr/share/doc/task/rc/dark-gray-blue-256.theme
 #include /usr/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
-include /usr/share/doc/task/rc/no-color.theme
-
+#include /usr/share/doc/task/rc/no-color.theme
+report.top.columns=description
+report.top.description=Next task
+report.top.filter=status:pending limit:1
+report.top.sort=urgency-
