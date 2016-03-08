@@ -20,3 +20,11 @@ zstyle :omz:plugins:ssh-agent identities ingvij_rsa
 alias vim=$(which nvim)
 
 source ~/.vars
+
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  alias o='nvr -o'
+  alias O='nvr -O'
+  alias t='nvr --remote-tab'
+  alias _='nvr -c'
+fi
+
