@@ -65,6 +65,7 @@ Plug 'mhinz/vim-startify'
 " Code navigation
 Plug 'unblevable/quick-scope'
 Plug 'terryma/vim-expand-region'
+Plug 'wellle/targets.vim'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
