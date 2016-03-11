@@ -12,8 +12,8 @@ Plug 'shougo/deoplete.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'shougo/neosnippet.vim'
+Plug 'hkupty/neosnippet-snippets'
 
 " Tmux substitute
 Plug 'hkupty/nvimux'
