@@ -35,19 +35,14 @@ map <leader>rr :so $MYVIMRC<CR>
 map <leader>o :only<CR>
 map <leader><leader> :nohl<CR>
 
-function! InsertTabWrapper(m)
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    elseif a:m == 0
-        return "\<c-p>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
+" Expand Region
+vmap <A-k> <Plug>(expand_region_expand)
+vmap <A-j> <Plug>(expand_region_shrink)
 
-inoremap <TAB> <C-R>=InsertTabWrapper(1)<CR>
-inoremap <S-TAB> <C-R>=InsertTabWrapper(0)<CR>
+" Snippets
+imap <C-k> <Plug>(neosnippet_jump_or_expand)
+smap <C-k> <Plug>(neosnippet_jump_or_expand)
+xmap <C-k> <Plug>(neosnippet_jump_or_expand)
 
 if exists('$TMUX')
   tnoremap <A-]> <C-\><C-n>
