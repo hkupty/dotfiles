@@ -1,11 +1,18 @@
 *.swp
 *.old
+tags
 
 vimperator/.vimperator/info/*
+
 nvim/nvim/bundle
 nvim/nvim/.netrwhist
 nvim/nvim/autoload
 nvim/nvim/plugged
-tags
 nvim/nvim/.init.vim-rplugin~
+
 tmux/.tmux/plugins/
+
+sbt/.sbt/boot/
+sbt/.sbt/launchers/
+sbt/.sbt/staging/
+sbt/.sbt/**/target/
