@@ -21,6 +21,9 @@ Plug 'hkupty/nvimux'
 " Terminal
 Plug 'kassio/neoterm'
 
+" Make
+Plug 'benekastah/neomake'
+
 " Filesystem tinkering
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -57,7 +60,9 @@ Plug 'mattn/webapi-vim'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
 " Clipboard
-Plug 'cazador481/fakeclip.neovim'
+if has('mac') == 0
+  Plug 'cazador481/fakeclip.neovim'
+endif
 
 " Better start screen
 Plug 'mhinz/vim-startify'
@@ -85,11 +90,11 @@ Plug 'derekwyatt/vim-sbt'
 Plug 'dscleaver/sbt-quickfix'
 
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
+Plug 'tpope/vim-fireplace', {'for': 'clojure' }
+Plug 'tpope/vim-salve', {'for': 'clojure' }
 Plug 'kovisoft/paredit'
 
 " Git
@@ -102,9 +107,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Tasks
 Plug 'farseer90718/vim-taskwarrior'
-
-" Make
-Plug 'benekastah/neomake'
 
 " Front
 Plug 'digitaltoad/vim-jade'
