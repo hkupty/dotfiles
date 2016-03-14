@@ -22,9 +22,11 @@ alias vim=$(which nvim)
 source ~/.vars
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
-  alias o='nvr -o'
-  alias O='nvr -O'
+  alias h='nvr -o'
+  alias v='nvr -O'
   alias t='nvr --remote-tab'
   alias _='nvr -c'
+  #TODO change to tcd when available
+  alias _pwd='nvr -c "cd `pwd`"'
 fi
 
