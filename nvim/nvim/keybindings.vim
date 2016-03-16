@@ -44,13 +44,9 @@ imap <C-k> <Plug>(neosnippet_jump_or_expand)
 smap <C-k> <Plug>(neosnippet_jump_or_expand)
 xmap <C-k> <Plug>(neosnippet_jump_or_expand)
 
-if exists('$TMUX')
-  tnoremap <A-]> <C-\><C-n>
-  tnoremap <C-]> <C-\><C-n>
-  tnoremap <C-h> <C-\><C-n><C-w><C-h>
-  tnoremap <C-j> <C-\><C-n><C-w><C-j>
-  tnoremap <C-k> <C-\><C-n><C-w><C-k>
-  tnoremap <C-l> <C-\><C-n><C-w><C-l>
-endif
+tnoremap <C-w>h <C-\><C-n><C-w><C-h>
+tnoremap <C-w>j <C-\><C-n><C-w><C-j>
+tnoremap <C-w>k <C-\><C-n><C-w><C-k>
+tnoremap <C-w>l <C-\><C-n><C-w><C-l>
 
 " vi:syntax=vim
