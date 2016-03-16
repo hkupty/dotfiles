@@ -13,7 +13,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Snippets
 Plug 'shougo/neosnippet.vim'
-Plug 'hkupty/neosnippet-snippets'
+Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
 Plug 'hkupty/nvimux'
@@ -63,9 +63,6 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 if has('mac') == 0
   Plug 'cazador481/fakeclip.neovim'
 endif
-
-" Better start screen
-Plug 'mhinz/vim-startify'
 
 " Code navigation
 Plug 'unblevable/quick-scope'
