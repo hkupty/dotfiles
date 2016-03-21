@@ -9,6 +9,9 @@ nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
 nnoremap gs :Gstatus<CR>
 nnoremap gvs :Gvdiff<CR>
 
+"normal @a
+vnoremap gna :'<,'>normal @a<CR>
+
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
