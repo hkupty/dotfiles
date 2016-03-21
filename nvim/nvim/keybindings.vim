@@ -49,4 +49,9 @@ tnoremap <C-w>j <C-\><C-n><C-w><C-j>
 tnoremap <C-w>k <C-\><C-n><C-w><C-k>
 tnoremap <C-w>l <C-\><C-n><C-w><C-l>
 
+inoremap <C-w>h <ESC><C-w><C-h>
+inoremap <C-w>j <ESC><C-w><C-j>
+inoremap <C-w>k <ESC><C-w><C-k>
+inoremap <C-w>l <ESC><C-w><C-l>
+
 " vi:syntax=vim

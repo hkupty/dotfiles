@@ -15,11 +15,11 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
-" Tmux substitute
-Plug 'hkupty/nvimux'
-
 " Terminal
 Plug 'kassio/neoterm'
+
+" Tmux substitute
+Plug 'hkupty/nvimux'
 
 " Make
 Plug 'benekastah/neomake'
