@@ -33,6 +33,7 @@ map <leader>t :CtrlPTag<CR>
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
+map <leader>R  :so %<CR>
 
 " Clear window
 map <leader>o :only<CR>
