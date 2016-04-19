@@ -4,7 +4,10 @@ au FocusLost * silent! wa
 " Make on save
 autocmd! BufWritePost * Neomake
 
-autocmd! BufEnter * if &buftype == "terminal" | startinsert | endif
+augroup terminal_commands
+    au!
+    au BufEnter * if &buftype == "terminal" | startinsert | endif
+augroup END
 
 " Project/Language specific config
 augroup filetype_settings
