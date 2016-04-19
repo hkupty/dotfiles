@@ -12,7 +12,9 @@ let g:airline_theme='badwolf'
 
 " Ctrl-p
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_switch_buffer = 0
 let g:ctrlp_use_caching = 0
+
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 
@@ -54,6 +56,11 @@ let g:signify_vcs_list = [ 'git' ]
 
 let g:gutentags_tagfile = ".tags"
 
-let g:neoterm_position = "vertical"
+let g:nvimux_no_neoterm = 1
+let nvimux_open_term_by_default = 1
+let g:nvimux_toggle_direction = 'botright'
+let g:nvimux_toggle_orientation = 'vertical'
+
+let g:nvimux_custom_bindings = []
 
 " vi:syntax=vim
