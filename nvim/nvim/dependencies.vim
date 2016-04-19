@@ -21,6 +21,9 @@ Plug 'kassio/neoterm'
 " Tmux substitute
 Plug 'hkupty/nvimux'
 
+" Split and join
+Plug 'hkupty/timeshift.vim'
+
 " Make
 Plug 'benekastah/neomake'
 
@@ -90,17 +93,14 @@ Plug 'dscleaver/sbt-quickfix'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
+Plug 'kovisoft/paredit', {'for': 'clojure'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure' }
 Plug 'tpope/vim-salve', {'for': 'clojure' }
-Plug 'kovisoft/paredit'
 
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
-
-" TMUX
-Plug 'christoomey/vim-tmux-navigator'
 
 " Tasks
 Plug 'farseer90718/vim-taskwarrior'
