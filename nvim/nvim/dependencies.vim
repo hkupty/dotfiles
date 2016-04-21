@@ -24,6 +24,9 @@ Plug 'hkupty/nvimux'
 " Split and join
 Plug 'hkupty/timeshift.vim'
 
+" Tmux substitute
+Plug 'hkupty/nvimux'
+
 " Make
 Plug 'benekastah/neomake'
 
