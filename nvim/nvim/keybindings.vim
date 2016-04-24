@@ -5,6 +5,10 @@ let mapleader = ","
 nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
 nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
 
+" Quick Scope
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+
 " Git
 nnoremap gs :Gstatus<CR>
 nnoremap gvs :Gvdiff<CR>

@@ -26,7 +26,6 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias v='nvr -O'
   alias t='nvr --remote-tab'
   alias _='nvr -c'
-  #TODO change to tcd when available
-  alias _pwd='nvr -c "cd `pwd`"'
+  alias _pwd='nvr -c "tcd `pwd`"'
 fi
 
