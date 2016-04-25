@@ -73,7 +73,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-"Plug 'ensime/ensime-vim'
+Plug 'ensime/ensime-vim'
 Plug 'mdreves/vim-scaladoc'
 
 " Scala Build Tool - SBT
