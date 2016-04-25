@@ -60,6 +60,7 @@ let g:nvimux_no_neoterm = 1
 let nvimux_open_term_by_default = 1
 let g:nvimux_toggle_direction = 'botright'
 let g:nvimux_toggle_orientation = 'vertical'
+let g:nvimux_quickterm_scope = 't'
 
 let g:nvimux_custom_bindings = []
 

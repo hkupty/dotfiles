@@ -8,7 +8,6 @@ plugins=(gitfast git-extras jsontools sudo systemd python docker archlinux catim
 source $ZSH/oh-my-zsh.sh
 
 # exports
-export PATH=/usr/local/heroku/bin:$HOME/Scripts:$HOME/bin:$HOME/.gem/ruby/2.2.0/bin:$PATH
 export EDITOR='nvim'
 export UPDATE_ZSH_DAYS=13
 
@@ -26,7 +25,6 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias v='nvr -O'
   alias t='nvr --remote-tab'
   alias _='nvr -c'
-  #TODO change to tcd when available
-  alias _pwd='nvr -c "cd `pwd`"'
+  alias _pwd='nvr -c "tcd `pwd`"'
 fi
 

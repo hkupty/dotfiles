@@ -35,7 +35,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Grep out things
 Plug 'mhinz/vim-grepper'
 
-" Beauty airline
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -53,22 +53,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-projectionist'
 
-" Misc
-Plug 'xolox/vim-misc'
-
 " Web requests
 Plug 'mattn/webapi-vim'
 
 " If tables needed be..
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
-" Clipboard
-if has('mac') == 0
-  Plug 'cazador481/fakeclip.neovim'
-endif
-
 " Code navigation
-Plug 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope', { 'on': 'QuickScopeToggle' }
 Plug 'terryma/vim-expand-region'
 Plug 'wellle/targets.vim'
 
@@ -81,8 +73,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'spiroid/vim-ultisnip-scala'
-"Plug 'ensime/ensime-vim'
+Plug 'ensime/ensime-vim'
 Plug 'mdreves/vim-scaladoc'
 
 " Scala Build Tool - SBT
@@ -103,14 +94,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim'
 
 " Tasks
-Plug 'farseer90718/vim-taskwarrior'
-
-" Front
-Plug 'digitaltoad/vim-jade'
-Plug 'mattn/emmet-vim'
-
-" One day those might work
-" Plug 'jaxbot/github-issues.vim'
+Plug 'blindFS/vim-taskwarrior'
 
 call plug#end()
 
