@@ -13,6 +13,9 @@ vmap <leader>q <plug>(QuickScopeToggle)
 nnoremap gs :Gstatus<CR>
 nnoremap gvs :Gvdiff<CR>
 
+vnoremap y myy`y
+vnoremap Y myY`y
+
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
 

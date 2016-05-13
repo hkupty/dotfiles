@@ -57,11 +57,23 @@ let g:signify_vcs_list = [ 'git' ]
 let g:gutentags_tagfile = ".tags"
 
 let g:nvimux_no_neoterm = 1
-let nvimux_open_term_by_default = 1
+let g:nvimux_open_term_by_default = 1
+
+"au VimEnter * if &columns > 200 => set vertical else set horizontal
 let g:nvimux_toggle_direction = 'botright'
 let g:nvimux_toggle_orientation = 'vertical'
 let g:nvimux_quickterm_scope = 't'
+let g:nvimux_toggle_size = '80'
 
-let g:nvimux_custom_bindings = []
+function! ToggleRepl() abort
+  let s:var = "g:iron_".&ft."_repl"
+  call NvimuxRawToggle(s:var, "IronRepl")
+endfunction
+
+let g:nvimux_custom_bindings = [
+  \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
+  \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
+  \['$', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']]
+\]
 
 " vi:syntax=vim

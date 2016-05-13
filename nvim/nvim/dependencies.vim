@@ -24,8 +24,10 @@ Plug 'hkupty/nvimux'
 " Split and join
 Plug 'hkupty/timeshift.vim'
 
+Plug 'hkupty/iron.nvim'
+
 " Make
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 
 " Filesystem tinkering
 Plug 'ctrlpvim/ctrlp.vim'
@@ -73,7 +75,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
 Plug 'mdreves/vim-scaladoc'
 
 " Scala Build Tool - SBT
