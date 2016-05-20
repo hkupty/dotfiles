@@ -64,7 +64,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 " Code navigation
 Plug 'unblevable/quick-scope', { 'on': 'QuickScopeToggle' }
 Plug 'terryma/vim-expand-region'
-Plug 'wellle/targets.vim'
+"Plug 'wellle/targets.vim'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
@@ -72,6 +72,9 @@ Plug 'ryanoasis/vim-devicons'
 "-- Syntax specific and some more stuff
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
+
+" Python
+Plug 'hynek/vim-python-pep8-indent'
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
