@@ -90,6 +90,9 @@ Plug 'kovisoft/paredit', {'for': 'clojure'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure' }
 Plug 'tpope/vim-salve', {'for': 'clojure' }
 
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
+
 " Git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'

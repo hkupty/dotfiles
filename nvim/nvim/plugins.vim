@@ -3,7 +3,7 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><C-@> deoplete#mappings#manual_complete()
 
 " NERDTree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -75,5 +75,7 @@ let g:nvimux_custom_bindings = [
   \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
   \['$', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']]
 \]
+
+let g:python3_host_prog = '/usr/bin/python3'
 
 " vi:syntax=vim
