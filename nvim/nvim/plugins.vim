@@ -60,10 +60,10 @@ let g:nvimux_no_neoterm = 1
 let g:nvimux_open_term_by_default = 1
 
 "au VimEnter * if &columns > 200 => set vertical else set horizontal
-let g:nvimux_toggle_direction = 'botright'
-let g:nvimux_toggle_orientation = 'vertical'
+let g:nvimux_quickterm_direction = 'botright'
+let g:nvimux_quickterm_orientation = 'vertical'
 let g:nvimux_quickterm_scope = 't'
-let g:nvimux_toggle_size = '80'
+let g:nvimux_quickterm_size = '80'
 
 function! ToggleRepl() abort
   let s:var = "g:iron_".&ft."_repl"
