@@ -21,10 +21,18 @@ alias vim=$(which nvim)
 source ~/.vars
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  export EDITOR='nvr'
+
   alias h='nvr -o'
   alias v='nvr -O'
   alias t='nvr --remote-tab'
   alias _='nvr -c'
   alias _pwd='nvr -c "tcd `pwd`"'
+else
+
+  export EDITOR='nvim'
+
 fi
 
+export GIT_EDITOR="$EDITOR"
+export VISUAL="$EDITOR"
