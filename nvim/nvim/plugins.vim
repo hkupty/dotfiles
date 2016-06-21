@@ -2,9 +2,6 @@
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><C-@> deoplete#mappings#manual_complete()
 
-" NERDTree
-let NERDTreeIgnore = ['\.pyc$']
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
