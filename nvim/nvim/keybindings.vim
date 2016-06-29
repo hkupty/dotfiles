@@ -21,7 +21,6 @@ vnoremap gna :'<,'>normal @a<CR>
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
-nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 " Quickly toggle lines.
 nnoremap <F3> :set number!<CR>:set relativenumber!<CR>

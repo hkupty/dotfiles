@@ -8,36 +8,29 @@ function dname {
 }
 
 # Vars
-PACKAGES="base base-devel"
 MINIMAL_PACK="git zsh the_silver_searcher python python2"
-EXTRA_PACKAGES="$MINIMAL_PACK docker python-pip python-virtualenv python2-pip python2-virtualenv"
-GUI_PACKAGES="termite xclip firefox gnome"
+
+PACKAGES="base base-devel $MINIMAL_PACK"
+EXTRA_PACKAGES="docker python-pip python-virtualenv python2-pip python2-virtualenv"
+GUI_PACKAGES="termite xsel firefox awesome"
+
+if [ ! -z "$INSTALL_EXTRA"]; then
+ PACKAGES="$PACKAGES $EXTRA_PACKAGES"
+fi
+if [ ! -z "$INSTALL_GUI"]; then
+ PACKAGES="$PACKAGES $GUI_PACKAGES"
+fi
 
 DOTFILES=/opt/dotfiles
 
-USRN=${USRN:-hkupty}
+USRN=${USRN:-ingvij}
 HOME_DIR=/home/$USRN
-AUR_DIR=${AUR_DIR:-$HOME_DIR/aur}
-
-NEOVIM_URL="https://aur.archlinux.org/neovim-git.git/"
-NEOVIM_DEPS=("https://aur.archlinux.org/unibilium.git/" /
-             "https://aur.archlinux.org/libtermkey-bzr.git/" /
-             "https://aur.archlinux.org/libvterm-bzr.git/" /
-             "https://aur.archlinux.org/lua-messagepack.git/")
 
 # Packages
 if [ -f /.dockerinit ]; then  # Inside a Docker container
-    pacman -Sy $MINIMAL_PACK --noconfirm
+  pacman -Sy $MINIMAL_PACK --noconfirm
 else
-    pacman -Sy $PACKAGES --noconfirm
-
-    if [ ! -z "$INSTALL_EXTRA"]; then
-     pacman -S $EXTRA_PACKAGES --noconfirm
-    fi
-
-    if [ ! -z "$INSTALL_GUI"]; then
-     pacman -S $GUI_PACKAGES --noconfirm
-    fi
+  pacman -Sy $PACKAGES --noconfirm
 fi
 
 # Dotfiles
@@ -50,26 +43,16 @@ echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 cat /etc/sudoers
 
 # AUR Stuff
-NVIM_AUR_DIR=$AUR_DIR/neovim-git
+NEOVIM_AUR_DIR=$AUR_DIR/neovim-git
+NEOVIM_URL="https://aur.archlinux.org/neovim-git.git/"
+AUR_DIR=${AUR_DIR:-/opt/aur}
 
-mkdir -p $AUR_DIR
+mkdir -p $NEOVIM_AUR_DIR
 
-git clone https://aur.archlinux.org/neovim-git.git/ $NVIM_AUR_DIR
+git clone $NEOVIM_URL $NVIM_AUR_DIR
 chown -R $USRN:users $AUR_DIR && cd $AUR_DIR/neovim-git/ || exit 3
 
 pushd $NVIM_AUR_DIR >> /dev/null
-
-for MOD in ${NEOVIM_DEPS[@]}
-do
-    git submodule add -f $MOD
-    SUB_PATH=`dname $MOD`
-    echo $SUB_PATH
-    chown -R $USRN:users $SUB_PATH
-
-    cd $SUB_PATH
-    su $USRN -c 'makepkg -sic --noconfirm'
-    cd -
-done
 
 su $USRN -c 'makepkg -sic --noconfirm'
 

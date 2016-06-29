@@ -24,6 +24,7 @@ Plug 'hkupty/nvimux'
 " Split and join
 Plug 'hkupty/timeshift.vim'
 
+" Repls
 Plug 'hkupty/iron.nvim'
 
 " Make
@@ -31,8 +32,7 @@ Plug 'neomake/neomake'
 
 " Filesystem tinkering
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'justinmk/vim-dirvish'
 
 " Grep out things
 Plug 'mhinz/vim-grepper'
@@ -53,13 +53,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-projectionist'
 
 " Web requests
 Plug 'mattn/webapi-vim'
-
-" If tables needed be..
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 
 " Code navigation
 Plug 'unblevable/quick-scope', { 'on': 'QuickScopeToggle' }
@@ -68,6 +66,9 @@ Plug 'terryma/vim-expand-region'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
+
+" Align
+Plug 'tommcdo/vim-lion'
 
 "-- Syntax specific and some more stuff
 " Docker
@@ -90,6 +91,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug 'kovisoft/paredit', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure' }
 Plug 'tpope/vim-salve', {'for': 'clojure' }
 

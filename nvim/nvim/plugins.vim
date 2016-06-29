@@ -2,9 +2,6 @@
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><C-@> deoplete#mappings#manual_complete()
 
-" NERDTree
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -60,10 +57,10 @@ let g:nvimux_no_neoterm = 1
 let g:nvimux_open_term_by_default = 1
 
 "au VimEnter * if &columns > 200 => set vertical else set horizontal
-let g:nvimux_toggle_direction = 'botright'
-let g:nvimux_toggle_orientation = 'vertical'
+let g:nvimux_quickterm_direction = 'botright'
+let g:nvimux_quickterm_orientation = 'vertical'
 let g:nvimux_quickterm_scope = 't'
-let g:nvimux_toggle_size = '80'
+let g:nvimux_quickterm_size = '80'
 
 function! ToggleRepl() abort
   let s:var = "g:iron_".&ft."_repl"

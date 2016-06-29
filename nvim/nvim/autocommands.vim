@@ -4,6 +4,8 @@ au FocusLost * silent! wa
 " Make on save
 autocmd! BufWritePost * Neomake
 
+autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
+
 augroup terminal_commands
     au!
     au BufEnter * if &buftype == "terminal" | startinsert | endif

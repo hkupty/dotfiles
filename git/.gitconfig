@@ -1,20 +1,17 @@
 [user]
-    name = Henry Kupty
-    email = hkupty@gmail.com
+  name = Henry Kupty
+  email = hkupty@gmail.com
 [push]
-    default = simple
+  default = simple
 [color]
-    ui = true
-    diff = true
+  ui = true
+  diff = true
 [github]
-    user = hkupty
+  user = hkupty
 [gc]
-    auto=1
+  auto = 1
 [merge]
-    summary=true
+  summary = true
 [rerere]
-    enabled = 1
-    autoupdate = true
-[core]
-    editor = nvim
-    excludesfile = /home/ingvij/.gitignore_global
+  enabled = 1
+  autoupdate = true
