@@ -62,15 +62,35 @@ let g:nvimux_quickterm_orientation = 'vertical'
 let g:nvimux_quickterm_scope = 't'
 let g:nvimux_quickterm_size = '80'
 
+function! IronHelper() abort
+    let s:var = "g:iron_".&ft."_repl"
+    let g:curr_iron_repl = s:var
+    let g:curr_iron_repl_ft = &ft
+    return s:var
+endfunction
+
 function! ToggleRepl() abort
-  let s:var = "g:iron_".&ft."_repl"
-  call NvimuxRawToggle(s:var, "IronRepl")
+  if exists("g:curr_iron_repl")
+    call NvimuxRawToggle(g:curr_iron_repl, "IronRepl")
+  else
+    call NvimuxRawToggle(IronHelper(), "IronRepl")
+  endif
+endfunction
+
+function! AggrToggleRepl() abort
+  if exists("g:curr_iron_repl") && g:curr_iron_repl_ft == &ft
+    call NvimuxRawToggle(g:curr_iron_repl, "IronRepl")
+  else
+    call NvimuxRawToggle(IronHelper(), "IronRepl")
+  endif
 endfunction
 
 let g:nvimux_custom_bindings = [
   \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
   \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
-  \['$', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']]
+  \['!', ':IronPromptRepl<CR>', ['n', 'v', 'i', 't']],
+  \['$', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']],
+  \['<C-$>', ':call AggrToggleRepl()<CR>', ['n', 'v', 'i', 't']]
 \]
 
 let g:python3_host_prog = '/usr/bin/python3'
