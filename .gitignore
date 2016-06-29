@@ -17,3 +17,4 @@ sbt/.sbt/launchers/
 sbt/.sbt/**/staging/
 sbt/.sbt/**/target/
 sbt/.sbt/**/project/
+.tags
