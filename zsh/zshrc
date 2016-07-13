@@ -11,6 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export EDITOR='nvim'
 alias vim=$(which nvim)
 source ~/.vars
 
@@ -23,17 +24,7 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias _='nvr -c'
   alias _pwd='nvr -c "tcd `pwd`"'
 else
-  export EDITOR='nvim'
-fi
 
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER == sudo\ * ]]; then
-        LBUFFER="${LBUFFER#sudo }"
-    else
-        LBUFFER="sudo $LBUFFER"
-    fi
-}
-zle -N sudo-command-line
-# Defined shortcut keys: [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
+  export EDITOR='nvim'
+
+fi

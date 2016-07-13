@@ -73,16 +73,8 @@ bureau_git_prompt () {
 }
 
 _PATH="%{$fg_bold[white]%}%3~%{$reset_color%}"
-
-if [[ $EUID -eq 0 ]]; then
-  _USERNAME="%{$fg_bold[red]%}%n"
-  _LIBERTY="%{$fg[red]%}#"
-else
-  _USERNAME="%{$fg_bold[white]%}%n"
-  _LIBERTY="%{$fg[green]%}$"
-fi
-_USERNAME="$_USERNAME%{$reset_color%}"
-_LIBERTY="$_LIBERTY%{$reset_color%}"
+_USERNAME="%{$fg_bold[green]%}%n%{$reset_color%}"
+_LIBERTY="%{$fg[green]%}$%{$reset_color%}"
 
 taskwr_proj_status () {
   _git=$(command git rev-parse --show-toplevel 2> /dev/null)
