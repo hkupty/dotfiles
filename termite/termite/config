@@ -6,22 +6,9 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Terminess Powerline 12
+font = Knack Nerd Font 12
 scrollback_lines = 1000
 search_wrap = true
 
 [colors]
 background = rgb(30, 30, 30)
-/*foreground = #8a9a9a*/
-/*fadeColor = #fdf6e3*/
-/*cursorColor = #586e75*/
-/*pointerColorBackground = #93a1a1*/
-/*pointerColorForeground = #586e75*/
-/*color0 = #073642*/
-/*color8 = #fdf6e3*/
-/*color10 = #93a1a1*/
-/*color11 = #839496*/
-/*color12 = #657b83*/
-/*color14 = #586e75*/
-/*color7 = #839496*/
-/*color15 = #002b36*/
