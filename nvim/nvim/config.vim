@@ -5,6 +5,8 @@ colors jellybeans
 " Term cursor highlight
 hi TermCursor ctermfg=red
 
+set noreadonly
+
 " Better nav
 set number
 set cursorline

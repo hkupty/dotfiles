@@ -2,8 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
-Plug 'sjl/badwolf'
-Plug 'baskerville/bubblegum'
 
 " Code Completion
 Plug 'shougo/deoplete.nvim'
@@ -15,9 +13,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
-" Terminal
-Plug 'kassio/neoterm'
-
 " Tmux substitute
 Plug 'hkupty/nvimux'
 
@@ -25,7 +20,7 @@ Plug 'hkupty/nvimux'
 Plug 'hkupty/timeshift.vim'
 
 " Repls
-Plug 'hkupty/iron.nvim'
+Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 
 " Make
 Plug 'neomake/neomake'
@@ -46,8 +41,10 @@ Plug 'scrooloose/nerdcommenter'
 
 " Gutters
 Plug 'mhinz/vim-signify'
+Plug 'gregsexton/gitv'
 
 " Tpope stuff
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
@@ -59,10 +56,11 @@ Plug 'tpope/vim-projectionist'
 " Web requests
 Plug 'mattn/webapi-vim'
 
+" Gist
+Plug 'mattn/gist-vim'
+
 " Code navigation
 Plug 'unblevable/quick-scope', { 'on': 'QuickScopeToggle' }
-Plug 'terryma/vim-expand-region'
-"Plug 'wellle/targets.vim'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
@@ -74,37 +72,27 @@ Plug 'tommcdo/vim-lion'
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 
-" Python
-Plug 'hynek/vim-python-pep8-indent'
-
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-"Plug 'ensime/ensime-vim'
-Plug 'mdreves/vim-scaladoc'
+Plug 'mdreves/vim-scaladoc', { 'for': 'scala' }
 
 " Scala Build Tool - SBT
-Plug 'derekwyatt/vim-sbt'
-Plug 'dscleaver/sbt-quickfix'
+Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
-Plug 'kovisoft/paredit', {'for': 'clojure'}
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure' }
-Plug 'tpope/vim-salve', {'for': 'clojure' }
+Plug 'kovisoft/paredit', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-
-" Git
-Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
-Plug 'mattn/gist-vim'
+" Python
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Tasks
-Plug 'blindFS/vim-taskwarrior'
+Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
 
 call plug#end()
 

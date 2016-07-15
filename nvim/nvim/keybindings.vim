@@ -24,6 +24,7 @@ map <leader>c<space> <plug>NERDCommenterToggle
 
 " Quickly toggle lines.
 nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
+nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
 map <leader>e :tabe $MYVIMRC<CR>
@@ -44,10 +45,6 @@ map <leader>R  :so %<CR>
 " Clear window
 map <leader>o :only<CR>
 map <leader><leader> :nohl<CR>
-
-" Expand Region
-vmap <A-k> <Plug>(expand_region_expand)
-vmap <A-j> <Plug>(expand_region_shrink)
 
 " Snippets
 imap <C-k> <Plug>(neosnippet_jump_or_expand)
