@@ -38,6 +38,10 @@ map <leader>l :CtrlPBufTag<CR>
 map <leader>k :CtrlPBufTagAll<CR>
 map <leader>t :CtrlPTag<CR>
 
+" System clipboard
+nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
 map <leader>R  :so %<CR>
