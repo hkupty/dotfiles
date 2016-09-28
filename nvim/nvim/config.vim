@@ -5,6 +5,9 @@ colors jellybeans
 " Term cursor highlight
 hi TermCursor ctermfg=red
 
+hi VertSplit ctermbg=bg
+hi EndOfBuffer ctermfg=bg
+
 set noreadonly
 
 " Better nav
@@ -32,6 +35,8 @@ set wildmode=full
 
 " Make whitespaces visible
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set fillchars=vert:\│,fold:\─
 
+let g:terminal_scrollback_buffer_size=9999999
 
 " vi:syntax=vim

@@ -39,9 +39,10 @@ Plug 'vim-airline/vim-airline-themes'
 " Code commenting
 Plug 'scrooloose/nerdcommenter'
 
-" Gutters
+" Git stuff
 Plug 'mhinz/vim-signify'
 Plug 'gregsexton/gitv'
+Plug 'jreybert/vimagit'
 
 " Tpope stuff
 Plug 'tpope/vim-fugitive'
@@ -70,7 +71,7 @@ Plug 'tommcdo/vim-lion'
 
 "-- Syntax specific and some more stuff
 " Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }

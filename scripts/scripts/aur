@@ -1,0 +1,85 @@
+#!/bin/env bash
+is-sub() {
+  return [ -f .gitmodules ]
+}
+
+update() {
+  cd $AUR_DIR/$1
+  git fetch && git merge origin master -s recursive -Xtheirs --no-ff
+  if [ is-sub ]; then
+    git submodule sync && git submodule foreach "makepkg -sic --noconfirm --asdeps"
+  fi
+  makepkg -sic --noconfirm
+}
+
+deinst() {
+  sudo pacman -Rnscc $1 --noconfirm
+}
+
+remove() {
+  cd $AUR_DIR
+  rm -rf $1
+  echo "Removed $1"
+}
+
+add() {
+  cd $AUR_DIR
+  echo "Adding $1"
+  git clone "https://aur.archlinux.org/$1.git"
+}
+
+add-dep-of() {
+  cd $AUR_DIR/$2
+  echo "Adding $1 to $2"
+  git submodule add "https://aur.archlinux.org/$1.git" && git commit -am "Adding '$1' as dependency"
+}
+
+rm-dep-of() {
+  cd $AUR_DIR/$2
+  echo "Removing $1 of $2"
+  git submodule deinit $1 && git rm $1 && git commit -m "Removing '$2' dependency"
+  rm -rf $2
+}
+
+list() {
+  ls $AUR_DIR
+}
+
+aur-cd() {
+  pushd $AUR_DIR/$1 > /dev/null
+}
+
+case $1 in
+  ls)
+    list
+    ;;
+  up|update)
+    update $2
+    ;;
+  purge|deinst)
+    deinst $2
+    ;;
+  rm|remove)
+    remove $2
+    ;;
+  add)
+    add $2
+    ;;
+  dep|dep-add)
+    add-dep-of $2 $3
+    ;;
+  dep-rm)
+    rm-dep-of $2 $3
+    ;;
+  cd)
+    aur-cd $2
+    ;;
+  *)
+    echo <<- EOS
+aur script helper
+usage:
+  ls            list aur dir
+  up [pkg]      update selected package
+EOS
+;;
+esac

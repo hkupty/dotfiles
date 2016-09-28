@@ -85,12 +85,22 @@ function! AggrToggleRepl() abort
   endif
 endfunction
 
+let g:iron_repl_open_cmd = "topleft vspl"
+
+function! SetNvimuxConfigOnIronRepl(buf) abort
+  call setbufvar(a:buf, 'nvimux_buf_orientation', g:iron_repl_open_cmd)
+endfunction
+
+let g:iron_new_repl_hooks = ['SetNvimuxConfigOnIronRepl']
+let g:iron_debug = 1
+
 let g:nvimux_custom_bindings = [
   \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
   \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
   \['!', ':IronPromptRepl<CR>', ['n', 'v', 'i', 't']],
   \['$', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']],
-  \['<C-$>', ':call AggrToggleRepl()<CR>', ['n', 'v', 'i', 't']]
+  \['#', ':IronPromptCommand<CR>', ['n', 'v', 'i', 't']],
+  \['%', ':call AggrToggleRepl()<CR>', ['n', 'v', 'i', 't']]
 \]
 
 let g:python3_host_prog = '/usr/bin/python3'

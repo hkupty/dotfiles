@@ -4,6 +4,7 @@ let mapleader = ","
 " Me loves ag!
 nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
 nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
+nnoremap <leader>/ :Grepper -tool rg  -open -switch<cr>
 
 " Quick Scope
 nmap <leader>q <plug>(QuickScopeToggle)
