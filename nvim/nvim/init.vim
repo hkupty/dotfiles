@@ -1,6 +1,7 @@
 " Plugin Management
 source $HOME/.config/nvim/dependencies.vim
 
+" vimagit tweaking
 source $HOME/.config/nvim/plugins/vimagit.vim
 
 " All plugin related configuration
