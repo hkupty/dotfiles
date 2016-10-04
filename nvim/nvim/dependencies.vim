@@ -85,6 +85,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug 'kovisoft/paredit', { 'for': 'clojure' }
+Plug 'hkupty/acid.nvim', { 'branch': 'testing' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
 " Python
