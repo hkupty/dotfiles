@@ -26,7 +26,7 @@ Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 Plug 'neomake/neomake'
 
 " Filesystem tinkering
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 
 " Grep out things
