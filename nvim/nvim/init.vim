@@ -4,6 +4,9 @@ source $HOME/.config/nvim/dependencies.vim
 " vimagit tweaking
 source $HOME/.config/nvim/plugins/vimagit.vim
 
+" deoplete tweaking
+source $HOME/.config/nvim/plugins/deoplete.vim
+
 " All plugin related configuration
 source $HOME/.config/nvim/plugins.vim
 
