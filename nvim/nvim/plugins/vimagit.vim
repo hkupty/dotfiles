@@ -4,4 +4,3 @@ let g:magit_jump_next_hunk="\<C-n>"
 let g:magit_jump_prev_hunk="\<C-p>"
 let g:magit_commit_mapping="cc"
 
-autocmd User VimagitUpdateFile call sy#util#refresh_windows()
