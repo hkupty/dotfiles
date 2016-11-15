@@ -1,12 +1,13 @@
 set background=dark
 
-colors jellybeans
+set termguicolors
 
-" Term cursor highlight
+let g:default_colorscheme = 'ayu'
+
+colors ayu
+
+" Theme tweaking
 hi TermCursor ctermfg=red
-
-hi VertSplit ctermbg=bg
-hi EndOfBuffer ctermfg=bg
 
 set noreadonly
 
@@ -15,6 +16,11 @@ set number
 set cursorline
 set relativenumber
 set hidden
+
+" Indent
+
+set autoindent
+set smartindent
 
 " Base sanity stuff
 set laststatus=2
@@ -32,6 +38,9 @@ set expandtab
 
 " Option complete
 set wildmode=full
+
+" Live substitution
+set inccommand=split
 
 " Make whitespaces visible
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅

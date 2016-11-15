@@ -20,6 +20,8 @@ vnoremap Y myY`y
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
 
+nnoremap <C-p> :Files<CR>
+
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 
@@ -31,17 +33,22 @@ nnoremap <F2> :QuickScopeToggle<CR>
 map <leader>e :tabe $MYVIMRC<CR>
 
 " Buffer nav
-map <leader>. :CtrlPBuffer<CR>
+map <leader>. :Buffers<CR>
 map <leader>; :ls<CR>:bd<space>
 
 " Tag Searching
-map <leader>l :CtrlPBufTag<CR>
-map <leader>k :CtrlPBufTagAll<CR>
-map <leader>t :CtrlPTag<CR>
+map <leader>t :Tags<CR>
 
 " System clipboard
-nnoremap <C-c> "+y
 vnoremap <C-c> "+y
+
+vnoremap <S-Ins> c<C-R>+<ESC>
+nnoremap <S-Ins> "+p
+inoremap <S-Ins> <C-R>+
+tnoremap <S-Ins> <C-\><C-n>"+pa
+
+inoremap <C-v> <C-R>+
+tnoremap <C-v> <C-\><C-n>"+pa
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
@@ -50,6 +57,8 @@ map <leader>R  :so %<CR>
 " Clear window
 map <leader>o :only<CR>
 map <leader><leader> :nohl<CR>
+
+nnoremap <silent> <leader>% :let g:paredit_mode=!g:paredit_mode<CR>
 
 " Snippets
 imap <C-k> <Plug>(neosnippet_jump_or_expand)
@@ -65,5 +74,19 @@ inoremap <C-w>h <ESC><C-w><C-h>
 inoremap <C-w>j <ESC><C-w><C-j>
 inoremap <C-w>k <ESC><C-w><C-k>
 inoremap <C-w>l <ESC><C-w><C-l>
+
+nnoremap <C-s> :pc<CR>
+inoremap <C-s> <ESC>:pc<CR>a
+
+"No arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+noremap <S-Up> <NOP>
+noremap <S-Down> <NOP>
+noremap <S-Left> <NOP>
+noremap <S-Right> <NOP>
 
 " vi:syntax=vim

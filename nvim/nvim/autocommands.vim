@@ -14,6 +14,9 @@ augroup END
 " Project/Language specific config
 augroup filetype_settings
     au!
+    au FileType *
+        \   set cc=0
+        \ | set textwidth=79
     au FileType python
         \   let python_highlight_all = 1
         \ | set cc=80
@@ -28,5 +31,7 @@ augroup filetype_settings
     au FileType scala
         \   set wildignore+=target/*,project/target/*,*.class
 augroup END
+
+au TabEnter * if exists('t:cschm') && t:cschm != colors_name | exe 'colors' t:cschm | else | exe 'colors' default_colorscheme | endif
 
 " vi:syntax=vim

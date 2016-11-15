@@ -2,12 +2,15 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'Yggdroot/indentLine'
 
 " Code Completion
 Plug 'shougo/deoplete.nvim'
 
 " Ctags
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags', { 'frozen': 1 }
 
 " Snippets
 Plug 'shougo/neosnippet.vim'
@@ -41,18 +44,18 @@ Plug 'scrooloose/nerdcommenter'
 
 " Git stuff
 Plug 'mhinz/vim-signify'
-Plug 'gregsexton/gitv'
-Plug 'jreybert/vimagit'
+"Plug 'jreybert/vimagit'
+Plug 'jreybert/vimagit', { 'branch': 'next' }
+
+Plug 'vim-scripts/AnsiEsc.vim'
 
 " Tpope stuff
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-projectionist'
 
 " Web requests
 Plug 'mattn/webapi-vim'
@@ -86,12 +89,17 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Clojure
 Plug 'kovisoft/paredit', { 'for': 'clojure' }
 Plug 'hkupty/acid.nvim', { 'branch': 'testing' }
+Plug 'hkupty/async-clj-omni', { 'branch': 'add-acid-support' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
 " Python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+" Vim - Vader
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
+Plug 'junegunn/vader.vim'
 
 " Tasks
 Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
