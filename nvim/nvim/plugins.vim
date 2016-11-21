@@ -1,4 +1,3 @@
-
 " deoplete tweaking
 source $HOME/.config/nvim/plugins/deoplete.vim
 

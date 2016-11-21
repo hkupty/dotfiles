@@ -30,7 +30,7 @@ nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
-map <leader>e :tabe $MYVIMRC<CR>
+map <leader>e :tabe $MYVIMRC && :tcd $HOME/.config/nvim/<CR>
 
 " Buffer nav
 map <leader>. :Buffers<CR>
