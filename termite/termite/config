@@ -6,26 +6,45 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Knack Nerd Font 11
+font = Iosevka Term 11
 scrollback_lines = 1000
 search_wrap = true
 
 [colors]
-foreground = #eff0eb
-background = #282a36
-color0     = #525564
-color8     = #525564
-color1     = #ff5c57
-color9     = #ff5c57
-color2     = #5af78e
-color10    = #5af78e
-color3     = #f3f99d
-color11    = #f3f99d
-color4     = #57c7ff
-color12    = #57c7ff
-color5     = #ff6ac1
-color13    = #ff6ac1
-color6     = #9aedfe
-color14    = #9aedfe
-color 7    = #f1f1f0
-color 15   = #f1f1f0
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #1d1f21
+
+# black
+color0  = #282a2e
+color8  = #373b41
+
+# red
+color1  = #a54242
+color9  = #cc6666
+
+# green
+color2  = #8c9440
+color10 = #b5bd68
+
+# yellow
+color3  = #de935f
+color11 = #f0c674
+
+# blue
+color4  = #5f819d
+color12 = #81a2be
+
+# magenta
+color5  = #85678f
+color13 = #b294bb
+
+# cyan
+color6  = #5e8d87
+color14 = #8abeb7
+
+# white
+color7  = #707880
+color15 = #c5c8c6
+

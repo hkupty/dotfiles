@@ -7,14 +7,13 @@ source $HOME/.config/nvim/plugins/iron_nvimux.vim
 " acid tweaking
 source $HOME/.config/nvim/plugins/acid.vim
 
+" vim-sexp mappings
+source $HOME/.config/nvim/plugins/vim-sexp.vim
+
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-" vim-grepper's config
-command! -nargs=* -complete=file GG Grepper -tool git -query <args>
-command! -nargs=* -complete=file Ag Grepper -tool ag -query <args>
 
 " Dev Icons
 let g:webdevicons_enable = 1
@@ -47,4 +46,9 @@ let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
-" vi:syntax=vim
+
+let g:pad#dir = "/opt/code/notes"
+let g:org_dir = "/opt/code/notes"
+let g:pad#default_format = "journal"
+
+let g:notes_directories = ["/opt/code/notes/"]

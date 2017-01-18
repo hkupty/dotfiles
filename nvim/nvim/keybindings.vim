@@ -1,5 +1,6 @@
 " Leader as ','
 let mapleader = ","
+let maplocalleader = " "
 
 " Me loves ag!
 nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
@@ -30,7 +31,7 @@ nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
-map <leader>e :tabe $MYVIMRC && :tcd $HOME/.config/nvim/<CR>
+map <leader>e :tabe $MYVIMRC<CR> :tcd $HOME/.config/nvim/<CR>
 
 " Buffer nav
 map <leader>. :Buffers<CR>
@@ -88,5 +89,7 @@ noremap <S-Up> <NOP>
 noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
+
+map <LocalLeader>fkb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 
 " vi:syntax=vim

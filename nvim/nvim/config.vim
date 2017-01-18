@@ -2,8 +2,7 @@ set background=dark
 
 set termguicolors
 
-let g:default_colorscheme = 'ayu'
-
+let g:ayucolor = 'dark'
 colors ayu
 
 " Theme tweaking
@@ -47,5 +46,16 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set fillchars=vert:\│,fold:\─
 
 let g:terminal_scrollback_buffer_size=9999999
+
+" Disable a lot of stuff
+let g:loaded_2html_plugin = 1
+let g:loaded_gzip = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_zipPlugin = 1
+let g:loaded_netrwPlugin = 1
+
+" XML folding config
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
 
 " vi:syntax=vim

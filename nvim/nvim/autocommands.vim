@@ -26,12 +26,10 @@ augroup filetype_settings
         \ | set autoindent
         \ | set smartindent
         \ | set textwidth=79
-    au FileType clojure
-        \ call PareditInitBuffer()
     au FileType scala
         \   set wildignore+=target/*,project/target/*,*.class
 augroup END
 
-au TabEnter * if exists('t:cschm') && t:cschm != colors_name | exe 'colors' t:cschm | else | exe 'colors' default_colorscheme | endif
+"au TabEnter * if exists('t:cschm') && t:cschm != colors_name | exe 'colors' t:cschm | else | exe 'colors' default_colorscheme | endif
 
 " vi:syntax=vim
