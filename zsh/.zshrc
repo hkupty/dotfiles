@@ -9,8 +9,6 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ingvij/.zshrc'
 
-fpath=(~/.zsh/completion $fpath)
-
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select=2
@@ -42,7 +40,7 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 
 export PATH="$HOME/scripts:$PATH"
 export PATH="$NPM_PACKAGES/bin:$PATH"
-export PATH="$NU_HOME/nudev:$PATH"
+export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
 
 unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
@@ -52,3 +50,4 @@ export TERM=xterm-256color
 bindkey '^n' autosuggest-accept
 
 compctl -/ -W $PROJ_DIR sd
+setopt PROMPT_SUBST

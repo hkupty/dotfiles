@@ -28,6 +28,8 @@ augroup filetype_settings
         \ | set textwidth=79
     au FileType scala
         \   set wildignore+=target/*,project/target/*,*.class
+    au FileType ledger
+        \   map <buffer> <localleader><localleader> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 augroup END
 
 "au TabEnter * if exists('t:cschm') && t:cschm != colors_name | exe 'colors' t:cschm | else | exe 'colors' default_colorscheme | endif

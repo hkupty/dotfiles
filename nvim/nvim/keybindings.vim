@@ -2,10 +2,9 @@
 let mapleader = ","
 let maplocalleader = " "
 
-" Me loves ag!
-nnoremap <leader>g :Grepper -tool git -open -noswitch<cr>
-nnoremap <leader>a :Grepper -tool ag  -open -switch<cr>
-nnoremap <leader>/ :Grepper -tool rg  -open -switch<cr>
+" rg + fzf ftw
+nnoremap <leader>/ :Grep<CR>
+nnoremap <leader>? :GrepAll<CR>
 
 " Quick Scope
 nmap <leader>q <plug>(QuickScopeToggle)
@@ -44,8 +43,8 @@ map <leader>t :Tags<CR>
 vnoremap <C-c> "+y
 
 vnoremap <S-Ins> c<C-R>+<ESC>
-nnoremap <S-Ins> "+p
-inoremap <S-Ins> <C-R>+
+nnoremap <silent> <S-Ins> :set paste<CR>"+p:set nopaste<CR>
+inoremap <silent> <S-Ins> <ESC>:set paste<CR>"+p:set nopaste<CR>a
 tnoremap <S-Ins> <C-\><C-n>"+pa
 
 inoremap <C-v> <C-R>+
@@ -89,6 +88,8 @@ noremap <S-Up> <NOP>
 noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
+
+nnoremap <C-M-P> :Projects<CR>
 
 map <LocalLeader>fkb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 

@@ -10,6 +10,8 @@ source $HOME/.config/nvim/plugins/acid.vim
 " vim-sexp mappings
 source $HOME/.config/nvim/plugins/vim-sexp.vim
 
+" fzf
+source $HOME/.config/nvim/plugins/fzf.vim
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -21,7 +23,7 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
-let g:gutentags_tagfile = ".tags"
+let g:gutentags_ctags_tagfile = ".tags"
 
 function! neomake#makers#ft#scala#scalastyle()
     return {
@@ -37,8 +39,6 @@ function! neomake#makers#ft#scala#scalastyle()
 endfunction
 
 let g:signify_vcs_list = [ 'git' ]
-
-let g:gutentags_tagfile = ".tags"
 
 let g:python3_host_prog = '/usr/bin/python3'
 

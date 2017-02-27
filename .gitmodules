@@ -13,3 +13,6 @@
 [submodule "zsh/.zprezto"]
 	path = zsh/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "zsh/dracula"]
+	path = zsh/dracula
+	url = https://github.com/dracula/zsh.git

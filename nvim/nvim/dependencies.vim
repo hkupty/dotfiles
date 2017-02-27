@@ -35,9 +35,6 @@ Plug 'romainl/vim-cool'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 
-" Grep out things
-Plug 'mhinz/vim-grepper'
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -91,8 +88,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'hkupty/acid.nvim', { 'branch': 'testing' }
-Plug 'hkupty/async-clj-omni', { 'branch': 'add-acid-support' }
+Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
+Plug 'clojure-vim/async-clj-omni'
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
 " Python
@@ -112,6 +109,9 @@ Plug 'vim-scripts/utl.vim'
 Plug 'sotte/presenting.vim'
 Plug 'amerlyq/nou.vim'
 Plug 'junegunn/vim-journal'
+
+"Ledger
+Plug 'ledger/vim-ledger'
 
 " Tasks
 Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
