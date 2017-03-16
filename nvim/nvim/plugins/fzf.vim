@@ -1,4 +1,3 @@
-let s:project_dir = '/opt/code/'
 let s:project_cmd = "find ".s:project_dir." -maxdepth 3 -name '.git' -printf '%h\n'"
 let s:TYPE = {'dict': type({}), 'funcref': type(function('call')), 'string': type('')}
 let s:edited_cmd = "git status --porcelain"
@@ -6,7 +5,7 @@ let s:diff_master_cmd = "git diff master..HEAD --name-only"
 
 
 function! s:grep_files(arg, path, bang)
-  call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" ' . shellescape(a:arg) . ' ' . shellescape(a:path)  , 1, a:bang)
+  call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" ' . shellescape(a:arg) . ' ' . shellescape(a:path), 1, a:bang)
 endfunction
 
 function! s:pre_grep(tests, bang)

@@ -5,8 +5,6 @@ set termguicolors
 let g:ayucolor = 'dark'
 colors ayu
 
-" Theme tweaking
-hi TermCursor ctermfg=red
 
 set noreadonly
 
@@ -57,5 +55,7 @@ let g:loaded_netrwPlugin = 1
 " XML folding config
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
+
+" Theme tweaking
 
 " vi:syntax=vim

@@ -10,7 +10,7 @@ Plug 'shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
 
 " Ctags
-Plug 'ludovicchabant/vim-gutentags', { 'frozen': 1 }
+Plug 'hkupty/vim-gutentags', { 'branch': 'new-fix-tcd' }
 
 " Snippets
 Plug 'shougo/neosnippet.vim'
@@ -34,6 +34,9 @@ Plug 'romainl/vim-cool'
 " Filesystem tinkering
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
+
+" Project
+Plug 'hkupty/fzf-proj.vim', { 'branch': 'testing' }
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -109,6 +112,8 @@ Plug 'vim-scripts/utl.vim'
 Plug 'sotte/presenting.vim'
 Plug 'amerlyq/nou.vim'
 Plug 'junegunn/vim-journal'
+
+Plug 'vim-scripts/splunk.vim'
 
 "Ledger
 Plug 'ledger/vim-ledger'

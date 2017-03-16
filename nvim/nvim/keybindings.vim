@@ -3,16 +3,16 @@ let mapleader = ","
 let maplocalleader = " "
 
 " rg + fzf ftw
-nnoremap <leader>/ :Grep<CR>
-nnoremap <leader>? :GrepAll<CR>
+nmap <leader>/ <plug>Grep
+nmap <leader>? <plug>GrepAll
 
 " Quick Scope
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
 
 " Git
-nnoremap gs :Gstatus<CR>
-nnoremap gvs :Gvdiff<CR>
+nmap <C-M-d> <plug>GitDirty
+nmap <C-M-u> <plug>GitUnsynced
 
 vnoremap y myy`y
 vnoremap Y myY`y
@@ -89,7 +89,7 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nnoremap <C-M-P> :Projects<CR>
+nmap <C-M-p> <Plug>Projects
 
 map <LocalLeader>fkb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 
