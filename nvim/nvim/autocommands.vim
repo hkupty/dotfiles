@@ -1,17 +1,6 @@
 " Save on exit
 au FocusLost * silent! wa
 
-function! s:do_make()
-  if exists('b:blacklisted_make')
-    return
-  endif
-  Neomake
-endfunction
-
-" Make on save
-autocmd! BufWritePost * call s:do_make()
-autocmd! FileType ruby let b:blacklisted_make=1
-
 autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
 
 augroup terminal_commands

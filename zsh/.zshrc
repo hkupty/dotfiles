@@ -24,7 +24,8 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias t='nvr --remote-tab'
   alias _='nvr -c'
   alias _pwd='nvr -c "tcd `pwd`"'
-
+else
+  alias v='nvim'
 fi
 
 source <(antibody init)
@@ -34,11 +35,13 @@ source ~/.vars
 source ~/.fns
 source /etc/profile.d/fzf.zsh
 
-zstyle :omz:plugins:ssh-agent identities id_rsa
+zstyle :omz:plugins:ssh-agent identities id_rsa gitlab
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
 export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
 

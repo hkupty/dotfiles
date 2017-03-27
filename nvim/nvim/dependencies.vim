@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Dark colors
 Plug 'nanotech/jellybeans.vim'
+Plug 'sjl/badwolf'
 Plug 'joshdick/onedark.vim'
 Plug 'ayu-theme/ayu-vim', { 'frozen': 1 }
 
@@ -9,8 +10,11 @@ Plug 'ayu-theme/ayu-vim', { 'frozen': 1 }
 Plug 'shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
 
+" Let on modeline
+Plug 'vim-scripts/let-modeline.vim'
+
 " Ctags
-Plug 'hkupty/vim-gutentags', { 'branch': 'new-fix-tcd' }
+Plug 'ludovicchabant/vim-gutentags'
 
 " Snippets
 Plug 'shougo/neosnippet.vim'
@@ -26,7 +30,11 @@ Plug 'hkupty/timeshift.vim'
 Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 
 " Make
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+
+" Twitter
+Plug 'vmchale/vim-twitter'
 
 " Cool search stuff
 Plug 'romainl/vim-cool'
@@ -92,7 +100,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Clojure
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
-Plug 'clojure-vim/async-clj-omni'
+Plug 'clojure-vim/async-clj-omni', { 'branch': 'fix-acid' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 
 " Python
@@ -107,11 +115,6 @@ Plug 'junegunn/vader.vim'
 "Notes and stuff
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'fmoralesc/vim-pad'
-Plug 'vim-scripts/utl.vim'
-Plug 'sotte/presenting.vim'
-Plug 'amerlyq/nou.vim'
-Plug 'junegunn/vim-journal'
 
 Plug 'vim-scripts/splunk.vim'
 

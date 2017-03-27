@@ -4,7 +4,7 @@ set termguicolors
 
 let g:ayucolor = 'dark'
 colors ayu
-
+let g:badwolf_darkgutter = 1
 
 set noreadonly
 
