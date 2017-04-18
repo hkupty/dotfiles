@@ -3,8 +3,11 @@ set background=dark
 set termguicolors
 
 let g:ayucolor = 'dark'
-colors ayu
+colors jellybeans
 let g:badwolf_darkgutter = 1
+
+source $HOME/.config/nvim/color.vim
+
 
 set noreadonly
 
