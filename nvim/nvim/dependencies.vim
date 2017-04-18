@@ -55,8 +55,8 @@ Plug 'scrooloose/nerdcommenter'
 
 " Git stuff
 Plug 'mhinz/vim-signify'
-"Plug 'jreybert/vimagit'
 Plug 'jreybert/vimagit', { 'branch': 'next' }
+Plug 'lambdalisue/gina.vim'
 
 Plug 'vim-scripts/AnsiEsc.vim'
 
@@ -100,8 +100,9 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Clojure
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
-Plug 'clojure-vim/async-clj-omni', { 'branch': 'fix-acid' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'clojure-vim/async-clj-omni'
+Plug 'fholiveira/vim-clojure-static',  { 'for': 'clojure', 'branch': 'hack-update'}
+Plug 'hkupty/async-clj-highlight',  { 'for': 'clojure', 'branch': 'acid-autocmd' }
 
 " Python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
