@@ -89,7 +89,7 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nmap <C-M-p> <Plug>Projects
+nmap <C-M-p> <Plug>TcdProjects
 
 map <LocalLeader>fkb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 
