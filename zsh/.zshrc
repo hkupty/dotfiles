@@ -35,7 +35,7 @@ source ~/.vars
 source ~/.fns
 source /etc/profile.d/fzf.zsh
 
-zstyle :omz:plugins:ssh-agent identities id_rsa gitlab
+zstyle :omz:plugins:ssh-agent identities github gitlab
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 

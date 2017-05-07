@@ -25,19 +25,6 @@ let g:webdevicons_enable_airline_statusline = 1
 
 let g:gutentags_ctags_tagfile = ".tags"
 
-"function! neomake#makers#ft#scala#scalastyle()
-    "return {
-        "\ 'args': [
-            "\ '--config', '$HOME/.config/scalastyle/scalastyle_config.xml'
-        "\ ],
-        "\ 'errorformat':
-            "\ '%trror file=%f message=%m line=%l column=%c,' .
-            "\ '%trror file=%f message=%m line=%l,' .
-            "\ '%tarning file=%f message=%m line=%l column=%c,' .
-            "\ '%tarning file=%f message=%m line=%l'
-        "\ }
-"endfunction
-
 let g:signify_vcs_list = [ 'git' ]
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -51,6 +38,5 @@ let g:pad#dir = "/opt/code/notes"
 let g:org_dir = "/opt/code/notes"
 let g:pad#default_format = "journal"
 
-let g:notes_directories = ["/opt/code/notes/"]
-
 let g:twitter_use_rust=1
+let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]

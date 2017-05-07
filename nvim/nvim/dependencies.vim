@@ -30,7 +30,6 @@ Plug 'hkupty/timeshift.vim'
 Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 
 " Make
-"Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 
 " Twitter
