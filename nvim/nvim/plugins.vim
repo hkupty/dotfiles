@@ -10,8 +10,15 @@ source $HOME/.config/nvim/plugins/acid.vim
 " vim-sexp mappings
 source $HOME/.config/nvim/plugins/vim-sexp.vim
 
+" Git integration
+source $HOME/.config/nvim/plugins/gina.vim
+
+" ALE
+source $HOME/.config/nvim/plugins/ale.vim
+
 let g:fzf#proj#project_dir = '/opt/code/'
 let g:fzf#proj#max_proj_depth = 2
+let g:fzf#proj#project#open_new_tab = 0
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1

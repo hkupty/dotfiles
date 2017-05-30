@@ -6,6 +6,8 @@ let maplocalleader = " "
 nmap <leader>/ <plug>Grep
 nmap <leader>? <plug>GrepAll
 
+nmap <leader>S :exec "let cft=&ft \| edit scratchpad \| let &ft=cft"<CR>
+
 " Quick Scope
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
@@ -20,6 +22,10 @@ vnoremap Y myY`y
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
 
+" Git
+nnoremap gb :Gina branch<CR>
+nnoremap gB :Gina blame :<CR>
+
 nnoremap <C-p> :Files<CR>
 
 " Comment fix
@@ -30,7 +36,8 @@ nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
-map <leader>e :tabe $MYVIMRC<CR> :tcd $HOME/.config/nvim/<CR>
+map <leader>e :tabe $MYVIMRC<CR>:tcd $HOME/.config/nvim/<CR>
+map <leader>z :tabe $HOME/.zshrc<CR>:tcd $HOME<CR>
 
 " Buffer nav
 map <leader>. :Buffers<CR>
@@ -38,6 +45,9 @@ map <leader>; :ls<CR>:bd<space>
 
 " Tag Searching
 map <leader>t :Tags<CR>
+
+" Term(ify) the current window
+map g! :term<CR>
 
 " System clipboard
 vnoremap <C-c> "+y
@@ -89,8 +99,11 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nmap <C-M-p> <Plug>TcdProjects
+nmap <C-M-p> <Plug>Projects
+nmap <C-M-f> <Plug>FProjects
+nmap <C-M-n> <Plug>TNProjects
+nmap <C-M-q> <Plug>FTNProjects
 
-map <LocalLeader>fkb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
+map <LocalLeader>kb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 
 " vi:syntax=vim

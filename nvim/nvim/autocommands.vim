@@ -28,6 +28,4 @@ augroup filetype_settings
         \   map <buffer> <localleader><localleader> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 augroup END
 
-"au TabEnter * if exists('t:cschm') && t:cschm != colors_name | exe 'colors' t:cschm | else | exe 'colors' default_colorscheme | endif
-
 " vi:syntax=vim

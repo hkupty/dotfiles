@@ -31,6 +31,8 @@ Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 
 " Make
 Plug 'w0rp/ale'
+"Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
+Plug 'hkupty/clojure-check', {'do': './install', 'branch': 'testing'}
 
 " Twitter
 Plug 'vmchale/vim-twitter'
