@@ -16,8 +16,12 @@ zstyle ':completion:*' menu select=2
 
 alias vim=$(which nvim)
 
+md(){
+  pandoc --to=plain $1 | less
+}
+
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
-  export EDITOR='nvr'
+  export EDITOR='nvr -O'
 
   alias h='nvr -o'
   alias v='nvr -O'
@@ -53,4 +57,5 @@ export TERM=xterm-256color
 bindkey '^n' autosuggest-accept
 
 compctl -/ -W $PROJ_DIR sd
+compctl -/ -W $AUR_DIR aur up
 setopt PROMPT_SUBST
