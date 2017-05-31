@@ -35,4 +35,4 @@ let g:nvimux_custom_bindings = [
 \]
 
 let g:nvimux_new_term = "call IronStartRepl('sh', 0, 1)"
-let g:iron_repl_open_cmd = "call GoldenView#Split()"
+let g:iron_repl_open_cmd = 'topleft vertical split'
