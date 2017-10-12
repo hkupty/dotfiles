@@ -16,19 +16,12 @@ source $HOME/.config/nvim/plugins/gina.vim
 " ALE
 source $HOME/.config/nvim/plugins/ale.vim
 
+" Airline
+source $HOME/.config/nvim/plugins/airline.vim
+
 let g:fzf#proj#project_dir = '/opt/code/'
 let g:fzf#proj#max_proj_depth = 2
 let g:fzf#proj#project#open_new_tab = 0
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" Dev Icons
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
 
 let g:gutentags_ctags_tagfile = ".tags"
 

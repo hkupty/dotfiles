@@ -1,2 +1,2 @@
-GuiFont! Iosevka Term:h8
+GuiFont! Iosevka Nerd Font:h8
 

@@ -32,7 +32,7 @@ nnoremap <C-p> :Files<CR>
 map <leader>c<space> <plug>NERDCommenterToggle
 
 " Quickly toggle lines.
-nnoremap <F3> :set number!<CR>:set relativenumber!<CR>
+nnoremap <silent> <F3> :set number! relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
@@ -54,11 +54,11 @@ vnoremap <C-c> "+y
 
 vnoremap <S-Ins> c<C-R>+<ESC>
 nnoremap <silent> <S-Ins> :set paste<CR>"+p:set nopaste<CR>
-inoremap <silent> <S-Ins> <ESC>:set paste<CR>"+p:set nopaste<CR>a
+inoremap <silent> <S-Ins> <C-R>+
 tnoremap <S-Ins> <C-\><C-n>"+pa
 
-inoremap <C-v> <C-R>+
-tnoremap <C-v> <C-\><C-n>"+pa
+inoremap <silent> <C-v> <ESC>:set paste<CR>"+p:set nopaste<CR>a
+tnoremap <silent> <C-v> <C-\><C-n>"+pa
 
 " Refresh me!
 map <leader>rr :so $MYVIMRC<CR>
@@ -105,5 +105,4 @@ nmap <C-M-n> <Plug>TNProjects
 nmap <C-M-q> <Plug>FTNProjects
 
 map <LocalLeader>kb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
-
 " vi:syntax=vim

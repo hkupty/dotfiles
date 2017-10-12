@@ -2,12 +2,9 @@ set background=dark
 
 set termguicolors
 
-let g:ayucolor = 'dark'
-colors jellybeans
-let g:badwolf_darkgutter = 1
+colors base16-default-dark
 
 source $HOME/.config/nvim/color.vim
-
 
 set noreadonly
 
@@ -42,8 +39,9 @@ set wildmode=full
 " Live substitution
 set inccommand=split
 
+
 " Make whitespaces visible
-set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set list listchars=tab:⇥⋅,trail:⋅,nbsp:⋅
 set fillchars=vert:\│,fold:\─
 
 let g:terminal_scrollback_buffer_size=9999999
@@ -55,10 +53,10 @@ let g:loaded_tarPlugin = 1
 let g:loaded_zipPlugin = 1
 let g:loaded_netrwPlugin = 1
 
+let g:is_bash = 1
+
 " XML folding config
 let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
-
-" Theme tweaking
+au FileType xml,lua setlocal foldmethod=syntax
 
 " vi:syntax=vim

@@ -1,9 +1,28 @@
-let g:nvimux_open_term_by_default = 1
-let g:nvimux_new_window_buffer = 'single'
-let g:nvimux_quickterm_direction = 'botright'
-let g:nvimux_quickterm_orientation = 'vertical'
-let g:nvimux_quickterm_scope = 't'
-let g:nvimux_quickterm_size = '80'
+lua << EOF
+-- Nvimux configuration
+local nvimux = require('nvimux')
+
+nvimux.config.set_all{
+  open_term_by_default = true,
+  new_window_buffer = 'single',
+  quickterm_direction = 'botright',
+  quickterm_orientation = 'vertical',
+  quickterm_scope = 't',
+  quickterm_size = '80',
+  new_term = "call IronStartRepl('sh', 0, 1)",
+}
+
+-- Nvimux custom bindings
+nvimux.bindings.bind_all{
+    {'s', ':NvimuxHorizontalSplit', {'n', 'v', 'i', 't'}},
+    {'v', ':NvimuxVerticalSplit', {'n', 'v', 'i', 't'}},
+    {'f', ':IronFocus', {'n', 'v', 'i'}},
+    {'!', ':IronPromptRepl', {'n', 'v', 'i', 't'}},
+    {'$', ':IronRepl', {'n', 'v', 'i', 't'}},
+    {'#', ':IronPromptCommand', {'n', 'v', 'i', 't'}},
+    {'%', ':call ToggleRepl()', {'n', 'v', 'i', 't'}},
+}
+EOF
 
 function! s:escape_ft(ft)
   return substitute(a:ft, "\\.", "_", "")
@@ -24,15 +43,5 @@ endfunction
 let g:iron_new_repl_hooks = ['SetNvimuxConfigOnIronRepl']
 let g:iron_new_sh_repl_hooks = ['SetNvimuxConfigOnShell']
 let g:iron_debug = 1
-
-let g:nvimux_custom_bindings = [
-  \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
-  \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
-  \['!', ':IronPromptRepl<CR>', ['n', 'v', 'i', 't']],
-  \['$', ':IronRepl<CR>', ['n', 'v', 'i', 't']],
-  \['#', ':IronPromptCommand<CR>', ['n', 'v', 'i', 't']],
-  \['%', ':call ToggleRepl()<CR>', ['n', 'v', 'i', 't']]
-\]
-
-let g:nvimux_new_term = "call IronStartRepl('sh', 0, 1)"
-let g:iron_repl_open_cmd = "call GoldenView#Split()"
+let g:iron_repl_open_cmd = "topleft vertical 100 split | set wfw"
+let g:iron_map_defaults = 1
