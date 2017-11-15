@@ -14,11 +14,11 @@ compinit
 zstyle ':completion:*' menu select=2
 # End of lines added by compinstall
 
-alias vim=$(which nvim)
-
 md(){
   pandoc --to=plain $1 | less
 }
+
+alias vim=$(which nvim)
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   export EDITOR='nvr -O'
@@ -32,25 +32,10 @@ else
   alias v='nvim'
 fi
 
-source <(antibody init)
-antibody bundle < ~/.plugins
-
-source ~/.vars
-source ~/.fns
-source /etc/profile.d/fzf.zsh
-
 zstyle :omz:plugins:ssh-agent identities github gitlab
 
-NPM_PACKAGES="${HOME}/.npm-packages"
-
-export PATH="$HOME/scripts:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$NPM_PACKAGES/bin:$PATH"
-export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
-
-unset MANPATH
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+source ~/.vars
+source /etc/profile.d/fzf.zsh
 
 export TERM=xterm-256color
 
@@ -58,6 +43,15 @@ bindkey '^n' autosuggest-accept
 
 compctl -/ -W $PROJ_DIR sd
 compctl -/ -W $AUR_DIR aur up
+
+eval $(gpg-agent --daemon 2>/dev/null)
+
 setopt PROMPT_SUBST
 
 eval "$(direnv hook zsh)"
+
+source <(antibody init)
+antibody bundle < ~/.plugins
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
