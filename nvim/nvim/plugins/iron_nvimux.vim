@@ -20,15 +20,12 @@ nvimux.bindings.bind_all{
     {'!', ':IronPromptRepl', {'n', 'v', 'i', 't'}},
     {'$', ':IronRepl', {'n', 'v', 'i', 't'}},
     {'#', ':IronPromptCommand', {'n', 'v', 'i', 't'}},
-    {'%', ':call ToggleRepl()', {'n', 'v', 'i', 't'}},
 }
 EOF
 
 function! s:escape_ft(ft)
   return substitute(a:ft, "\\.", "_", "")
 endfunction
-
-let g:iron_repl_open_cmd = "topleft vspl"
 
 function! SetNvimuxConfigOnIronRepl(buf_id, repl_def) abort
   exec "let t:iron_" . s:escape_ft(a:repl_def.ft) . "_repl = " . a:buf_id
@@ -43,5 +40,5 @@ endfunction
 let g:iron_new_repl_hooks = ['SetNvimuxConfigOnIronRepl']
 let g:iron_new_sh_repl_hooks = ['SetNvimuxConfigOnShell']
 let g:iron_debug = 1
-let g:iron_repl_open_cmd = "topleft vertical 100 split | set wfw"
+let g:iron_repl_open_cmd = "topleft vertical 100 split"
 let g:iron_map_defaults = 1

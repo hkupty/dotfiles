@@ -18,13 +18,14 @@ Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
-Plug 'hkupty/nvimux', { 'branch': 'lua' }
+Plug 'hkupty/nvimux', { 'branch': 'testing' }
 
 " Split and join
 Plug 'hkupty/timeshift.vim'
 
 " Repls
-Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
+Plug $HOME.'/code/hkupty/iron.nvim'
+"Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
 
 " Make
 Plug 'w0rp/ale'
@@ -104,7 +105,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'clojure-vim/acid.nvim', { 'branch': 'spec-fdef' }
+Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
 Plug 'clojure-vim/async-clj-omni'
 Plug 'fholiveira/vim-clojure-static',  { 'for': 'clojure', 'branch': 'hack-update'}
 Plug 'hkupty/async-clj-highlight',  { 'for': 'clojure', 'branch': 'acid-autocmd' }

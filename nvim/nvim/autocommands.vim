@@ -19,14 +19,17 @@ augroup filetype_settings
         \ | set cc=80
         \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
         \ | match OverLength /\%81v.\+/
-        \ | map <leader>ii i import ipdb;ipdb.set_trace()<ESC>
+        \ | map <buffer> <leader>ii i import ipdb;ipdb.set_trace()<ESC>
         \ | set autoindent
         \ | set smartindent
         \ | set textwidth=79
     au FileType scala
         \   set wildignore+=target/*,project/target/*,*.class
+    au FileType lua
+        \   map <buffer> <leader>R  :luafile %<CR>
     au FileType ledger
         \   map <buffer> <localleader><localleader> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 augroup END
+
 
 " vi:syntax=vim

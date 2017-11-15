@@ -38,13 +38,15 @@ is-sub() {
 }
 
 update() {
-  cd "$AUR_DIR/$1"
-  git stash
-  git fetch && git merge origin master -s recursive -Xtheirs --no-ff
-  if is-sub ; then
-    git submodule sync && git submodule foreach "makepkg -sic --noconfirm --asdeps"
-  fi
-  makepkg -sic --noconfirm
+  for pkg in "$@"; do
+    cd "$AUR_DIR/$pkg"
+    git stash
+    git fetch && git merge origin master -s recursive -Xtheirs --no-ff --no-edit
+    if is-sub ; then
+      git submodule sync && git submodule foreach "makepkg -sic --noconfirm --asdeps"
+    fi
+    makepkg -sic --noconfirm
+  done
 }
 
 deinst() {
@@ -113,7 +115,7 @@ run(){
     ls) list;;
     edit) edit "$1";;
     with-clean|force) with-clean "$@";;
-    up|update) update $1 ;;
+    up|update) update "$@" ;;
     purge) purge ;;
     rm|remove) deinst $1 ;;
     add) add $1 ;;
