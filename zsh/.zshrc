@@ -59,3 +59,5 @@ bindkey '^n' autosuggest-accept
 compctl -/ -W $PROJ_DIR sd
 compctl -/ -W $AUR_DIR aur up
 setopt PROMPT_SUBST
+
+eval "$(direnv hook zsh)"
