@@ -85,6 +85,12 @@ Plug 'ryanoasis/vim-devicons'
 " Align
 Plug 'tommcdo/vim-lion'
 
+" LSP client
+Plug 'autozimu/LanguageClient-neovim'
+
+" Fn signatures
+Plug 'Shougo/echodoc.vim'
+
 "-- Syntax specific and some more stuff
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }

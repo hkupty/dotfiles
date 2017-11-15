@@ -1,0 +1,40 @@
+#!/bin/bash
+at(){
+    cd "${1}" && {
+        eval "$(cat /dev/stdin)"
+        cd -
+    }
+}
+
+
+awesome_at=${awesome_at:-"/opt/awesome"}
+
+sudo mkdir -p "${awesome_at}"
+sudo chown ingvij:users "${awesome_at}"
+
+at "${awesome_at}" << !!
+    git clone git@github.com:hkupty/awesome-conf.git
+    git clone https://github.com/lcpz/awesome-freedesktop.git
+    git clone https://github.com/lcpz/lain.git
+!!
+
+at "${awesome_at}/awesome-conf" << !!
+    git remote add copycat https://github.com/lcpz/awesome-copycats.git
+    git fetch copycat
+    ln -s ${awesome_at}/awesome-freedesktop freedesktop
+    ln -s rc.lua.ingvij rc.lua
+    ln -s ${awesome_at}/lain
+    git checkout -b mirror
+    git branch --set-upstream-to=copycat/master
+    git config branch.mirror.rebase true
+    git add freedesktop lain rc.lua
+    git commit --fixup HEAD
+    git pull
+    git checkout master
+    git rebase -
+!!
+
+at "${HOME}/.config/" << !!
+    ln -s ${awesome_at}/awesome-conf awesome
+!!
+

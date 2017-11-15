@@ -28,7 +28,7 @@ augroup filetype_settings
     au FileType lua
         \   map <buffer> <leader>R  :luafile %<CR>
     au FileType ledger
-        \   map <buffer> <localleader><localleader> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+        \   map <buffer> <localleader><localleader> :call ledger#transaction_statg_toggle(line('.'), ' *?!')<CR>
 augroup END
 
 
