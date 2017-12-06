@@ -1,0 +1,58 @@
+#!/bin/bash
+awesome_root=${awesome_root:-"/opt/awesome"}
+awesome_cfg="${awesome_root}/awesome-conf"
+
+snapshot(){
+  cd "${awesome_cfg}" && {
+    [ -z "$(git status --porcelain)" ] && {
+      echo "Nothing to do."
+      exit 0
+    }
+
+    git add .
+    git commit -m "snapshot-$(date +%F)"
+  }
+}
+
+sync(){
+  cd "${awesome_cfg}" && {
+    git checkout mirror
+    git pull
+    git checkout -
+    git rebase -
+    git push
+  }
+}
+
+setup(){
+  sudo mkdir -p "${awesome_root}"
+  sudo chown ingvij:users "${awesome_root}"
+
+  cd "${awesome_root}" && {
+      git clone git@github.com:hkupty/awesome-conf.git
+      git clone https://github.com/lcpz/awesome-freedesktop.git
+      git clone https://github.com/lcpz/lain.git
+  }
+
+  cd "${awesome_cfg}" && {
+    git remote add copycat https://github.com/lcpz/awesome-copycats.git
+    git fetch copycat
+    ln -s "${awesome_root}/awesome-freedesktop" freedesktop
+    ln -s rc.lua.ingvij rc.lua
+    ln -s "${awesome_root}/lain"
+    git checkout -b mirror
+    git branch --set-upstream-to=copycat/master
+    git config branch.mirror.rebase true
+    git add freedesktop lain rc.lua
+    git commit --fixup HEAD
+    git pull
+    git checkout master
+    git rebase -
+  }
+
+  cd "${HOME}/.config/" && {
+    ln -s "${awesome_cfg}" awesome
+  }
+}
+
+"$@"
