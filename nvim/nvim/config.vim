@@ -10,17 +10,17 @@ set noreadonly
 
 " Better nav
 set number
-set cursorline
 set relativenumber
+set cursorline
 set hidden
 
 " Indent
 
 set autoindent
 set smartindent
+set smartcase
 
 " Base sanity stuff
-set laststatus=2
 set noswapfile
 set autowriteall
 
@@ -39,6 +39,10 @@ set wildmode=full
 " Live substitution
 set inccommand=split
 
+set noshowmode
+set laststatus=0
+set noshowcmd
+set mouse=a
 
 " Make whitespaces visible
 set list listchars=tab:⇥⋅,trail:⋅,nbsp:⋅
@@ -58,6 +62,4 @@ let g:is_bash = 1
 " XML folding config
 let g:xml_syntax_folding=1
 au FileType xml,lua setlocal foldmethod=syntax
-au GuiEnter * colorscheme base16-default-dark
-
 " vi:syntax=vim

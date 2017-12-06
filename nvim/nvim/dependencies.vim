@@ -18,7 +18,8 @@ Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
-Plug 'hkupty/nvimux', { 'branch': 'testing' }
+Plug $HOME.'/code/hkupty/nvimux'
+"Plug 'hkupty/nvimux', { 'branch': 'testing' }
 
 " Split and join
 Plug 'hkupty/timeshift.vim'
@@ -45,9 +46,6 @@ Plug 'justinmk/vim-dirvish'
 " Project
 Plug 'hkupty/fzf-proj.vim', { 'branch': 'testing' }
 
-" Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Code commenting
 Plug 'scrooloose/nerdcommenter'

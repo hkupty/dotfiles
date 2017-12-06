@@ -31,5 +31,12 @@ augroup filetype_settings
         \   map <buffer> <localleader><localleader> :call ledger#transaction_statg_toggle(line('.'), ' *?!')<CR>
 augroup END
 
+augroup Fixes
+    au!
+    au GuiEnter *
+       \   tunmap <ESC>
+       \ | color base16-default-dark
+augroup END
+
 
 " vi:syntax=vim

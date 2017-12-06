@@ -16,6 +16,8 @@ nvimux.config.set_all{
 nvimux.bindings.bind_all{
     {'s', ':NvimuxHorizontalSplit', {'n', 'v', 'i', 't'}},
     {'v', ':NvimuxVerticalSplit', {'n', 'v', 'i', 't'}},
+    {'**', ':NvimuxSet new_window term', {'n', 'v', 'i', 't'}},
+    {'*-', ':NvimuxSet new_window enew', {'n', 'v', 'i', 't'}},
     {'f', ':IronFocus', {'n', 'v', 'i'}},
     {'!', ':IronPromptRepl', {'n', 'v', 'i', 't'}},
     {'$', ':IronRepl', {'n', 'v', 'i', 't'}},
