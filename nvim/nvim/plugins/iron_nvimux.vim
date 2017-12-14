@@ -23,6 +23,8 @@ nvimux.bindings.bind_all{
     {'$', ':IronRepl', {'n', 'v', 'i', 't'}},
     {'#', ':IronPromptCommand', {'n', 'v', 'i', 't'}},
 }
+
+nvimux.bootstrap()
 EOF
 
 function! s:escape_ft(ft)

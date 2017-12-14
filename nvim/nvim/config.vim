@@ -12,10 +12,10 @@ set noreadonly
 set number
 set relativenumber
 set cursorline
+set scrolloff=8
 set hidden
 
 " Indent
-
 set autoindent
 set smartindent
 set smartcase

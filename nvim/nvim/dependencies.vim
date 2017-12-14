@@ -18,20 +18,16 @@ Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
-Plug $HOME.'/code/hkupty/nvimux'
-"Plug 'hkupty/nvimux', { 'branch': 'testing' }
+Plug 'BurningEther/nvimux'
 
 " Split and join
-Plug 'hkupty/timeshift.vim'
+Plug 'BurningEther/timeshift.vim'
 
 " Repls
-Plug $HOME.'/code/hkupty/iron.nvim'
-"Plug 'hkupty/iron.nvim', { 'branch': 'testing' }
+Plug 'BurningEther/iron.nvim', { 'branch': 'testing' }
 
 " Make
 Plug 'w0rp/ale'
-"Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
-"Plug 'hkupty/clojure-check', {'do': './install', 'branch': 'testing'}
 
 " Twitter
 Plug 'vmchale/vim-twitter'
@@ -44,8 +40,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 
 " Project
-Plug 'hkupty/fzf-proj.vim', { 'branch': 'testing' }
-
+Plug 'BurningEther/fzf-proj.vim', { 'branch': 'testing' }
 
 " Code commenting
 Plug 'scrooloose/nerdcommenter'
@@ -55,8 +50,6 @@ Plug 'mhinz/vim-signify'
 Plug 'jreybert/vimagit', { 'branch': 'next' }
 Plug 'lambdalisue/gina.vim'
 
-Plug 'vim-scripts/AnsiEsc.vim'
-
 " Tpope stuff
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -65,9 +58,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 
-" Tests
-Plug 'hkupty/vim-test', { 'branch': 'add-acid' }
-
 " Web requests
 Plug 'mattn/webapi-vim'
 
@@ -75,7 +65,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
 " Code navigation
-Plug 'unblevable/quick-scope', { 'on': 'QuickScopeToggle' }
+Plug 'unblevable/quick-scope'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
@@ -111,8 +101,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
 Plug 'clojure-vim/async-clj-omni'
-Plug 'fholiveira/vim-clojure-static',  { 'for': 'clojure', 'branch': 'hack-update'}
-Plug 'hkupty/async-clj-highlight',  { 'for': 'clojure', 'branch': 'acid-autocmd' }
+Plug 'fholiveira/vim-clojure-static', { 'for': 'clojure', 'branch': 'hack-update'}
+Plug 'clojure-vim/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-autocmd' }
 
 " Python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
