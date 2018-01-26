@@ -24,24 +24,19 @@ call s:defn("g:terminal_color_15", "#c5c8c6")
 call s:defn("g:terminal_color_background", "#1d1f21")
 call s:defn("g:terminal_color_foreground", "#c5c8c6")
 
-"function! s:configure_winhighlight()
-  "let ft = &filetype
-  "let bt = &buftype
-  "" Check white/blacklist.
-  "if index(['dirvish'], ft) == -1
-        "\ && (index(['nofile', 'nowrite', 'acwrite', 'quickfix', 'help'], bt) != -1
-        "\     || index(['startify'], ft) != -1)
-    "set winhighlight=Normal:MyNormalWin,NormalNC:MyNormalWin
-    "" echom "normal" winnr() &winhighlight 'ft:'.&ft 'bt:'.&bt
-  "else
-    "set winhighlight=Normal:MyNormalWin,NormalNC:MyInactiveWin
-    "" echom "inactive" winnr() &winhighlight 'ft:'.&ft 'bt:'.&bt
-  "endif
-"endfunction
-"augroup inactive_win
-  "au!
-  ""au ColorScheme * hi link MyInactiveWin ColorColumn | hi link MyNormalWin Normal
-  ""au FileType,BufWinEnter * call s:configure_winhighlight()
-  ""au FocusGained * hi link MyNormalWin Normal
-  ""au FocusLost * hi link MyNormalWin MyInactiveWin
-"augroup END
+function! s:configure_winhighlight()
+  let ft = &filetype
+  let bt = &buftype
+  " Check white/blacklist.
+  if &diff || (index(['dirvish'], ft) == -1
+        \ && (index(['nofile', 'nowrite', 'acwrite', 'quickfix', 'help'], bt) != -1))
+    set winhighlight=NormalNC:MyNormalWin
+  else
+    set winhighlight=NormalNC:MyInactiveWin
+  endif
+endfunction
+augroup inactive_win
+  au!
+  au ColorScheme * hi link MyInactiveWin ColorColumn
+  au FileType,BufWinEnter * call s:configure_winhighlight()
+augroup END

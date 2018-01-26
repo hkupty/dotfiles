@@ -10,6 +10,7 @@ nvimux.config.set_all{
   quickterm_scope = 't',
   quickterm_size = '80',
   new_term = "call IronStartRepl('sh', 0, 1)",
+  override_c = [[:echomsg "Open new tab" \| tabe]]
 }
 
 -- Nvimux custom bindings

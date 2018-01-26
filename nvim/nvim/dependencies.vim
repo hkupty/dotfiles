@@ -1,7 +1,11 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
+" GUI stuff
+Plug 'equalsraf/neovim-gui-shim'
+
 " Dark colors
+Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 
 " Code Completion
@@ -18,7 +22,7 @@ Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
-Plug 'BurningEther/nvimux'
+Plug 'BurningEther/nvimux', { 'branch': 'testing' }
 
 " Split and join
 Plug 'BurningEther/timeshift.vim'
@@ -87,7 +91,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'tbastos/vim-lua'
 
 " Scala
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'mdreves/vim-scaladoc', { 'for': 'scala' }
 

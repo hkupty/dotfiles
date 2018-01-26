@@ -7,6 +7,9 @@ source $HOME/.config/nvim/plugins.vim
 " Config defaults
 source $HOME/.config/nvim/config.vim
 
+" Color stuff
+source $HOME/.config/nvim/color.vim
+
 " Filetype specific stuff
 source $HOME/.config/nvim/ft.vim
 
