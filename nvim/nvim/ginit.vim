@@ -1,1 +1,1 @@
-GuiFont Iosevka:h8
+GuiFont! Iosevka:h10

@@ -1,0 +1,43 @@
+#!/bin/env bash
+
+_encrypt(){
+  file=$1
+  ssid=$2
+  aescrypt -e -p "$(ykchalresp -2 "$ssid")" -o "$HOME/.secure/wifi/$ssid" "$file"
+}
+
+_decrypt(){
+  ssid=$1
+  aescrypt -d -p "$(ykchalresp -2 "$ssid")" -o - "$HOME/.secure/wifi/$ssid"
+}
+
+connect(){
+  ssid=$1
+  sudo bash -c "\
+  ip link set dev wlp2s0 up; \
+  wpa_supplicant -B -i wlp2s0 -c <(echo '$(_decrypt "$ssid")'); \
+  dhcpcd wlp2s0 > /dev/null 2>&1 &"
+}
+
+disconnect(){
+  sudo bash -c "\
+  ip link set dev wlp2s0 down;\
+  killall wpa_supplicant
+  "
+}
+
+add(){
+  config=$1
+  ssid=$2
+  _encrypt "$config" "$ssid"
+}
+
+new(){
+  ssid=$1
+  pass=$2
+  add <(wpa_passphrase "$ssid" "$pass") "$ssid"
+}
+
+list(){
+  ls "$HOME/.secure/wifi/"
+}

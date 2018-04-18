@@ -32,26 +32,27 @@ else
   alias v='nvim'
 fi
 
-zstyle :omz:plugins:ssh-agent identities github gitlab
+zstyle :omz:plugins:ssh-agent identities hkupty_ed25519
 
-source ~/.vars
 source /etc/profile.d/fzf.zsh
 
 export TERM=xterm-256color
+export PURE_PROMPT_SYMBOL=τ
 
 bindkey '^n' autosuggest-accept
 
-compctl -/ -W $PROJ_DIR sd
+compctl -/ -W $CODE sd
 compctl -/ -W $AUR_DIR aur up
 
 eval $(gpg-agent --daemon 2>/dev/null)
 
 setopt PROMPT_SUBST
 
-eval "$(direnv hook zsh)"
-
 source <(antibody init)
 antibody bundle < ~/.plugins
 
+source $HOME/scripts/_fns
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+nv-load
+
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

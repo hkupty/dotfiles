@@ -40,3 +40,7 @@ let g:pad#default_format = "journal"
 
 let g:twitter_use_rust=1
 let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]
+
+let g:ale_writegood_options = "--yes-eprime"
+let g:ale_scalastyle_config_loc = "$HOME/.config/scalastyle/"
+"let g:ale_scalastyle_config_loc = "$HOME/.config/scalastyle/scalastyle_config.xml"

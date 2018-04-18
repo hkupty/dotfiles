@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+extract(){
+script=$2
+"${ASSETS}/litparse.sh" "$1" -l bash -p > "$script"
+chmod +x "$script"
+}
+
+run(){
+  script="$(mktemp)"
+  extract "$1" "$script"
+  "$script" "${@:2}"
+  rm "$script"
+}

@@ -65,8 +65,9 @@ map <leader>rr :so $MYVIMRC<CR>
 map <leader>R  :so %<CR>
 
 " Clear window
-map <leader>o :only<CR>
-map <leader><leader> :nohl<CR>
+map <silent> <leader><down> :call Grab()<CR>
+map <silent> <leader>o :only<CR>
+map <silent> <leader><leader> :nohl<CR>
 
 nnoremap <silent> <leader>% :let g:paredit_mode=!g:paredit_mode<CR>
 
@@ -85,8 +86,8 @@ inoremap <C-w>j <ESC><C-w><C-j>
 inoremap <C-w>k <ESC><C-w><C-k>
 inoremap <C-w>l <ESC><C-w><C-l>
 
-nnoremap <C-s> :pc<CR>
-inoremap <C-s> <ESC>:pc<CR>a
+nnoremap <silent> <C-s>s :exec 'tcd '.expand('%:h')<CR>
+nnoremap <silent> <C-s>u :exec 'tcd '.getcwd(0,0).'/..'<CR>
 
 "No arrow keys
 noremap <Up> <NOP>

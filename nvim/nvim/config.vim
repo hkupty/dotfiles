@@ -60,4 +60,5 @@ let g:is_bash = 1
 " XML folding config
 let g:xml_syntax_folding=1
 au FileType xml,lua setlocal foldmethod=syntax
+
 " vi:syntax=vim

@@ -10,15 +10,14 @@ nvimux.config.set_all{
   quickterm_scope = 't',
   quickterm_size = '80',
   new_term = "call IronStartRepl('sh', 0, 1)",
-  override_c = [[:echomsg "Open new tab" \| tabe]]
 }
 
 -- Nvimux custom bindings
 nvimux.bindings.bind_all{
     {'s', ':NvimuxHorizontalSplit', {'n', 'v', 'i', 't'}},
     {'v', ':NvimuxVerticalSplit', {'n', 'v', 'i', 't'}},
-    {'**', ':NvimuxSet new_window term', {'n', 'v', 'i', 't'}},
-    {'*-', ':NvimuxSet new_window enew', {'n', 'v', 'i', 't'}},
+    {'**', ':NvimuxSet new_tab=term', {'n', 'v', 'i', 't'}},
+    {'*-', ':NvimuxSet new_tab=""', {'n', 'v', 'i', 't'}},
     {'f', ':IronFocus', {'n', 'v', 'i'}},
     {'!', ':IronPromptRepl', {'n', 'v', 'i', 't'}},
     {'$', ':IronRepl', {'n', 'v', 'i', 't'}},

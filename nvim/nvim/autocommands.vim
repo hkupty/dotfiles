@@ -38,5 +38,14 @@ augroup Fixes
        \ | color base16-default-dark
 augroup END
 
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish silent! unmap <buffer> <C-p>
+augroup END
+
+augroup nvr
+  autocmd!
+  autocmd VimEnter * call Grab()
+augroup END
 
 " vi:syntax=vim

@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+install-commit-hook(){
+  cp "$HOME/scripts/assets/resources/commit-msg" "$TC_HOME/$1/.git/hooks/"
+  echo "Installed commit hook for $1"
+}
+
+clone() {
+  git clone "ssh://henry.kupty@gerrit.truecaller.net:29418/$1" "$TC_HOME/$1" && install-commit-hook "$1"
+  git config pull.rebase true
+}

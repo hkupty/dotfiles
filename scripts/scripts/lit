@@ -1,8 +1,0 @@
-#!/bin/bash
-
-script=$(mktemp)
-/opt/code/tools/litparse/dist/litparse.sh "$1" -l bash -p > "$script"
-chmod +x $script
-
-"$script" "${@:2}"
-rm "$script"

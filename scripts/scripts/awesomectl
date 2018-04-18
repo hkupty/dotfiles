@@ -32,6 +32,7 @@ setup(){
       git clone git@github.com:hkupty/awesome-conf.git
       git clone https://github.com/lcpz/awesome-freedesktop.git
       git clone https://github.com/lcpz/lain.git
+      git clone https://github.com/Elv13/tyrannical.git
   }
 
   cd "${awesome_cfg}" && {

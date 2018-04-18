@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'equalsraf/neovim-gui-shim'
 
 " Dark colors
+Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 
@@ -22,7 +23,7 @@ Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
 " Tmux substitute
-Plug 'BurningEther/nvimux', { 'branch': 'testing' }
+Plug 'BurningEther/nvimux'
 
 " Split and join
 Plug 'BurningEther/timeshift.vim'

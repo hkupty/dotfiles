@@ -1,6 +1,9 @@
 " Plugin Management
 source $HOME/.config/nvim/dependencies.vim
 
+" Functions to help my life.
+source $HOME/.config/nvim/functions.vim
+
 " All plugin related configuration
 source $HOME/.config/nvim/plugins.vim
 
@@ -18,3 +21,5 @@ source $HOME/.config/nvim/keybindings.vim
 
 " Autostuff done automatically
 source $HOME/.config/nvim/autocommands.vim
+
+tcd $HOME
