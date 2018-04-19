@@ -21,7 +21,7 @@ md(){
 alias vim=$(which nvim)
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
-  export EDITOR='nvr -O'
+  export EDITOR='open'
 
   alias h='nvr -o'
   alias v='nvr -O'

@@ -12,21 +12,6 @@ function nv-load(){
   return 1
 }
 
-function open(){
-  {
-    nv-load
-    NVR_CMD=false nvr -s "$@" 2>/dev/null
-  } || {
-    args=()
-    for i in "${@[@]/-*/}"; do
-      if [ ! -z "$i" ]; then
-        args+=("$i")
-      fi
-    done
-    nvim-qt "${args[@]}"
-  }
-}
-
 function deq() {
   if [[ -z "$1" ]]
   then
