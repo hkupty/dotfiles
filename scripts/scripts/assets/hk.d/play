@@ -1,5 +1,0 @@
-#!/bin/env bash
-
-routes(){
-  find . -name 'routes' | grep conf | xargs cat | awk 'NF' | column -t
-}

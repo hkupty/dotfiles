@@ -1,5 +1,0 @@
-#!/bin/env bash
-
-todo(){
-  rg TODO | sed -e 's:.*//::' -e 's:.*<!--::' -e 's:.*[#\*]::'
-}
