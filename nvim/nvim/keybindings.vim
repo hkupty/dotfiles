@@ -100,6 +100,9 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
+nnoremap <silent> g> :call OpenAt("right")<CR>
+nnoremap <silent> g< :call OpenAt("left")<CR>
+
 nmap <C-M-p> <Plug>Projects
 nmap <C-M-f> <Plug>FProjects
 nmap <C-M-n> <Plug>TNProjects

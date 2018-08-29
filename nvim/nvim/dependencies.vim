@@ -22,14 +22,27 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'shougo/neosnippet.vim'
 Plug 'shougo/neosnippet-snippets'
 
+" Match stuff
+Plug 'andymass/vim-matchup'
+
+" Text cycling
+Plug 'AndrewRadev/switch.vim'
+
 " Tmux substitute
-Plug 'BurningEther/nvimux'
+Plug $CODE.'/vigemus/nvimux'
 
 " Split and join
 Plug 'BurningEther/timeshift.vim'
 
 " Repls
-Plug 'BurningEther/iron.nvim', { 'branch': 'testing' }
+Plug $CODE.'/vigemus/iron.nvim'
+Plug $CODE.'/vigemus/trex.nvim'
+
+" Fuzzy v2
+Plug $CODE.'/vigemus/picky.nvim'
+
+" Points to where I want
+Plug $CODE.'/vigemus/pointer.nvim'
 
 " Make
 Plug 'w0rp/ale'
@@ -41,8 +54,10 @@ Plug 'vmchale/vim-twitter'
 Plug 'romainl/vim-cool'
 
 " Filesystem tinkering
+Plug 'philip-karlsson/bolt.nvim'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
+
 
 " Project
 Plug 'BurningEther/fzf-proj.vim', { 'branch': 'testing' }
@@ -70,7 +85,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
 " Code navigation
-Plug 'unblevable/quick-scope'
+"Plug 'unblevable/quick-scope'
 
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
@@ -92,7 +107,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'tbastos/vim-lua'
 
 " Scala
-"Plug 'ensime/ensime-vim'
+Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'mdreves/vim-scaladoc', { 'for': 'scala' }
 
@@ -118,10 +133,6 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'junegunn/vader.vim'
 
-"Notes and stuff
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-
 " Splunk!
 Plug 'vim-scripts/splunk.vim'
 
@@ -132,15 +143,15 @@ Plug 'elzr/vim-json'
 Plug 'ledger/vim-ledger'
 
 " Tasks
+Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/utl.vim'
 Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
 
-Plug 'ElmCast/elm-vim'
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+
+Plug 'vito-c/jq.vim'
 
 Plug 'scy/vim-remind'
-
-" Nu Stuff
-Plug $NU_HOME.'/nudev/ides/nvim'
-
 call plug#end()
 
 " vi:syntax=vim

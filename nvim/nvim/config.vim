@@ -2,7 +2,7 @@ set background=dark
 
 set termguicolors
 
-colorscheme base16-default-dark
+colorscheme base16-classic-dark
 
 set noreadonly
 
@@ -60,5 +60,7 @@ let g:is_bash = 1
 " XML folding config
 let g:xml_syntax_folding=1
 au FileType xml,lua setlocal foldmethod=syntax
+
+set tags=*/.tags;.tags
 
 " vi:syntax=vim

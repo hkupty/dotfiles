@@ -1,0 +1,20 @@
+#!/bin/env bash
+
+dirs=($(find /opt/code -type d -name .git | grep -v "nvim" | xargs -n 1 dirname | tr "\n" " "))
+
+for dir in "${dirs[@]}"; do
+  cd "$dir" && {
+    if [[ $(git diff --stat) != '' ]]; then
+      if [[ $(git remote) != '' ]]; then
+        git checkout -b backup
+        git add .
+        git commit -m "Bakcup"
+        git push -u origin backup
+      fi
+      echo "Dirty and no remote: $dir"
+    else
+      echo "Clean: $dir"
+    fi
+    cd || echo "What?"
+  }
+done

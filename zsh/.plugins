@@ -2,7 +2,7 @@ zsh-users/zsh-syntax-highlighting
 hcgraf/zsh-sudo
 chrissicool/zsh-256color
 mafredri/zsh-async
-sindresorhus/pure
+denysdovhan/spaceship-prompt
 hkupty/ssh-agent
 Seinh/git-prune
 zsh-users/zsh-autosuggestions

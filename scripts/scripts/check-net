@@ -1,2 +1,2 @@
 #!/bin/env bash
-watch -g "ping -c 1 google.com >/dev/null 2>&1 && echo 'Connected!' || echo 'No internet'"
+watch -t -g "ping -c 1 google.com >/dev/null 2>&1 && echo 'Connected!' || echo 'No internet'"

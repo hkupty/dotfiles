@@ -1,0 +1,14 @@
+#!/bin/bash
+
+from=$1
+to=${2:-HEAD}
+sink=${3:-out}
+
+if [ "$sink" == "clip" ]; then
+  sink="xsel -b"
+else
+  sink="xargs -I {} echo {} "
+fi
+
+echo -ne "Deploying $(basename $0)\n\`\`\`\n$(git log --oneline --decorate "$from".."$to")\n\`\`\`" | $sink
+

@@ -1,0 +1,33 @@
+#!/bin/env bash
+
+_tf(){
+  echo "${1%/*}/-${1##*/}"
+}
+
+kube(){
+  fpath="$HOME/.kube/config"
+  fname=${fpath}
+  ofname=$(_tf "$fname")
+
+  if [ "$1" == "off" ]; then
+    if [ -f "$fname" ]; then
+      mv "$fname" "$ofname"
+    fi
+  elif [ "$1" == "on" ]; then
+    if [ -f "$ofname" ]; then
+      mv "$ofname" "$fname"
+    fi
+  else
+    echo "Must specify the switch by running 'turn (on|off) kube'"
+  fi
+}
+
+off(){
+  $1 off
+}
+
+on(){
+  $1 on
+}
+
+"$@"

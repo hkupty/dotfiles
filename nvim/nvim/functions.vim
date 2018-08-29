@@ -8,4 +8,13 @@ EOF
   endif
 endfunction
 
-
+function! OpenAt(side)
+  let olds = @s
+  normal $"syiW
+  if a:side ==? "left"
+    exec "topleft vertical split " @s
+  else
+    exec "botright vertical split " @s
+  endif
+  let @s = olds
+endfunction

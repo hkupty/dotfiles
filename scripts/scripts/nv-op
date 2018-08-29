@@ -1,0 +1,60 @@
+#!/bin/env bash
+
+function nv-load(){
+  if [ ! -z "$NVIM_LISTEN_ADDRESS" ]; then
+    return 0
+  elif [ -e /tmp/nvim-server ]; then
+    NVIM_LISTEN_ADDRESS=$(cat /tmp/nvim-server)
+    export NVIM_LISTEN_ADDRESS
+    return 0
+  fi
+  return 1
+}
+
+nvim-qt-flags(){
+  f=()
+  for i in "${@}"; do
+    case $i in
+      "-w");;
+      "-s");;
+      "-v");;
+      *) f+=("$i");;
+    esac
+  done
+  echo "${f[@]}"
+}
+
+nvr-flags(){
+  f=()
+  for i in "${@}"; do
+    case $i in
+      "-w") f+=(-c 'set bh=delete' --remote-wait)
+        ;;
+      "-s") f+=(-s)
+        ;;
+      "-v") f+=(--cc vnew)
+        ;;
+      *) f+=("$i")
+        ;;
+    esac
+  done
+  echo "${f[*]}"
+}
+
+
+{
+  nv-load
+  set -x
+  NVR_CMD=false echo nvr "$(nvr-flags "$@")" 2> /dev/null
+  set +x
+} || {
+  args=()
+  for i in "${@/-*/}"
+  do
+    if [ ! -z "$i" ]
+    then
+      args+=("$i")
+    fi
+  done
+  nvim-qt "${args[@]}"
+}

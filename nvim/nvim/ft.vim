@@ -10,5 +10,5 @@ function! SplitXml(motion) abort
     endif
 endfunction
 
-au FileType xml,html nmap <silent> sx :set opfunc=SplitXml<CR>g@
-au FileType xml,html vmap <silent> sx :<C-U>call SplitXml(visualmode())
+"au FileType xml,html nmap <silent> sx :set opfunc=SplitXml<CR>g@
+"au FileType xml,html vmap <silent> sx :<C-U>call SplitXml(visualmode())

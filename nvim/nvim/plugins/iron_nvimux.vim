@@ -1,6 +1,7 @@
 lua << EOF
 -- Nvimux configuration
 local nvimux = require('nvimux')
+local iron = require('iron')
 
 nvimux.config.set_all{
   open_term_by_default = true,
@@ -18,13 +19,20 @@ nvimux.bindings.bind_all{
     {'v', ':NvimuxVerticalSplit', {'n', 'v', 'i', 't'}},
     {'**', ':NvimuxSet new_tab=term', {'n', 'v', 'i', 't'}},
     {'*-', ':NvimuxSet new_tab=""', {'n', 'v', 'i', 't'}},
-    {'f', ':IronFocus', {'n', 'v', 'i'}},
-    {'!', ':IronPromptRepl', {'n', 'v', 'i', 't'}},
-    {'$', ':IronRepl', {'n', 'v', 'i', 't'}},
-    {'#', ':IronPromptCommand', {'n', 'v', 'i', 't'}},
+    {'$', ':TrexInvoke', {'n', 'v', 'i', 't'}},
 }
 
-nvimux.bootstrap()
+if nvimux_loaded == nil then
+  nvimux.bootstrap()
+end
+nvimux_loaded = true
+
+iron.core.set_config {
+  preferred = {
+    python = "ipython"
+  }
+}
+
 EOF
 
 function! s:escape_ft(ft)
@@ -46,3 +54,5 @@ let g:iron_new_sh_repl_hooks = ['SetNvimuxConfigOnShell']
 let g:iron_debug = 1
 let g:iron_repl_open_cmd = "topleft vertical 100 split"
 let g:iron_map_defaults = 1
+autocmd Filetype python nmap <localleader>\\ :call IronSend(getline('.'))<CR><ESC><C-w>jG<C-w>pj0
+

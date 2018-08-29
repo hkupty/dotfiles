@@ -55,8 +55,10 @@ deinst() {
 
 add() {
   cd "$AUR_DIR"
-  echo "Adding $1"
-  git clone "https://aur.archlinux.org/$1.git"
+  for pkg in "$@"; do
+    echo "Adding $pkg"
+    git clone "https://aur.archlinux.org/$pkg.git"
+  done
 }
 
 add-dep-of() {
@@ -118,7 +120,7 @@ run(){
     up|update) update "$@" ;;
     purge) purge ;;
     rm|remove) deinst $1 ;;
-    add) add $1 ;;
+    add) add "$@" ;;
     dep|dep-add) add-dep-of $1 $2 ;;
     dep-rm) rm-dep-of $1 $2 ;;
     *)

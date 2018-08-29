@@ -1,0 +1,23 @@
+package com.truecaller.tagging.models
+
+import scala.collection.JavaConverters._
+import scala.collection.breakOut
+
+import com.truecaller.tagging.core.param.TagsDeletionParam
+
+case class TagsDeletion(registerId: Long, phoneNumbers: List[Long]){
+  def toProfileTag(): List[ProfileTag] = phoneNumbers.map(pn => ProfileTag.fromNumberAndRegisterId(pn, registerId))
+  def toManualTag(): List[ManualTag] = phoneNumbers.map(pn => ManualTag.fromNumberAndRegisterId(pn, registerId))
+  def toAutoTag(): List[AutoTag] = phoneNumbers.map(pn => AutoTag.fromNumberAndRegisterId(pn, registerId))
+}
+
+implicit def tdToProfileTag(tagsDeletion: TagsDeletion): ProfileTag =  tagsDeletion.toProfileTag()
+implicit def tdToManualTag(tagsDeletion: TagsDeletion): ManualTag =  tagsDeletion.toManualTag()
+implicit def tdToAutoTag(tagsDeletion: TagsDeletion): AutoTag =  tagsDeletion.toAutoTag()
+
+object TagsDeletion {
+  def fromJava(data: TagsDeletionParam): Option[TagsDeletion] = for {
+    registerId <- Option(data.getRegisterId)
+    phoneNumbers <- Option(data.getPhoneNumbers.asScala.map(Long2long)(breakOut) : List[Long])
+  } yield TagsDeletion(registerId, phoneNumbers)
+}

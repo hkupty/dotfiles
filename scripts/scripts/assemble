@@ -1,0 +1,81 @@
+#!/bin/env python3
+import os, json, sys
+import shlex, subprocess
+
+from collections import defaultdict
+
+tgt_path = "$HOME/.config/assemble/packages.json"
+
+def at(path, fn):
+    curr = os.getcwd()
+    os.chdir(path)
+    v = fn()
+    os.chdir(curr)
+    return v
+
+def path(*paths):
+    return os.path.expandvars(os.path.join(*paths))
+
+def newCtx():
+    return defaultdict(dict)
+
+def aurCheck(_, pkg):
+    return os.path.exists(path("$AUR_DIR", pkg))
+
+def genStep(step, cmd, *folders, cwdl=None):
+    slc = slice(cwdl)
+
+    def fn(ctx, pkg):
+       ctx[pkg][step] = subprocess.Popen(
+            shlex.split(cmd.format(pkg)),
+            cwd=path(*[*folders, pkg][slc]),
+            stderr=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL
+        )
+
+    return fn
+
+
+repos = {
+    "aur": {
+        "check": aurCheck,
+        "checkfail": genStep(
+            "checkfail",
+            "git clone https://aur.archlinux.org/{}.git",
+            "$AUR_DIR",
+            cwdl=-1
+        ),
+        "install": genStep(
+            "install",
+            "makepkg -sic --noconfirm",
+            "$AUR_DIR"
+        )
+    }
+}
+
+def install(context, packages):
+    repo = repos[context]
+    ctx = newCtx()
+
+    for pkg in packages:
+
+        if not repo["check"](ctx, pkg):
+            repo["checkfail"](ctx, pkg)
+
+            try:
+                ctx[pkg]["checkfail"].wait(10)
+            except:
+                sys.exit(1)
+
+        # repo["install"](ctx, pkg)
+
+    print(ctx)
+
+
+def load(pkgFile):
+    with open(os.path.expandvars(pkgFile), 'r') as f:
+        return json.loads(f.read())
+
+
+ctx = "aur"
+install(ctx, load(tgt_path)[ctx])

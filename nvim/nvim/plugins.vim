@@ -19,6 +19,11 @@ source $HOME/.config/nvim/plugins/ale.vim
 " Airline
 source $HOME/.config/nvim/plugins/airline.vim
 
+" Switch
+source $HOME/.config/nvim/plugins/switch.vim
+
+luafile $HOME/.config/nvim/plugins/pointer.lua
+
 let g:fzf#proj#project_dir = '/opt/code/'
 let g:fzf#proj#max_proj_depth = 2
 let g:fzf#proj#project#open_new_tab = 0
@@ -41,6 +46,4 @@ let g:pad#default_format = "journal"
 let g:twitter_use_rust=1
 let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]
 
-let g:ale_writegood_options = "--yes-eprime"
-let g:ale_scalastyle_config_loc = "$HOME/.config/scalastyle/"
-"let g:ale_scalastyle_config_loc = "$HOME/.config/scalastyle/scalastyle_config.xml"
+let g:utl_cfg_hdl_scm_http="call system('firefox %u')"

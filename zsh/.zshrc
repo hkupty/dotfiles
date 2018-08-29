@@ -21,7 +21,7 @@ md(){
 alias vim=$(which nvim)
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
-  export EDITOR='open'
+  export EDITOR="nvr -cc vnew -c 'set bh=delete' --remote-wait"
 
   alias h='nvr -o'
   alias v='nvr -O'
@@ -37,9 +37,6 @@ zstyle :omz:plugins:ssh-agent identities hkupty_ed25519
 source /etc/profile.d/fzf.zsh
 
 export TERM=xterm-256color
-export PURE_PROMPT_SYMBOL=τ
-
-bindkey '^n' autosuggest-accept
 
 compctl -/ -W $CODE sd
 compctl -/ -W $AUR_DIR aur up
@@ -53,6 +50,10 @@ antibody bundle < ~/.plugins
 
 source $HOME/scripts/_fns
 
+bindkey '^n' autosuggest-accept
+
 nv-load
+
+fpath+=~/.zfunc
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
