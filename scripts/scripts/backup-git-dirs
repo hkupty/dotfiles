@@ -6,10 +6,10 @@ for dir in "${dirs[@]}"; do
   cd "$dir" && {
     if [[ $(git diff --stat) != '' ]]; then
       if [[ $(git remote) != '' ]]; then
-        git checkout -b backup > /dev/null
+        git checkout -b backup --quiet > /dev/null
         git add . > /dev/null
         git commit -m "Backup" > /dev/null
-        git push -u origin backup > /dev/null
+        git push -u origin backup --quiet > /dev/null
         echo "Dirty and backed up: $dir"
       else
         echo "Dirty and no remote: $dir"
