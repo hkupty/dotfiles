@@ -4,6 +4,7 @@ dirs=($(find /opt/code -type d -name .git | grep -v "nvim" | xargs -n 1 dirname 
 
 for dir in "${dirs[@]}"; do
   cd "$dir" && {
+    echo -n "$dir -> "
     if [[ $(git diff --stat) != '' ]]; then
       if [[ $(git remote) != '' ]]; then
         git checkout -b backup --quiet > /dev/null
