@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-dirs=($(find /opt/code -type d -name .git | grep -v "nvim" | xargs -n 1 dirname | tr "\n" " "))
+dirs=($(find /opt -type d -name .git | grep -v "nvim" | xargs -n 1 dirname | tr "\n" " "))
 
 for dir in "${dirs[@]}"; do
   cd "$dir" && {
