@@ -32,11 +32,13 @@ else
   alias v='nvim'
 fi
 
-zstyle :omz:plugins:ssh-agent identities hkupty_ed25519
+zstyle :omz:plugins:ssh-agent identities hk_klarna_rsa hkupty_ed25519
 
-source /etc/profile.d/fzf.zsh
+#source /etc/profile.d/fzf.zsh
 
+source $HOME/scripts/_fns
 export TERM=xterm-256color
+export PURE_PROMPT_SYMBOL=τ
 
 compctl -/ -W $CODE sd
 compctl -/ -W $AUR_DIR aur up
@@ -48,12 +50,11 @@ setopt PROMPT_SUBST
 source <(antibody init)
 antibody bundle < ~/.plugins
 
-source $HOME/scripts/_fns
+source $HOME/.profile
+source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 bindkey '^n' autosuggest-accept
 
-nv-load
-
 fpath+=~/.zfunc
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
