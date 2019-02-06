@@ -1,3 +1,6 @@
+" FIXME fzf hack 'cause fedora sucks
+source /opt/code/packages/fzf/plugin/fzf.vim
+
 " deoplete tweaking
 source $HOME/.config/nvim/plugins/deoplete.vim
 

@@ -21,6 +21,7 @@ set smartcase
 " Base sanity stuff
 set noswapfile
 set autowriteall
+set writeany
 
 " Also, let me have settings per project
 set exrc
@@ -61,6 +62,10 @@ let g:is_bash = 1
 let g:xml_syntax_folding=1
 au FileType xml,lua setlocal foldmethod=syntax
 
+let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!target/*"'
+
 set tags=*/.tags;.tags
+
+"call serverstart("127.0.0.1:12345")
 
 " vi:syntax=vim

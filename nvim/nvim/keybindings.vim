@@ -26,8 +26,6 @@ vnoremap gna :'<,'>normal @a<CR>
 nnoremap gb :Gina branch<CR>
 nnoremap gB :Gina blame :<CR>
 
-nnoremap <C-p> :Files<CR>
-
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
 
@@ -100,13 +98,11 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nnoremap <silent> g> :call OpenAt("right")<CR>
-nnoremap <silent> g< :call OpenAt("left")<CR>
-
-nmap <C-M-p> <Plug>Projects
-nmap <C-M-f> <Plug>FProjects
-nmap <C-M-n> <Plug>TNProjects
-nmap <C-M-q> <Plug>FTNProjects
+nmap <C-M-p> <Cmd>lua require("cartographer").project()<CR>
+nmap <C-p> <Cmd>lua require("cartographer").files()<CR>
+nmap <M-v> <Cmd>lua require("cartographer").files("leftabove vnew")<CR>
+nmap <M-h> <Cmd>lua require("cartographer").files("rightbelow new")<CR>
+nmap <C-t> <Cmd>lua require("cartographer").todo("rightbelow new")<CR>
 
 map <LocalLeader>kb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 " vi:syntax=vim

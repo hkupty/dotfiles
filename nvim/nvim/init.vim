@@ -1,9 +1,6 @@
 " Plugin Management
 source $HOME/.config/nvim/dependencies.vim
 
-" Functions to help my life.
-source $HOME/.config/nvim/functions.vim
-
 " All plugin related configuration
 source $HOME/.config/nvim/plugins.vim
 
@@ -22,4 +19,12 @@ source $HOME/.config/nvim/keybindings.vim
 " Autostuff done automatically
 source $HOME/.config/nvim/autocommands.vim
 
-tcd $HOME
+" FIXME path hack 'cause fedora sucks
+source $HOME/.config/nvim/path.vim
+
+" Config plugins in lua
+luafile $HOME/.config/nvim/plugins.lua
+luafile $HOME/.config/nvim/lua/project.lua
+
+" impromptu + acid
+luafile $HOME/.config/nvim/lua/jazz.lua

@@ -1,5 +1,6 @@
+call plug#begin('~/.config/nvim/plugged/')
 
-call plug#begin('~/.config/nvim/plugged')
+Plug 'bfredl/nvim-luadev'
 
 " GUI stuff
 Plug 'equalsraf/neovim-gui-shim'
@@ -8,6 +9,7 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'colepeters/spacemacs-theme.vim'
 
 " Code Completion
 Plug 'shougo/deoplete.nvim'
@@ -18,12 +20,18 @@ Plug 'vim-scripts/let-modeline.vim'
 " Ctags
 Plug 'ludovicchabant/vim-gutentags'
 
+" TODO: remove
+Plug $CODE.'/KillTheMule/nvimpam'
+
 " Snippets
-Plug 'shougo/neosnippet.vim'
-Plug 'shougo/neosnippet-snippets'
+"Plug 'shougo/neosnippet.vim'
+"Plug 'shougo/neosnippet-snippets'
 
 " Match stuff
-Plug 'andymass/vim-matchup'
+"Plug 'andymass/vim-matchup'
+
+" Parenthesis matchup
+Plug 'tmsvg/pear-tree'
 
 " Text cycling
 Plug 'AndrewRadev/switch.vim'
@@ -32,11 +40,17 @@ Plug 'AndrewRadev/switch.vim'
 Plug $CODE.'/vigemus/nvimux'
 
 " Split and join
-Plug 'BurningEther/timeshift.vim'
+Plug 'Vigemus/timeshift.vim'
 
 " Repls
 Plug $CODE.'/vigemus/iron.nvim'
 Plug $CODE.'/vigemus/trex.nvim'
+
+" Prompt utils
+Plug $CODE.'/vigemus/impromptu'
+
+" Project Navigation
+Plug $CODE.'/vigemus/cartographer.nvim'
 
 " Fuzzy v2
 Plug $CODE.'/vigemus/picky.nvim'
@@ -54,13 +68,11 @@ Plug 'vmchale/vim-twitter'
 Plug 'romainl/vim-cool'
 
 " Filesystem tinkering
-Plug 'philip-karlsson/bolt.nvim'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 
-
 " Project
-Plug 'BurningEther/fzf-proj.vim', { 'branch': 'testing' }
+Plug 'Vigemus/fzf-proj.vim', { 'branch': 'testing' }
 
 " Code commenting
 Plug 'scrooloose/nerdcommenter'
@@ -94,7 +106,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tommcdo/vim-lion'
 
 " LSP client
-Plug 'autozimu/LanguageClient-neovim'
+"Plug 'autozimu/LanguageClient-neovim'
 
 " Fn signatures
 Plug 'Shougo/echodoc.vim'
@@ -107,7 +119,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'tbastos/vim-lua'
 
 " Scala
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'mdreves/vim-scaladoc', { 'for': 'scala' }
 
@@ -118,8 +130,9 @@ Plug 'derekwyatt/vim-sbt', { 'for': 'sbt.scala' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
+Plug $CODE.'/clojure-vim/acid.nvim'
+
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'clojure-vim/acid.nvim', { 'branch': 'testing' }
 Plug 'clojure-vim/async-clj-omni'
 Plug 'fholiveira/vim-clojure-static', { 'for': 'clojure', 'branch': 'hack-update'}
 Plug 'clojure-vim/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-autocmd' }
@@ -128,6 +141,9 @@ Plug 'clojure-vim/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-auto
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+" Nix
+Plug 'LnL7/vim-nix'
 
 " Vim - Vader
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
