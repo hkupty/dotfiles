@@ -1,6 +1,5 @@
 -- luacheck: globals unpack vim
 local acid = require('acid')
-local handlers = require('acid.handlers')
 local ops = require('acid.commands').ops
 local features = require('acid.features')
 local nrepl = require('acid.nrepl')
@@ -16,7 +15,7 @@ low_level.ends_with = function(str, ending)
 end
 
 
-jazz.nrepl_connect = function(pwd)
+jazz.nrepl_menu = function(pwd)
   pwd = pwd or vim.api.nvim_call_function("getcwd", {})
 
   local current = connections.current[pwd]
@@ -51,7 +50,7 @@ jazz.nrepl_connect = function(pwd)
     question = "Select nrepl to connect to:",
     options = opts,
     handler = function(_, selected)
-      if selected.key == "new" then
+      if selected.index == "new" then
         nrepl.start{pwd = pwd}
       else
         connections:select(pwd, selected)
@@ -87,7 +86,7 @@ jazz.find_usages = function(symbol, ns)
       if low_level.ends_with(vim.api.nvim_call_function("expand", {"%"}), fpath) then
         vim.api.nvim_call_function("cursor", {ln, col})
       else
-        vim.api.nvim_command(winnr .. "wincmd w | edit +" .. ln .. " " .. fpath)
+        vim.api.nvim_command(winnr .. "wincmd w | new +" .. ln .. " " .. fpath)
       end
       vim.api.nvim_set_option("scrolloff", cur_scroll)
 
@@ -98,7 +97,7 @@ jazz.find_usages = function(symbol, ns)
   local acid_handler = function(data)
     if data.occurrence ~= nil then
       local descr = (
-          data.occurrence.match .. " @ " .. data.occurrence.file .. ":" .. data.occurrence['line-beg']
+          data.occurrence.match .. " @ " .. data.occurrence.file .. ":" .. math.floor(data.occurrence['line-beg'])
         ):gsub("\n", "\\n")
 
       ui:update{description = descr, data = data}
@@ -115,6 +114,6 @@ end
 
 _G.jazz = jazz
 
-vim.api.nvim_command("command! -nargs=0 NreplConnect lua jazz.nrepl_connect()")
+vim.api.nvim_command("command! -nargs=0 JazzNrepl lua jazz.nrepl_menu()")
 vim.api.nvim_command("command! -nargs=0 RequireAll lua jazz.require_all()")
 vim.api.nvim_command("command! -nargs=? JazzFindUsages lua jazz.find_usages(<f-args>)")

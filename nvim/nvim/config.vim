@@ -2,7 +2,11 @@ set background=dark
 
 set termguicolors
 
-colorscheme base16-classic-dark
+if has("nvim-0.4.0")
+  colorscheme space-vim-dark
+else
+  colorscheme base16-classic-dark
+endif
 
 set noreadonly
 

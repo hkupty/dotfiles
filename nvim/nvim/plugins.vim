@@ -27,6 +27,27 @@ source $HOME/.config/nvim/plugins/switch.vim
 
 luafile $HOME/.config/nvim/plugins/pointer.lua
 
+function! HkuptyGetCurrentNreplPort()
+  let connection = luaeval("require('acid.connections').get(_A)", getcwd())
+  if type(connection) != type(v:null)
+    return "nrepl://" . connection[0] . ":" . connection[1]
+  endif
+  return ""
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \             [ 'nrepl' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gina#component#repo#branch',
+      \   'nrepl': 'HkuptyGetCurrentNreplPort'
+      \ },
+      \ }
+
 let g:fzf#proj#project_dir = '/opt/code/'
 let g:fzf#proj#max_proj_depth = 2
 let g:fzf#proj#project#open_new_tab = 0
@@ -50,3 +71,5 @@ let g:twitter_use_rust=1
 let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]
 
 let g:utl_cfg_hdl_scm_http="call system('firefox %u')"
+
+let g:goyo_width="80%"

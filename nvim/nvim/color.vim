@@ -35,6 +35,7 @@ function! s:configure_winhighlight()
     set winhighlight=NormalNC:MyInactiveWin
   endif
 endfunction
+
 augroup inactive_win
   au!
   au ColorScheme * hi link MyInactiveWin ColorColumn

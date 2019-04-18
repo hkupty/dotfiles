@@ -1,7 +1,6 @@
 -- luacheck: globals vim
 local impromptu = require("impromptu")
 local cartographer = require("cartographer")
-local inspect = require("inspect")
 
 cartographer.config{
   project = {
@@ -19,7 +18,9 @@ cartographer.config{
   }
 }
 
-_G.new_file = function(open_cmd)
+_G.new_file = function()
+  local cb = vim.api.nvim_get_current_buf()
+  local winnr = vim.api.nvim_call_function("bufwinnr", {cb})
   local path
   local fname = impromptu.new.form{
     title = "Create new file",
@@ -29,17 +30,11 @@ _G.new_file = function(open_cmd)
       }
     },
     handler = function(_, answers)
-      vim.api.nvim_command((open_cmd or "edit") .. " " .. path .. "/" .. answers.fname)
-      local last_b = vim.api.nvim_call_function("bufnr", {"$"})
-      local last_winnr = vim.api.nvim_call_function("bufwinnr", {last_b})
-      vim.api.nvim_command(last_winnr .. "wincmd w")
+      vim.api.nvim_command(winnr .. "wincmd w")
+      vim.api.nvim_command("belowright vertical new " .. path .. "/" .. answers.fname)
       return true
     end
   }
-
-
-  print(inspect(fname))
-
 
   cartographer.do_at(function(session, opt)
     path = opt.description
@@ -47,4 +42,4 @@ _G.new_file = function(open_cmd)
   end)
 end
 
-vim.api.nvim_command("command! -nargs=? NewFile lua new_file(<f-args>)")
+vim.api.nvim_command("command! -nargs=? NewFile lua new_file()")

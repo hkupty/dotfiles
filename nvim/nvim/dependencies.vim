@@ -9,13 +9,16 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'colepeters/spacemacs-theme.vim'
+Plug $CODE.'forks/space-vim-dark'
 
 " Code Completion
 Plug 'shougo/deoplete.nvim'
 
 " Let on modeline
 Plug 'vim-scripts/let-modeline.vim'
+
+" Statusline
+Plug 'itchyny/lightline.vim'
 
 " Ctags
 Plug 'ludovicchabant/vim-gutentags'
@@ -131,11 +134,12 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug $CODE.'/clojure-vim/acid.nvim'
+Plug $CODE.'/vigemus/jazz.nvim'
+Plug $CODE.'/clojure-vim/async-clj-highlight'
 
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'clojure-vim/async-clj-omni'
 Plug 'fholiveira/vim-clojure-static', { 'for': 'clojure', 'branch': 'hack-update'}
-Plug 'clojure-vim/async-clj-highlight', { 'for': 'clojure', 'branch': 'acid-autocmd' }
 
 " Python
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
@@ -147,7 +151,6 @@ Plug 'LnL7/vim-nix'
 
 " Vim - Vader
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'junegunn/vader.vim'
 
 " Splunk!
 Plug 'vim-scripts/splunk.vim'
@@ -166,6 +169,8 @@ Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 
 Plug 'vito-c/jq.vim'
+
+Plug 'junegunn/goyo.vim'
 
 Plug 'scy/vim-remind'
 call plug#end()

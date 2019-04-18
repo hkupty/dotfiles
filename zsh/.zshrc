@@ -50,6 +50,7 @@ setopt PROMPT_SUBST
 source <(antibody init)
 antibody bundle < ~/.plugins
 
+source $HOME/.vars
 source $HOME/.profile
 source $HOME/.nix-profile/etc/profile.d/nix.sh
 

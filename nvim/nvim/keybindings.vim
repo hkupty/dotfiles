@@ -98,11 +98,25 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
+nmap <C-w><C-w> <Cmd>silent ! gtk-launch nvim-appimage<CR>
+
 nmap <C-M-p> <Cmd>lua require("cartographer").project()<CR>
+nmap <C-f> <Cmd>lua require("cartographer").cd()<CR>
 nmap <C-p> <Cmd>lua require("cartographer").files()<CR>
+nmap <C-g> <Cmd>lua require("cartographer").buffers()<CR>
+nmap <C-l> <Cmd>lua require("cartographer").local_buffers()<CR>
 nmap <M-v> <Cmd>lua require("cartographer").files("leftabove vnew")<CR>
 nmap <M-h> <Cmd>lua require("cartographer").files("rightbelow new")<CR>
 nmap <C-t> <Cmd>lua require("cartographer").todo("rightbelow new")<CR>
+
+nmap <C-space> <Cmd>Goyo<CR>
+
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <C-H> <S-Left>
+cnoremap <C-L> <S-Right>
+cnoremap <C-V> <C-R>+
 
 map <LocalLeader>kb :botright vertical 60 split ~/.config/nvim/plugins/vim-sexp.vim<CR>
 " vi:syntax=vim

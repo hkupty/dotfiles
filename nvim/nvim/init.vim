@@ -24,7 +24,8 @@ source $HOME/.config/nvim/path.vim
 
 " Config plugins in lua
 luafile $HOME/.config/nvim/plugins.lua
+
 luafile $HOME/.config/nvim/lua/project.lua
 
 " impromptu + acid
-luafile $HOME/.config/nvim/lua/jazz.lua
+"luafile $HOME/.config/nvim/lua/jazz.lua

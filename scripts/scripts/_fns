@@ -1,7 +1,6 @@
 #!/bin/bash
 
 declare -A ALIASES
-ALIASES[tc]=truecaller
 
 function nv-load(){
   if [ -e /tmp/nvim-server ]; then
@@ -88,4 +87,8 @@ help() {
   Ω               Routines that are executed frequently
   list \$greek    Lists nested scripts/routins on \$greek
 EOF
+}
+
+aws(){
+  python3 -c "from awscli.clidriver import main; main()" -- "$@"
 }
