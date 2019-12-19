@@ -1,6 +1,3 @@
-" FIXME fzf hack 'cause fedora sucks
-source /opt/code/packages/fzf/plugin/fzf.vim
-
 " deoplete tweaking
 source $HOME/.config/nvim/plugins/deoplete.vim
 
@@ -30,21 +27,32 @@ luafile $HOME/.config/nvim/plugins/pointer.lua
 function! HkuptyGetCurrentNreplPort()
   let connection = luaeval("require('acid.connections').get(_A)", getcwd())
   if type(connection) != type(v:null)
-    return "nrepl://" . connection[0] . ":" . connection[1]
+    return "[Acid :nrepl-on]"
+  endif
+  return ""
+endfunction
+
+function! HkuptyAcidAdminNrepl()
+  let connection = luaeval("require('acid').admin_session()", v:null)
+  if type(connection) != type(v:null)
+    return "[Acid :admin-nrepl-on]"
   endif
   return ""
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-      \             [ 'nrepl' ] ]
+      \             [ 'nrepl' ],
+      \             [ 'adminnrepl' ]
+      \           ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'gina#component#repo#branch',
-      \   'nrepl': 'HkuptyGetCurrentNreplPort'
+      \   'nrepl': 'HkuptyGetCurrentNreplPort',
+      \   'adminnrepl': 'HkuptyAcidAdminNrepl',
       \ },
       \ }
 
@@ -73,3 +81,5 @@ let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]
 let g:utl_cfg_hdl_scm_http="call system('firefox %u')"
 
 let g:goyo_width="80%"
+
+-

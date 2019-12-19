@@ -6,7 +6,7 @@ autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
 augroup terminal_commands
     au!
     au BufEnter * if &buftype == "terminal" | startinsert | endif
-    au TermOpen * setl nonumber norelativenumber
+    au TermOpen * setl nonumber norelativenumber scrolloff=0
 augroup END
 
 " Project/Language specific config
@@ -41,6 +41,8 @@ augroup END
 augroup dirvish_config
   autocmd!
   autocmd FileType dirvish silent! unmap <buffer> <C-p>
+  autocmd FileType dirvish silent! nmap <buffer> <C-c> <Plug>(dirvish_quit)
 augroup END
+
 
 " vi:syntax=vim

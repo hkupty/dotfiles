@@ -36,8 +36,8 @@ function! s:configure_winhighlight()
   endif
 endfunction
 
-augroup inactive_win
-  au!
-  au ColorScheme * hi link MyInactiveWin ColorColumn
-  au FileType,BufWinEnter * call s:configure_winhighlight()
-augroup END
+"augroup inactive_win
+  "au!
+  "au ColorScheme * hi link MyInactiveWin ColorColumn
+  "au FileType,BufWinEnter * call s:configure_winhighlight()
+"augroup END

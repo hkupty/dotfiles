@@ -1,12 +1,6 @@
-set background=dark
-
 set termguicolors
 
-if has("nvim-0.4.0")
-  colorscheme space-vim-dark
-else
-  colorscheme base16-classic-dark
-endif
+colorscheme space-vim-dark
 
 set noreadonly
 
@@ -43,7 +37,7 @@ set wildmode=full
 set inccommand=split
 
 set noshowmode
-set laststatus=0
+set laststatus=2
 set noshowcmd
 set mouse=a
 

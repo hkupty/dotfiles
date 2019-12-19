@@ -2,7 +2,7 @@
   name = Henry Kupty
   email = hkupty@gmail.com
 [push]
-  default = simple
+	default = current
 [color]
   ui = true
   diff = true
@@ -16,4 +16,6 @@
   enabled = 1
   autoupdate = true
 [core]
-	excludesfile = /home/ingvij/.gitignore_global
+	excludesfile = /home/hkupty/.gitignore_global
+[includeIf "gitdir:/opt/code/klarna/"]
+  path = /opt/code/klarna/.gitconfig

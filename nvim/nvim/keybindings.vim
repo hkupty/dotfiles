@@ -3,9 +3,6 @@ let mapleader = ","
 let maplocalleader = " "
 
 " rg + fzf ftw
-nmap <leader>/ <plug>Grep
-nmap <leader>? <plug>GrepAll
-
 nmap <leader>S :exec "let cft=&ft \| edit scratchpad \| let &ft=cft"<CR>
 
 " Quick Scope
@@ -16,7 +13,6 @@ vmap <leader>q <plug>(QuickScopeToggle)
 nmap <C-M-d> <plug>GitDirty
 nmap <C-M-u> <plug>GitUnsynced
 
-vnoremap y myy`y
 vnoremap Y myY`y
 
 "normal @a
@@ -100,14 +96,18 @@ noremap <S-Right> <NOP>
 
 nmap <C-w><C-w> <Cmd>silent ! gtk-launch nvim-appimage<CR>
 
-nmap <C-M-p> <Cmd>lua require("cartographer").project()<CR>
-nmap <C-f> <Cmd>lua require("cartographer").cd()<CR>
-nmap <C-p> <Cmd>lua require("cartographer").files()<CR>
-nmap <C-g> <Cmd>lua require("cartographer").buffers()<CR>
-nmap <C-l> <Cmd>lua require("cartographer").local_buffers()<CR>
-nmap <M-v> <Cmd>lua require("cartographer").files("leftabove vnew")<CR>
-nmap <M-h> <Cmd>lua require("cartographer").files("rightbelow new")<CR>
-nmap <C-t> <Cmd>lua require("cartographer").todo("rightbelow new")<CR>
+nmap <C-M-p> <Cmd>lua _.cartographer.project()<CR>
+nmap <C-f> <Cmd>lua _.cartographer.cd()<CR>
+nmap <C-p> <Cmd>lua _.cartographer.files{}<CR>
+nmap <C-g> <Cmd>lua _.cartographer.dirty()<CR>
+nmap <C-l> <Cmd>lua _.cartographer.buffers{}<CR>
+nmap <M-v> <Cmd>lua _.cartographer.files("leftabove vnew")<CR>
+nmap <M-h> <Cmd>lua _.cartographer.files("rightbelow new")<CR>
+nmap <C-t> <Cmd>lua _.cartographer.todo("rightbelow new")<CR>
+nmap <C-t> <Cmd>lua _.cartographer.todo("rightbelow new")<CR>
+nmap <leader>/ <Cmd>lua grep()<CR>
+nmap <leader>? <plug>GrepAll
+
 
 nmap <C-space> <Cmd>Goyo<CR>
 

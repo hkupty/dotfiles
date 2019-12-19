@@ -1,5 +1,6 @@
 let g:acid_auto_require = 1
 let g:acid_skip_test_paths = 0
+let g:acid_start_admin_nrepl = 1
 let g:acid_lein_host = '127.0.0.1'
 let g:acid_log_messages = 1
 let g:acid_namespace = 'user'

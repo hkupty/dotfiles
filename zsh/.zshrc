@@ -34,9 +34,6 @@ fi
 
 zstyle :omz:plugins:ssh-agent identities hk_klarna_rsa hkupty_ed25519
 
-#source /etc/profile.d/fzf.zsh
-
-source $HOME/scripts/_fns
 export TERM=xterm-256color
 export PURE_PROMPT_SYMBOL=τ
 
@@ -53,6 +50,8 @@ antibody bundle < ~/.plugins
 source $HOME/.vars
 source $HOME/.profile
 source $HOME/.nix-profile/etc/profile.d/nix.sh
+source $HOME/scripts/_fns
+#source /etc/profile.d/fzf.zsh
 
 bindkey '^n' autosuggest-accept
 

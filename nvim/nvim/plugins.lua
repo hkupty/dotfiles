@@ -5,6 +5,15 @@ local nvim = vim.api
 -- Libs
 local inspect = require("inspect")
 
+_G.unload = function(key)
+  local pattern = "^" .. key .. ".-$"
+  for k, _ in pairs(package.loaded) do
+    if k:match(pattern) ~= nil then
+      package.loaded[k] = nil
+    end
+  end
+end
+
 
 -- Global utilities
 _G.tap = function(obj)
@@ -42,10 +51,115 @@ local trex = require("trex")
 local acid = require("acid")
 local eval = require("acid.ops").eval
 local nvimux = require('nvimux')
+local bordet = require("bordet")
+local ui = require("ui")
 
+bordet.config['bordet.task.todoist'] = {
+  format = function(data)
+    return {
+    "  " .. bordet.config.signs.section .. " [" .. data['project-id'] .. "] " .. data.content
+    }
+  end,
+  action = function(element)
+  impromptu.ask{
+    title = element.content,
+    options = {
+      open = {description = "Open Task in browser", url = element.url},
+      close = {description = "Close Task", id = element.id},
+      delete = {description = "Delete Task", id = element.id},
+
+    },
+    handler = function(_, opt)
+      if opt.index == "open" then
+        vim.fn.system('xdg-open "' .. opt.url .. '"')
+      else
+        vim.fn.system('redis-cli PUBLISH bordet.task.todoist/' .. opt.index .. '-task ' .. opt.id)
+      end
+      return true
+    end
+  }
+end,
+  show = function(_)
+    return true
+  end
+}
+bordet.config['bordet.task.bitbucket'] = {
+  format = function(data)
+    local status = "  "
+    if data['mergeable?'] then
+      status = status .. bordet.config.signs.success
+    else
+      status = status .. bordet.config.signs.failure
+    end
+    status = status .. " "
+    if data['build-status'].state == "SUCCESSFUL" then
+      status = status .. "[BUILD      OK]"
+    elseif data['build-status'].state == "FAILED" then
+      status = status .. "[BUILD  FAILED]"
+    else
+      status = status .. "[BUILD RUNNING]"
+    end
+    status = status ..
+    " [" .. tostring(data.approvals) .. "/2]" ..
+    " [" .. tostring(data.comments) .. " comments] " ..
+    data.title
+
+    return {status}
+  end,
+  action = function(element)
+  impromptu.ask{
+    title = element.title,
+    options = {
+      pr = {description = "Open PR", url = element.url},
+      ci = {description = "Open Jenkins", url = element['build-status'].url}
+    },
+    handler = function(_, opt)
+      vim.fn.system('xdg-open "' .. opt.url .. '"')
+      return true
+    end
+  }
+
+  end,
+  show = function(_)
+    return true
+  end
+
+}
+bordet.config['bordet.task.github.notifications'] = {
+  format = function(data)
+    local status = "  [" ..
+    data['type']  ..
+    "] " .. data.repo .. ": " .. data.title
+
+    return {status}
+  end,
+  action = function(element)
+  impromptu.ask{
+    title = element.title,
+    options = {
+      pr = {description = "Open " .. element['type'], url = element['html-url']},
+      mark = {description = "Mark as read", id = element.id}
+    },
+    handler = function(_, opt)
+      if opt.index == 'mark' then
+        vim.fn.system('redis-cli PUBLISH bordet.task.github.notifications/mark-as-read ' .. opt.id)
+      else
+        vim.fn.system('xdg-open "' .. opt.url .. '"')
+      end
+      return true
+    end
+  }
+
+  end,
+  show = function(_)
+    return true
+  end
+
+}
 local nrepl = require('acid.nrepl')
-local connections = require('acid.connections')
 
+nrepl.default_middlewares = {'nrepl/nrepl', 'cider/cider-nrepl', 'refactor-nrepl', 'iced-nrepl'}
+local connections = require('acid.connections')
 
 nvimux.config.set_all{
   open_term_by_default = true,
@@ -55,6 +169,19 @@ nvimux.config.set_all{
   quickterm_scope = 't',
   quickterm_size = '80',
   new_term = "call IronStartRepl('sh', 0, 1)",
+  new_window = function()
+    local buf = ui.new_buf()
+    vim.api.nvim_win_set_buf(0, buf)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, bordet.get_dashboard())
+    require("cartographer").files{}
+  end,
+  new_tab = function()
+    local buf = ui.new_buf()
+    vim.api.nvim_win_set_buf(0, buf)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, bordet.get_dashboard())
+    require("cartographer").project()
+  end
+
 }
 
 nvimux.bindings.bind_all{
@@ -87,7 +214,7 @@ iron.core.add_repl_definitions{
 
 iron.core.set_config {
   preferred = {
-    python = "ipython",
+    python = "python",
     clojure = "lein"
   }
 }
@@ -108,7 +235,8 @@ _G.set_preferred_repl = function()
     end
 
     opts[kv[1]] = {
-      description = descr
+      description = descr,
+      name = kv[1]
     }
   end
 
@@ -116,7 +244,7 @@ _G.set_preferred_repl = function()
     question = "Select preferred repl",
     options = opts,
     handler = function(_, opt)
-      iron.core.set_config{preferred = {[ft] = opt}}
+      iron.core.set_config{preferred = {[ft] = opt.name}}
       return true
     end
   }
@@ -317,6 +445,8 @@ local random = function(sz)
 
   return tonumber(random:sub(1, sz))
 end
+
+_G.random = random
 
 local randomhex = function()
   local gen = {

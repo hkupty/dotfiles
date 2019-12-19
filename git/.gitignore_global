@@ -1,7 +1,8 @@
 .ropeproject/
 .tag*
 .iron_debug
-.tags
+**/.tags
 scratchpad.*
 tags
 *.org
+.tags

@@ -15,8 +15,12 @@ cartographer.config{
   },
   rx = {
     search_command = "rg --vimgrep --color never"
+  },
+  search = {
+    search_command = "rg --vimgrep --color never -F --"
   }
 }
+
 
 _G.new_file = function()
   local cb = vim.api.nvim_get_current_buf()
@@ -43,3 +47,20 @@ _G.new_file = function()
 end
 
 vim.api.nvim_command("command! -nargs=? NewFile lua new_file()")
+
+_G.grep = function(edit)
+  local cb = vim.api.nvim_get_current_buf()
+  local winnr = vim.api.nvim_call_function("bufwinnr", {cb})
+  impromptu.form{
+    title = "String to search",
+    questions = {
+      search = {
+        description = "search"
+      }
+    },
+    handler = function(_, selected)
+      cartographer.search(selected.search, edit, winnr)
+      return true
+    end
+  }
+end

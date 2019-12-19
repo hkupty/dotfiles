@@ -1,13 +1,14 @@
 let g:deoplete#enable_at_startup = 1
 
-let g:deoplete#sources = {}
-"let g:deoplete#sources._ = ['buffer', 'tag', 'file', 'neosnippet']
-let g:deoplete#sources._ = ['file', 'neosnippet']
-let g:deoplete#sources.clojure = ['acid']
-let g:deoplete#sources.java = ['javacomplete2', 'neosnippet']
+call deoplete#custom#option('sources', {
+      \ '_': ['file', 'neosnippet'],
+      \ 'clojure': ['acid'],
+      \ 'java': ['javacomplete2', 'neosnippet'],
+      \ })
 
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
+call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
+
+call deoplete#custom#source('_',  'max_info_width', 0)
 
 inoremap <expr><C-@> deoplete#mappings#manual_complete()
 

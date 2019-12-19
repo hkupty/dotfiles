@@ -9,7 +9,10 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug $CODE.'forks/space-vim-dark'
+Plug 'fneu/breezy'
+
+Plug $CODE.'/forks/cosmic_latte'
+Plug $CODE.'/forks/space-vim-dark'
 
 " Code Completion
 Plug 'shougo/deoplete.nvim'
@@ -23,9 +26,6 @@ Plug 'itchyny/lightline.vim'
 " Ctags
 Plug 'ludovicchabant/vim-gutentags'
 
-" TODO: remove
-Plug $CODE.'/KillTheMule/nvimpam'
-
 " Snippets
 "Plug 'shougo/neosnippet.vim'
 "Plug 'shougo/neosnippet-snippets'
@@ -33,24 +33,27 @@ Plug $CODE.'/KillTheMule/nvimpam'
 " Match stuff
 "Plug 'andymass/vim-matchup'
 
-" Parenthesis matchup
-Plug 'tmsvg/pear-tree'
-
 " Text cycling
 Plug 'AndrewRadev/switch.vim'
 
 " Tmux substitute
 Plug $CODE.'/vigemus/nvimux'
 
-" Split and join
-Plug 'Vigemus/timeshift.vim'
+" Track work
+Plug $CODE.'/vigemus/errands.nvim'
+
+" Bubbly windows
+Plug $CODE.'/vigemus/foam.nvim'
 
 " Repls
 Plug $CODE.'/vigemus/iron.nvim'
 Plug $CODE.'/vigemus/trex.nvim'
 
+" Le Dashboard
+Plug $CODE.'/hkupty/bordet/nvim/'
+
 " Prompt utils
-Plug $CODE.'/vigemus/impromptu'
+Plug $CODE.'/vigemus/impromptu.nvim'
 
 " Project Navigation
 Plug $CODE.'/vigemus/cartographer.nvim'
@@ -99,17 +102,11 @@ Plug 'mattn/webapi-vim'
 " Gist
 Plug 'mattn/gist-vim'
 
-" Code navigation
-"Plug 'unblevable/quick-scope'
-
 " Eyecandy
 Plug 'ryanoasis/vim-devicons'
 
 " Align
 Plug 'tommcdo/vim-lion'
-
-" LSP client
-"Plug 'autozimu/LanguageClient-neovim'
 
 " Fn signatures
 Plug 'Shougo/echodoc.vim'
@@ -134,7 +131,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Clojure
 Plug $CODE.'/clojure-vim/acid.nvim'
-Plug $CODE.'/vigemus/jazz.nvim'
+Plug $CODE.'/clojure-vim/jazz.nvim'
 Plug $CODE.'/clojure-vim/async-clj-highlight'
 
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
@@ -158,15 +155,16 @@ Plug 'vim-scripts/splunk.vim'
 " json
 Plug 'elzr/vim-json'
 
+" Yaml
+Plug 'pedrohdz/vim-yaml-folds'
+
 "Ledger
 Plug 'ledger/vim-ledger'
 
 " Tasks
 Plug 'jceb/vim-orgmode'
-Plug 'vim-scripts/utl.vim'
-Plug 'blindFS/vim-taskwarrior', { 'on': 'TW' }
 
-Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+Plug 'blueyed/vim-diminactive'
 
 Plug 'vito-c/jq.vim'
 
