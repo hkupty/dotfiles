@@ -50,7 +50,6 @@ source <(antibody init)
 antibody bundle < ~/.plugins
 
 source $HOME/.vars
-source $HOME/.profile
 source $HOME/scripts/_fns
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
