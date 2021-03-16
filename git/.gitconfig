@@ -2,7 +2,7 @@
   name = Henry Kupty
   email = hkupty@gmail.com
 [push]
-	default = current
+  default = current
 [color]
   ui = true
   diff = true
@@ -17,5 +17,8 @@
   autoupdate = true
 [core]
 	excludesfile = /home/hkupty/.gitignore_global
-[includeIf "gitdir:/opt/code/klarna/"]
-  path = /opt/code/klarna/.gitconfig
+[includeIf "gitdir:/opt/code/tink-ab/"]
+  path = /opt/code/tink-ab/.gitconfig
+[pull]
+	rebase = true
+	ff = only

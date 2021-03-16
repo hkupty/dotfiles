@@ -1,0 +1,27 @@
+#!/bin/bash
+
+dow() {
+  date +%A
+}
+
+week-number() {
+  echo "Week-$(date +%V)"
+}
+
+default-tags(){
+  echo Work Tink $(dow) $(week-number)
+}
+
+on() {
+  timew start $(default-tags) "$@"
+}
+
+off() {
+  timew start $(default-tags) "$@"
+}
+
+summary(){
+  timew summary :ids
+}
+
+"$@"

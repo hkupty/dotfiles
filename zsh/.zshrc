@@ -19,6 +19,7 @@ md(){
 }
 
 alias vim=$(which nvim)
+alias svim="sudo $(which nvim)"
 
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   export EDITOR="nvr -cc vnew -c 'set bh=delete' --remote-wait"
@@ -29,13 +30,14 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias _='nvr -c'
   alias _pwd='nvr -c "tcd `pwd`"'
 else
+  export EDITOR="nvim"
+  alias h='nvim'
   alias v='nvim'
 fi
 
-zstyle :omz:plugins:ssh-agent identities hk_klarna_rsa hkupty_ed25519
+zstyle :omz:plugins:ssh-agent identities hkupty henry.kupty-tink.se
 
 export TERM=xterm-256color
-export PURE_PROMPT_SYMBOL=τ
 
 compctl -/ -W $CODE sd
 compctl -/ -W $AUR_DIR aur up
@@ -49,12 +51,15 @@ antibody bundle < ~/.plugins
 
 source $HOME/.vars
 source $HOME/.profile
-source $HOME/.nix-profile/etc/profile.d/nix.sh
 source $HOME/scripts/_fns
-#source /etc/profile.d/fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+fzf-history-widget-accept() {
+  fzf-history-widget
+  zle accept-line
+}
+zle     -N     fzf-history-widget-accept
+bindkey '^X^R' fzf-history-widget-accept
 
 bindkey '^n' autosuggest-accept
-
-fpath+=~/.zfunc
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

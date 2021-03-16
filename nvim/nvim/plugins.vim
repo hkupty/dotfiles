@@ -1,9 +1,6 @@
 " deoplete tweaking
 source $HOME/.config/nvim/plugins/deoplete.vim
 
-" iron, acid and nvimux tweaking
-source $HOME/.config/nvim/plugins/iron_nvimux.vim
-
 " acid tweaking
 source $HOME/.config/nvim/plugins/acid.vim
 
@@ -22,45 +19,13 @@ source $HOME/.config/nvim/plugins/airline.vim
 " Switch
 source $HOME/.config/nvim/plugins/switch.vim
 
-luafile $HOME/.config/nvim/plugins/pointer.lua
-
-function! HkuptyGetCurrentNreplPort()
-  let connection = luaeval("require('acid.connections').get(_A)", getcwd())
-  if type(connection) != type(v:null)
-    return "[Acid :nrepl-on]"
-  endif
-  return ""
-endfunction
-
-function! HkuptyAcidAdminNrepl()
-  let connection = luaeval("require('acid').admin_session()", v:null)
-  if type(connection) != type(v:null)
-    return "[Acid :admin-nrepl-on]"
-  endif
-  return ""
-endfunction
-
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-      \             [ 'nrepl' ],
-      \             [ 'adminnrepl' ]
-      \           ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gina#component#repo#branch',
-      \   'nrepl': 'HkuptyGetCurrentNreplPort',
-      \   'adminnrepl': 'HkuptyAcidAdminNrepl',
-      \ },
-      \ }
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal = 1
+let g:vim_markdown_new_list_item_indent = 2
 
 let g:fzf#proj#project_dir = '/opt/code/'
 let g:fzf#proj#max_proj_depth = 2
 let g:fzf#proj#project#open_new_tab = 0
-
-let g:gutentags_ctags_tagfile = ".tags"
 
 let g:signify_vcs_list = [ 'git' ]
 
@@ -78,8 +43,4 @@ let g:pad#default_format = "journal"
 let g:twitter_use_rust=1
 let g:notes_directories = ["/opt/code/notes/", "/opt/code/books/discrete_math"]
 
-let g:utl_cfg_hdl_scm_http="call system('firefox %u')"
-
 let g:goyo_width="80%"
-
--

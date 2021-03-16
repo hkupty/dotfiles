@@ -1,6 +1,19 @@
 " Save on exit
 au FocusLost * silent! wa
 
+function s:MapLSP()
+  nmap <buffer> <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  nmap <buffer> <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+  nmap <buffer> <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+  nmap <buffer> <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+  nmap <buffer> <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+  nmap <buffer> <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+  nmap <buffer> <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nmap <buffer> <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nmap <buffer> <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  setl omnifunc=v:lua.vim.lsp.omnifunc
+endfunction
+
 autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
 
 augroup terminal_commands
@@ -12,30 +25,17 @@ augroup END
 " Project/Language specific config
 augroup filetype_settings
     au!
-    au FileType *
-        \   set cc=0
-    au FileType python
-        \   let python_highlight_all = 1
-        \ | set cc=80
-        \ | highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-        \ | match OverLength /\%81v.\+/
-        \ | map <buffer> <leader>ii i import ipdb;ipdb.set_trace()<ESC>
-        \ | set autoindent
-        \ | set smartindent
-        \ | set textwidth=79
-    au FileType scala
-        \   set wildignore+=target/*,project/target/*,*.class
-    au FileType lua
-        \   map <buffer> <leader>R  :luafile %<CR>
-    au FileType ledger
-        \   map <buffer> <localleader><localleader> :call ledger#transaction_statg_toggle(line('.'), ' *?!')<CR>
+    au FileType *      set cc=0
+    au FileType xml    setlocal foldmethod=syntax
+    au FileType scala  set wildignore+=target/*,project/target/*,*.class
+    au FileType java   call s:MapLSP()
+    au FileType lua    map <buffer> <leader>R  :call luaeval("hkupty.reluafile(_A)", expand('%:r'))<CR>
+    au FileType ledger map <buffer> <localleader><localleader> :call ledger#transaction_statg_toggle(line('.'), ' *?!')<CR>
 augroup END
 
-augroup Fixes
-    au!
-    au GuiEnter *
-       \   tunmap <ESC>
-       \ | color base16-default-dark
+augroup vimrc_autocmds
+  autocmd BufEnter org highlight OverLength ctermbg=darkgrey guibg=#592929
+  autocmd BufEnter org match OverLength /\%74v.*/
 augroup END
 
 augroup dirvish_config

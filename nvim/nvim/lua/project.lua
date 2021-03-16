@@ -1,17 +1,47 @@
 -- luacheck: globals vim
 local impromptu = require("impromptu")
 local cartographer = require("cartographer")
+local config = require("cartographer.config")
 
-cartographer.config{
+config.set{
   project = {
-    root = "/opt/code",
-    search_command = "fd -t d -d 3 -H '\\.git$' -c never -x echo {//}"
+    path = "/opt/code",
+    search_command = "fd -t d -d 3 -H '\\.git$' -c never -x echo {//} | uniq"
   },
   files = {
-    search_command = "fd -c never -t f"
+    search_command = "fd -H -L -E '\\.git' -c never -t f",
+    custom = {
+      {
+        description = "nvim://term",
+        score = 1,
+        self_handler = function()
+          vim.api.nvim_command("term")
+          return true
+        end
+      }, {
+        description = "nvim://bordet",
+        score = 1,
+        self_handler = function()
+          dashboard()
+          return true
+        end
+      }, {
+        description = "nvim://enew",
+        score = 1,
+        self_handler = function()
+          vim.api.nvim_command("enew")
+          return true
+        end
+      }, {
+        score = 1,
+        description = "nvim://scratch", self_handler = function()
+          vim.api.nvim_command("enew | setl breakindent nobuflisted buftype=nofile bufhidden=wipe nolist")
+          return true
+        end
+    }}
   },
-  folder = {
-    search_command = "fd -c never -t d"
+  cd = {
+    search_command = "fd -c never -t d | sort"
   },
   rx = {
     search_command = "rg --vimgrep --color never"
@@ -21,10 +51,8 @@ cartographer.config{
   }
 }
 
-
 _G.new_file = function()
-  local cb = vim.api.nvim_get_current_buf()
-  local winnr = vim.api.nvim_call_function("bufwinnr", {cb})
+  local winnr = vim.api.nvim_get_current_win()
   local path
   local fname = impromptu.new.form{
     title = "Create new file",
@@ -49,8 +77,7 @@ end
 vim.api.nvim_command("command! -nargs=? NewFile lua new_file()")
 
 _G.grep = function(edit)
-  local cb = vim.api.nvim_get_current_buf()
-  local winnr = vim.api.nvim_call_function("bufwinnr", {cb})
+  local winnr = vim.api.nvim_get_current_win()
   impromptu.form{
     title = "String to search",
     questions = {
@@ -59,7 +86,11 @@ _G.grep = function(edit)
       }
     },
     handler = function(_, selected)
-      cartographer.search(selected.search, edit, winnr)
+      cartographer.proxy.search{
+        parameter = selected.search,
+        open_cmd = edit,
+        winnr = winnr
+      }
       return true
     end
   }

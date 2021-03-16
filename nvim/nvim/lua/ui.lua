@@ -1,14 +1,22 @@
-local ui = {}
+local ui = {
+  _cache = {}
+}
 
-ui.singleton_buf = function()
-  if ui._buf == nil or not vim.api.nvim_buf_is_loaded(ui._buf) then
-    ui._buf = ui.new_buf()
+ui.singleton_buf = function(config)
+  local cached = ui._cache[config.name]
+  if cached == nil or not vim.api.nvim_buf_is_loaded(cached) then
+     cached = ui.new_buf(config)
+    ui._cache[config.id or config.name] = cached
   end
-  return ui._buf
+  return cached
 end
 
-ui.new_buf = function()
-  return vim.api.nvim_create_buf(false, true)
+ui.new_buf = function(config)
+  local buf = vim.api.nvim_create_buf(false, true)
+  if config.name ~= nil then
+    vim.api.nvim_buf_set_name(buf, config.name)
+  end
+  return buf
 end
 
 ui.global_size = function()
@@ -33,17 +41,6 @@ ui.current_size = function()
   local height = vim.api.nvim_win_get_height(win)
 
   return width, height
-end
-
-ui.on_new = function(new_cmd, fn)
-  vim.api.nvim_command(new_cmd)
-  fn()
-end
-
-ui.new_win = function()
-  ui.on_new_win(function()
-    vim.api.nvim_set_current_buf(ui.singleton_buf())
-  end)
 end
 
 _G.ui = ui

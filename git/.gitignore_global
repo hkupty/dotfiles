@@ -6,3 +6,5 @@ scratchpad.*
 tags
 *.org
 .tags
+*.lck
+githooks

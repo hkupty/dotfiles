@@ -1,7 +1,7 @@
 let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#option('sources', {
-      \ '_': ['file', 'neosnippet'],
+      \ '_': ['file', 'neosnippet', 'ale'],
       \ 'clojure': ['acid'],
       \ 'java': ['javacomplete2', 'neosnippet'],
       \ })

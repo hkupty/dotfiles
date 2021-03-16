@@ -30,8 +30,8 @@ nnoremap <silent> <F3> :set number! relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
-map <leader>e :tabe $MYVIMRC<CR>:tcd $HOME/.config/nvim/<CR>
-map <leader>z :tabe $HOME/.zshrc<CR>:tcd $HOME<CR>
+map <silent> <leader>e :tabe $MYVIMRC<CR>:tcd $HOME/.config/nvim/<CR>
+map <silent> <leader>z :tabe $HOME/.zshrc<CR>:tcd $HOME<CR>
 
 " Buffer nav
 map <leader>. :Buffers<CR>
@@ -55,8 +55,8 @@ inoremap <silent> <C-v> <ESC>:set paste<CR>"+p:set nopaste<CR>a
 tnoremap <silent> <C-v> <C-\><C-n>"+pa
 
 " Refresh me!
-map <leader>rr :so $MYVIMRC<CR>
-map <leader>R  :so %<CR>
+map <silent> <leader>rr :so $MYVIMRC<CR>
+map <silent> <leader>R  :so %<CR>
 
 " Clear window
 map <silent> <leader><down> :call Grab()<CR>
@@ -94,19 +94,19 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nmap <C-w><C-w> <Cmd>silent ! gtk-launch nvim-appimage<CR>
+nnoremap <C-n> <Cmd>Neogit<CR>
 
-nmap <C-M-p> <Cmd>lua _.cartographer.project()<CR>
-nmap <C-f> <Cmd>lua _.cartographer.cd()<CR>
-nmap <C-p> <Cmd>lua _.cartographer.files{}<CR>
-nmap <C-g> <Cmd>lua _.cartographer.dirty()<CR>
-nmap <C-l> <Cmd>lua _.cartographer.buffers{}<CR>
-nmap <M-v> <Cmd>lua _.cartographer.files("leftabove vnew")<CR>
-nmap <M-h> <Cmd>lua _.cartographer.files("rightbelow new")<CR>
-nmap <C-t> <Cmd>lua _.cartographer.todo("rightbelow new")<CR>
-nmap <C-t> <Cmd>lua _.cartographer.todo("rightbelow new")<CR>
-nmap <leader>/ <Cmd>lua grep()<CR>
-nmap <leader>? <plug>GrepAll
+nnoremap <C-M-p> <Cmd>lua _['cartographer.v2'].project{}<CR>
+nnoremap <C-f>   <Cmd>lua _['cartographer.v2'].cd{}<CR>
+nnoremap <C-p>   <Cmd>lua _['cartographer.v2'].files{}<CR>
+nnoremap <C-g>   <Cmd>lua _['cartographer.v2'].dirty{}<CR>
+nnoremap <C-s>   <Cmd>lua _['cartographer.v2'].checkout{}<CR>
+nnoremap <C-l>   <Cmd>lua _['cartographer.v2'].buffers{}<CR>
+nnoremap <M-v>   <Cmd>lua _['cartographer.v2'].files{open_cmd = "leftabove vnew"}<CR>
+nnoremap <M-h>   <Cmd>lua _['cartographer.v2'].files{open_cmd = "rightbelow new"}<CR>
+nnoremap <C-t>   <Cmd>lua _['cartographer.v2'].todo{open_cmd = "rightbelow new"}<CR>
+nnoremap <leader>/ <Cmd>lua grep()<CR>
+nnoremap <leader>? <plug>GrepAll
 
 
 nmap <C-space> <Cmd>Goyo<CR>

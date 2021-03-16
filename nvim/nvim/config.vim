@@ -1,6 +1,6 @@
 set termguicolors
 
-colorscheme space-vim-dark
+colorscheme base16-default-dark
 
 set noreadonly
 
@@ -17,6 +17,7 @@ set smartindent
 set smartcase
 
 " Base sanity stuff
+set undofile
 set noswapfile
 set autowriteall
 set writeany
@@ -32,6 +33,10 @@ set expandtab
 
 " Option complete
 set wildmode=full
+set completeopt=noselect
+
+" Conceal
+set conceallevel=2
 
 " Live substitution
 set inccommand=split
@@ -58,8 +63,6 @@ let g:is_bash = 1
 
 " XML folding config
 let g:xml_syntax_folding=1
-au FileType xml,lua setlocal foldmethod=syntax
-
 let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!target/*"'
 
 set tags=*/.tags;.tags
