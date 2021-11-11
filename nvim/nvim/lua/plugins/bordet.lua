@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local impromptu = require("impromptu")
 local bordet = require("bordet")
 
@@ -61,4 +62,3 @@ bordet.config['bordet.task.github.notifications'] = {
   end
 
 }
-

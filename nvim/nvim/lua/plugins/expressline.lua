@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 
 local el = require("el")
 local acid_conns = require("acid.connections")
@@ -75,4 +76,3 @@ el.setup {
     return segments
   end
 }
-

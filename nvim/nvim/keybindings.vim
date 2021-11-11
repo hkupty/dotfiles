@@ -94,20 +94,7 @@ noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
-nnoremap <C-n> <Cmd>Neogit<CR>
-
-nnoremap <C-M-p> <Cmd>lua _['cartographer.v2'].project{}<CR>
-nnoremap <C-f>   <Cmd>lua _['cartographer.v2'].cd{}<CR>
-nnoremap <C-p>   <Cmd>lua _['cartographer.v2'].files{}<CR>
-nnoremap <C-g>   <Cmd>lua _['cartographer.v2'].dirty{}<CR>
-nnoremap <C-s>   <Cmd>lua _['cartographer.v2'].checkout{}<CR>
-nnoremap <C-l>   <Cmd>lua _['cartographer.v2'].buffers{}<CR>
-nnoremap <M-v>   <Cmd>lua _['cartographer.v2'].files{open_cmd = "leftabove vnew"}<CR>
-nnoremap <M-h>   <Cmd>lua _['cartographer.v2'].files{open_cmd = "rightbelow new"}<CR>
-nnoremap <C-t>   <Cmd>lua _['cartographer.v2'].todo{open_cmd = "rightbelow new"}<CR>
-nnoremap <leader>/ <Cmd>lua grep()<CR>
 nnoremap <leader>? <plug>GrepAll
-
 
 nmap <C-space> <Cmd>Goyo<CR>
 

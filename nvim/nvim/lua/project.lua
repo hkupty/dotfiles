@@ -22,7 +22,7 @@ config.set{
         description = "nvim://bordet",
         score = 1,
         self_handler = function()
-          dashboard()
+          _G.dashboard()
           return true
         end
       }, {
@@ -56,7 +56,7 @@ _G.new_file = function()
   local path
   local fname = impromptu.new.form{
     title = "Create new file",
-    questions = {
+    options = {
       fname = {
         description = "File Name"
       }

@@ -1,24 +1,7 @@
+-- luacheck: globals vim
 --Bordet
 local bordet = require("bordet")
 local ui = require("ui")
-
-local random = function(sz)
-  local gen = {
-    [[head -c 200 /dev/urandom]],
-    [[sha256sum]],
-    [[awk '{print toupper($1)}']],
-    [[xargs -I{} echo "obase=10; ibase=16; {}"]],
-    [[bc]] ,
-    [[tr '\n' ' ']],
-    [[sed 's/\\* //g']],
-  }
-
-  local random = vim.api.nvim_call_function("system", {
-      table.concat(gen, " | ")
-    })
-
-  return tonumber(random:sub(1, sz))
-end
 
 --- Produces a random hexadecimal string
 -- @param sz: Integer size in multiple of four (default 8)
@@ -53,8 +36,8 @@ local random = function(sz)
   return tonumber(random:sub(1, sz))
 end
 
-_G._ = setmetatable({}, {__index = function(_, key) return require(key) end})
-_G.hkupty = {}
+local hkupty = {}
+_G.hkupty = hkupty
 
 _G.tap = function(obj)
   print(vim.inspect(obj))

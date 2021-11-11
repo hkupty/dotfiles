@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local ui = {
   _cache = {}
 }
@@ -23,12 +24,12 @@ ui.global_size = function()
   local width = 0
   local height = 0
 
-  for ui in vim.api.nvim_list_uis() do
-    if width < ui.width then
-      width = ui.width
+  for gui in vim.api.nvim_list_uis() do
+    if width < gui.width then
+      width = gui.width
     end
-    if height < ui.height then
-      height = ui.height
+    if height < gui.height then
+      height = gui.height
     end
   end
 

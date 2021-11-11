@@ -1,19 +1,22 @@
+-- luacheck: globals vim
 require("deps")
 require("globals")
 require("plugins")
--- require("plugins.treesitter")
+require("plugins.treesitter")
 require("plugins.expressline")
 require("plugins.bordet")
--- require("config")
+require("plugins.telescope")
+require("config")
 require("project")
 require("tasks")
 require("keybindings")
 
 
+vim.cmd [[source $HOME/.config/nvim/config.vim]]
+
 vim.cmd [[source $HOME/.config/nvim/plugins.vim]]
 
 -- Config defaults
-vim.cmd [[source $HOME/.config/nvim/config.vim]]
 
 -- Filetype specific stuff
 vim.cmd [[source $HOME/.config/nvim/ft.vim]]

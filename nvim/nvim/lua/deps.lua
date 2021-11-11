@@ -1,3 +1,4 @@
+-- luacheck: globals vim use
 local code = vim.fn.expand("$CODE")
 
 vim.cmd [[packadd packer.nvim]]
@@ -8,10 +9,8 @@ return require('packer').startup{
 
     use {'bfredl/nvim-luadev'}
 
-    use {'jremmen/vim-ripgrep'}
-
     -- LSP support
-    use {code .. '/forks/nvim-lsp'}
+    use {'neovim/nvim-lspconfig'}
 
     -- Zettelkasten
     use {code .. '/vigemus/zettel.nvim'}
@@ -26,18 +25,23 @@ return require('packer').startup{
     use {'equalsraf/neovim-gui-shim'}
 
     -- Dark colors
-    use {'joshdick/onedark.vim'}
-    use {'arcticicestudio/nord-vim'}
-    use {'chriskempson/base16-vim'}
+    --use {'joshdick/onedark.vim'}
+    --use {'arcticicestudio/nord-vim'}
+    --use {'chriskempson/base16-vim'}
+    use {'projekt0n/github-nvim-theme'}
+    use {'RRethy/nvim-base16'}
+    use {'mhartington/oceanic-next'}
 
     -- Code Completion
     use {'shougo/deoplete.nvim'}
+    use {'deoplete-plugins/deoplete-lsp'}
+    use {'deoplete-plugins/deoplete-tag'}
 
     -- Let on modeline
     use {'vim-scripts/let-modeline.vim'}
 
     -- Statusline
-    use {'tjdevries/express_line.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
+    use {'tjdevries/express_line.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
     -- Better lua mapping
     -- TODO Drop this in favor of https://github.com/neovim/neovim/pull/13823
@@ -50,7 +54,7 @@ return require('packer').startup{
     use {'norcalli/nvim-colorizer.lua'}
 
     -- Snippets
-    use {'shougo/neosnippet.vim', requires = {{'shougo/neosnippet-snippets'}}}
+    --use {'shougo/neosnippet.vim', requires = {'shougo/neosnippet-snippets'}}
 
     -- Tmux substitute
     use {code .. '/vigemus/nvimux'}
@@ -78,6 +82,9 @@ return require('packer').startup{
     use {code .. '/vigemus/classifier.nvim'}
     use {code .. '/vigemus/cartographer.nvim'}
 
+    use {"nvim-telescope/telescope.nvim", requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
+    use {"nvim-telescope/telescope-fzy-native.nvim"}
+
     -- Points to where I want
     use {code .. '/vigemus/pointer.nvim'}
 
@@ -97,6 +104,12 @@ return require('packer').startup{
     use {'TimUntersberger/neogit'}
     use {'lambdalisue/gina.vim'}
 
+    -- Sidebar
+    use {'GustavoKatel/sidebar.nvim'}
+
+    -- Search TODO comments
+    use {'folke/todo-comments.nvim'}
+
     -- Tpope stuff
     use {'tpope/vim-surround'}
     use {'tpope/vim-unimpaired'}
@@ -106,7 +119,7 @@ return require('packer').startup{
     use {'tpope/vim-eunuch'}
 
     -- Gist
-    use {'mattn/gist-vim', requires = {{'mattn/webapi-vim'}}}
+    use {'mattn/gist-vim', requires = {'mattn/webapi-vim'}}
 
     -- Eyecandy
     use {'kyazdani42/nvim-web-devicons'}
@@ -134,7 +147,7 @@ return require('packer').startup{
 
     -- Rust
     use {'rust-lang/rust.vim', ft = {'rust'},
-      requires = {{'mattn/webapi-vim'}}
+      requires = {'mattn/webapi-vim'}
     }
 
     -- Clojure
@@ -167,6 +180,9 @@ return require('packer').startup{
     -- json
     use {'elzr/vim-json'}
 
+    -- Kotlin
+    use {'udalov/kotlin-vim'}
+
     -- Yaml
     use {'pedrohdz/vim-yaml-folds'}
 
@@ -178,9 +194,7 @@ return require('packer').startup{
 
     -- Tasks
     use {'jceb/vim-orgmode'}
-
-    use {'vimwiki/vimwiki'}
-
+    use {'vimwiki/vimwiki', branch = "dev"}
     use {'tools-life/taskwiki',
       requires = {
         "blindFS/vim-taskwarrior",
@@ -199,6 +213,8 @@ return require('packer').startup{
       }
     }
 
+    use {'nvim-treesitter/playground'}
+    --
     -- Dim inactive windows
     use {'blueyed/vim-diminactive'}
 
@@ -220,4 +236,3 @@ return require('packer').startup{
   end,
   config = {ensure_dependencies = true}
 }
-

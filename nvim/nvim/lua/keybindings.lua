@@ -1,5 +1,7 @@
+-- luacheck: globals vim
 require("astronauta.keymap")
-mapper = function(opt)
+
+local mapper = function(opt)
   vim.keymap.nnoremap { opt.lhs or opt[1], function()
       (opt.fn or opt[2])(opt.arg or opt[3] or {})
   end
@@ -17,5 +19,7 @@ mapper{"<C-l>", cv2.buffers}
 mapper{"<M-v>", cv2.files, {open_cmd = "leftabove vnew"}}
 mapper{"<M-h>", cv2.files, {open_cmd = "rightbelow new"}}
 mapper{"<C-t>", cv2.todo, {open_cmd = "rightbelow new"}}
+mapper{"<C-n>", require("neogit").open}
+mapper{"<space>b", require("sidebar-nvim").open}
 
-vim.keymap.nnoremap{"<localleader>/", grep}
+--  vim.keymap.nnoremap{"<localleader>/", cv2.grep}

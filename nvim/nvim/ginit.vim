@@ -1,1 +1,1 @@
-"GuiFont! Fira Code:h10
+set laststatus = 0

@@ -1,4 +1,3 @@
-local foam = require("foam")
 local errands = require("errands")
 local tasks = require("errands.tasks")
 local impromptu = require("impromptu")
