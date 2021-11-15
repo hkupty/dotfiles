@@ -35,7 +35,7 @@ else
   alias v='nvim'
 fi
 
-zstyle :omz:plugins:ssh-agent identities hkupty henry.kupty-tink.se
+zstyle :omz:plugins:ssh-agent identities hkupty henry@znipe.se
 
 export TERM=xterm-256color
 
@@ -50,9 +50,6 @@ source <(antibody init)
 antibody bundle < ~/.plugins
 
 source $HOME/.vars
-source $HOME/scripts/_fns
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 
 fzf-history-widget-accept() {
   fzf-history-widget
