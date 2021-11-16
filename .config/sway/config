@@ -15,21 +15,29 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf --no-info --color="bg:#173f4f,fg:#35b9ab,bg+:#68cbc0,fg+:#516f7b,pointer:#173f4f,hl+:#173f4f,hl:#73ba25" | xargs -r swaymsg -t command exec'
+
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 400 px height 100 px, move position center
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * {
+  bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+}
 
 output eDP-1 {
   position 0 0
   resolution 1920x1200
   scale 1.2
 }
+
+default_border none
+gaps inner 2
 
 #
 # Example configuration:
@@ -42,10 +50,11 @@ output eDP-1 {
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -86,10 +95,12 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+c kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $mod+g exec swaylock -f -c 000000
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -99,7 +110,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
