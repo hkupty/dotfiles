@@ -16,11 +16,11 @@
   enabled = 1
   autoupdate = true
 [core]
-	excludesfile = /home/hkupty/.gitignore_global
-[includeIf "gitdir:/opt/code/tink-ab/"]
-  path = /opt/code/tink-ab/.gitconfig
+  excludesfile = /home/hkupty/.gitignore_global
+[includeIf "gitdir:/opt/code/znipe/"]
+  path = /opt/code/znipe/.gitconfig
 [pull]
-	rebase = true
-	ff = only
+  rebase = true
+  ff = only
 [init]
-	defaultBranch = master
+  defaultBranch = main
