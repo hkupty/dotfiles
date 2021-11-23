@@ -12,14 +12,11 @@ return require('packer').startup{
     -- LSP support
     use {'neovim/nvim-lspconfig'}
 
-    -- Zettelkasten
-    use {code .. '/vigemus/zettel.nvim'}
-
     -- API client
-    use {code .. '/vigemus/daedalus.nvim'}
+     use {code .. '/hkupty/daedalus.nvim'}
 
     -- Jira client
-    use {code .. '/vigemus/gojira.nvim'}
+    -- use {code .. '/vigemus/gojira.nvim'}
 
     -- GUI stuff
     use {'equalsraf/neovim-gui-shim'}
@@ -57,42 +54,42 @@ return require('packer').startup{
     --use {'shougo/neosnippet.vim', requires = {'shougo/neosnippet-snippets'}}
 
     -- Tmux substitute
-    use {code .. '/vigemus/nvimux'}
+     use {code .. '/hkupty/nvimux'}
 
     -- Github
-    use {code .. '/vigemus/bighut.nvim'}
+    -- use {code .. '/vigemus/bighut.nvim'}
 
     -- Track work
-    use {code .. '/vigemus/errands.nvim'}
+    -- use {code .. '/vigemus/errands.nvim'}
 
     -- Bubbly windows
-    use {code .. '/vigemus/foam.nvim'}
+    -- use {code .. '/vigemus/foam.nvim'}
 
     -- Repls
-    use {code .. '/vigemus/iron.nvim'}
-    use {code .. '/vigemus/trex.nvim'}
+     use {code .. '/hkupty/iron.nvim'}
+     use {code .. '/hkupty/trex.nvim'}
 
     -- Le Dashboard
-    use {code .. '/hkupty/bordet/nvim/'}
+    -- use {code .. '/hkupty/bordet/nvim/'}
+
 
     -- Prompt utils
-    use {code .. '/vigemus/impromptu.nvim'}
+     use {code .. '/hkupty/impromptu.nvim'}
 
     -- Project Navigation
-    use {code .. '/vigemus/classifier.nvim'}
-    use {code .. '/vigemus/cartographer.nvim'}
+     use {code .. '/hkupty/classifier.nvim'}
+     use {code .. '/hkupty/cartographer.nvim'}
 
     use {"nvim-telescope/telescope.nvim", requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
 
     -- Points to where I want
-    use {code .. '/vigemus/pointer.nvim'}
+     use {code .. '/hkupty/pointer.nvim'}
 
     -- Make
     use {'w0rp/ale'}
 
     -- Filesystem tinkering
-    use {'junegunn/fzf.vim'}
     use {'justinmk/vim-dirvish'}
 
     -- Code commenting

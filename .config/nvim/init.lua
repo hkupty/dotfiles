@@ -4,11 +4,11 @@ require("globals")
 require("plugins")
 require("plugins.treesitter")
 require("plugins.expressline")
-require("plugins.bordet")
+-- require("plugins.bordet")
 require("plugins.telescope")
 require("config")
 require("project")
-require("tasks")
+-- require("tasks")
 require("keybindings")
 
 

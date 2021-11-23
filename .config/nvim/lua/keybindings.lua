@@ -22,4 +22,4 @@ mapper{"<C-t>", cv2.todo, {open_cmd = "rightbelow new"}}
 mapper{"<C-n>", require("neogit").open}
 mapper{"<space>b", require("sidebar-nvim").open}
 
---  vim.keymap.nnoremap{"<localleader>/", cv2.grep}
+-- vim.keymap.nnoremap{"<localleader>/", cv2.grep}

@@ -20,9 +20,6 @@ local nvimux = require('nvimux')
 -- LSP
 local lsp = require("lspconfig")
 
--- Zettel
-local zettel = require("zettel")
-
 -- Icons
 require('nvim-web-devicons').setup()
 
@@ -52,8 +49,6 @@ _G.hkupty.configure_impromptu = function()
     end
   }
 end
-
-zettel.config.dir = "$CODE/zettels"
 
 _G.hkupty.find_top_build = function(fname)
   return lsp.util.root_pattern("WORKSPACE")(fname)
@@ -134,12 +129,12 @@ nvimux.config.set_all{
   quickterm_size = '80',
   new_term = "call IronStartRepl('sh', 0, 1)",
   new_window = function()
-    -- vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(false, true))
-    _G.dashboard()
+    vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(false, true))
+    -- _G.dashboard()
     require("cartographer.v2").files{}
   end,
   new_tab = function()
-    _G.dashboard()
+    -- _G.dashboard()
     require("cartographer.v2").project{}
   end
 

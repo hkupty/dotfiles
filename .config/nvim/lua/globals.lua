@@ -1,6 +1,6 @@
 -- luacheck: globals vim
 --Bordet
-local bordet = require("bordet")
+-- local bordet = require("bordet")
 local ui = require("ui")
 
 --- Produces a random hexadecimal string
@@ -84,11 +84,11 @@ hkupty.openfile = function(fname)
 end
 
 
-_G.dashboard = function()
-  local buf = ui.singleton_buf{name = "[bordet]"}
-  vim.api.nvim_win_set_buf(0, buf)
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, bordet.get_dashboard())
-end
+-- _G.dashboard = function()
+--   local buf = ui.singleton_buf{name = "[bordet]"}
+--   vim.api.nvim_win_set_buf(0, buf)
+--   vim.api.nvim_buf_set_lines(buf, 0, -1, false, bordet.get_dashboard())
+-- end
 
 
 _G.random = random
