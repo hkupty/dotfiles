@@ -15,6 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
+set $cursor "BreezeX-Dark"
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -23,21 +24,13 @@ set $menu alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u |
 
 for_window [app_id="^launcher$"] floating enable, border none, resize set width 400 px height 100 px, move position center
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * {
-  bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-}
-
-output eDP-1 {
-  position 0 0
-  resolution 1920x1200
-  scale 1.2
-}
-
 default_border none
 gaps inner 2
+
+seat seat0 xcursor_theme $cursor
+exec gsettings set org.gnome.desktop.interface cursor-theme $cursor
+exec echo -e "[icon theme]\nInherits=$cursor" > ~/.icons/default/index.theme
+exec echo -e "[Settings]\ngtk-cursor-theme-name=$cursor" > ~/.config/gtk-3.0/settings.ini
 
 #
 # Example configuration:
@@ -45,15 +38,6 @@ gaps inner 2
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
- exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
 
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -74,9 +58,12 @@ gaps inner 2
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "1:1:AT_Translated_Set_2_keyboard" {
+input "*" {
   xkb_layout us
   xkb_variant altgr-intl
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_options ctrl:nocaps
 }
 
@@ -86,6 +73,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
        natural_scroll enabled
        middle_emulation enabled
 }
+
 
 ### Key bindings
 #
@@ -225,24 +213,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
 
 include /etc/sway/config.d/*
