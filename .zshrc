@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_hst
+HISTFILE=~/.shellhistory
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory nomatch
@@ -9,7 +9,10 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ingvij/.zshrc'
 
+autoload bashcompinit
 autoload -Uz compinit
+
+bashcompinit
 compinit
 zstyle ':completion:*' menu select=2
 # End of lines added by compinstall
@@ -35,8 +38,6 @@ else
   alias v='nvim'
 fi
 
-zstyle :omz:plugins:ssh-agent identities hkupty henry@znipe.se
-
 export TERM=xterm-256color
 
 compctl -/ -W $CODE sd
@@ -46,10 +47,10 @@ eval $(gpg-agent --daemon 2>/dev/null)
 
 setopt PROMPT_SUBST
 
+source ~/.local/bin/_fns
+
 source <(antibody init)
 antibody bundle < ~/.plugins
-
-source $HOME/.vars
 
 fzf-history-widget-accept() {
   fzf-history-widget
@@ -59,3 +60,29 @@ zle     -N     fzf-history-widget-accept
 bindkey '^X^R' fzf-history-widget-accept
 
 bindkey '^n' autosuggest-accept
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# Options to fzf command
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
+    ssh)          fzf "$@" --preview 'dig {}' ;;
+    *)            fzf "$@" ;;
+  esac
+}
