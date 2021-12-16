@@ -17,6 +17,7 @@
   autoupdate = true
 [core]
   excludesfile = /home/hkupty/.gitignore_global
+	pager = delta --dark --line-numbers
 [includeIf "gitdir:/opt/code/znipe/"]
   path = /opt/code/znipe/.gitconfig
 [pull]
@@ -24,3 +25,5 @@
   ff = only
 [init]
   defaultBranch = main
+[delta]
+	side-by-side = true
