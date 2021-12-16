@@ -10,15 +10,14 @@ end
 
 local cv2 = require("cartographer.v2")
 
-mapper{"<C-M-p>", cv2.project}
-mapper{"<C-f>", cv2.cd}
-mapper{"<C-p>", cv2.files}
-mapper{"<C-g>", cv2.dirty}
-mapper{"<C-s>", cv2.checkout}
-mapper{"<C-l>", cv2.buffers}
-mapper{"<M-v>", cv2.files, {open_cmd = "leftabove vnew"}}
-mapper{"<M-h>", cv2.files, {open_cmd = "rightbelow new"}}
-mapper{"<C-t>", cv2.todo, {open_cmd = "rightbelow new"}}
+--mapper{"<C-M-p>", cv2.project}
+--mapper{"<C-f>", cv2.cd}
+--mapper{"<C-p>", cv2.files}
+--mapper{"<C-g>", cv2.dirty}
+--mapper{"<C-s>", cv2.checkout}
+--mapper{"<C-l>", cv2.buffers}
+--mapper{"<C-t>", cv2.todo, {open_cmd = "rightbelow new"}}
+
 mapper{"<C-n>", require("neogit").open}
 mapper{"<space>b", require("sidebar-nvim").open}
 

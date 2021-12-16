@@ -13,7 +13,7 @@ return require('packer').startup{
     use {'neovim/nvim-lspconfig'}
 
     -- API client
-     use {code .. '/hkupty/daedalus.nvim'}
+    use {code .. '/vigemus/daedalus.nvim'}
 
     -- Jira client
     -- use {code .. '/vigemus/gojira.nvim'}
@@ -54,7 +54,7 @@ return require('packer').startup{
     --use {'shougo/neosnippet.vim', requires = {'shougo/neosnippet-snippets'}}
 
     -- Tmux substitute
-     use {code .. '/hkupty/nvimux'}
+    use {code .. '/vigemus/nvimux'}
 
     -- Github
     -- use {code .. '/vigemus/bighut.nvim'}
@@ -66,25 +66,25 @@ return require('packer').startup{
     -- use {code .. '/vigemus/foam.nvim'}
 
     -- Repls
-     use {code .. '/hkupty/iron.nvim'}
-     use {code .. '/hkupty/trex.nvim'}
+    use {code .. '/vigemus/iron.nvim'}
+    use {code .. '/vigemus/trex.nvim'}
 
     -- Le Dashboard
-    -- use {code .. '/hkupty/bordet/nvim/'}
+    -- use {code .. '/vigemus/bordet/nvim/'}
 
 
     -- Prompt utils
-     use {code .. '/hkupty/impromptu.nvim'}
+    use {code .. '/vigemus/impromptu.nvim'}
 
     -- Project Navigation
-     use {code .. '/hkupty/classifier.nvim'}
-     use {code .. '/hkupty/cartographer.nvim'}
+    use {code .. '/vigemus/classifier.nvim'}
+    --use {code .. '/vigemus/cartographer.nvim'}
 
     use {"nvim-telescope/telescope.nvim", requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
 
     -- Points to where I want
-     use {code .. '/hkupty/pointer.nvim'}
+    use {code .. '/vigemus/pointer.nvim'}
 
     -- Make
     use {'w0rp/ale'}
