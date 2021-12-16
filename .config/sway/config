@@ -14,23 +14,26 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 set $cursor "BreezeX-Dark"
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf --no-info --color="bg:#173f4f,fg:#35b9ab,bg+:#68cbc0,fg+:#516f7b,pointer:#173f4f,hl+:#173f4f,hl:#73ba25" | xargs -r swaymsg -t command exec'
-
-for_window [app_id="^launcher$"] floating enable, border none, resize set width 400 px height 100 px, move position center
+set $menu kickoff
 
 default_border none
 gaps inner 2
 
-seat seat0 xcursor_theme $cursor
 exec gsettings set org.gnome.desktop.interface cursor-theme $cursor
 exec echo -e "[icon theme]\nInherits=$cursor" > ~/.icons/default/index.theme
 exec echo -e "[Settings]\ngtk-cursor-theme-name=$cursor" > ~/.config/gtk-3.0/settings.ini
+
+seat * {
+  hide_cursor 500
+  hide_cursor when-typing enable
+  xcursor_theme $cursor
+}
 
 #
 # Example configuration:
@@ -178,6 +181,8 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 #
 # Scratchpad:
 #
@@ -186,6 +191,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
 
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+b exec ~/.local/bin/toggle-bt-profile
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
@@ -215,5 +221,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+
 
 include /etc/sway/config.d/*

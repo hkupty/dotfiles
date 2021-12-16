@@ -1,16 +1,27 @@
 profile singleton {
   output eDP-1 position 0,0
+
+  exec swaybg -o eDP-1 -i $HOME/.config/sway/skull.jpg
 }
 
 profile home {
-  output eDP-1 position 1440,1670 mode 1920x1200
-  output 'Unknown MSI MAG272QP CA8A010800708'  position 0,0 mode 2560x1440@164.802Hz transform 90
-  output 'Unknown MSI MAG272QP CA8A010800281'  position 1440,0 mode 2560x1440@164.802Hz
+  output 'Unknown MSI MAG272QP CA8A010800708'  position 0,0 mode 2560x1440@164.802Hz
+  output 'Unknown MSI MAG272QP CA8A010800281'  position 2560,0 mode 2560x1440@164.802Hz
+  output eDP-1 position 2690,1440 mode 1920x1200
+
+  exec swaybg -o eDP-1 -i $HOME/.config/sway/skull.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.config/sway/death.jpg -o 'Unknown MSI MAG272QP CA8A010800708' -i $HOME/.config/sway/battery.jpg
 }
 
 profile partial {
   output eDP-1 position 230,1440 mode 1920x1200
   output 'Unknown MSI MAG272QP CA8A010800281'  position 0,0 mode 2560x1440@164.802Hz
-  exec swaybg -o eDP-1                                -i $HOME/.config/sway/skull.jpg
-  exec swaybg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.config/sway/death.jpg
+
+  exec swaybg -o eDP-1 -i $HOME/.config/sway/skull.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.config/sway/death.jpg
+}
+
+profile office {
+  output 'Hewlett Packard HP E242 CNC6050D81' position 0,0 mode 1920x1200
+  output eDP-1 position 230,1440 mode 1920x1200 position 370,1200 mode 1920x1200
+
+  exec swaybg -o eDP-1 -i $HOME/.config/sway/skull.jpg -o 'Hewlett Packard HP E242 CNC6050D81' -i $HOME/.config/sway/death.jpg
 }
