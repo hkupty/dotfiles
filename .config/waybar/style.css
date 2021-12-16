@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Fira Code Nerd Font";
-    font-size: 13px;
+    font-family: "Noto Sans Mono";
+    font-size: 10pt;
     min-height: 0;
 }
 
@@ -13,7 +13,7 @@ window#waybar {
 
 #window {
     font-weight: bold;
-    font-family: "Fira Code";
+    font-family: "Noto Sans Mono";
 }
 
 #workspaces {
