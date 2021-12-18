@@ -8,8 +8,6 @@ local mapper = function(opt)
   }
 end
 
-local cv2 = require("cartographer.v2")
-
 --mapper{"<C-M-p>", cv2.project}
 --mapper{"<C-f>", cv2.cd}
 --mapper{"<C-p>", cv2.files}

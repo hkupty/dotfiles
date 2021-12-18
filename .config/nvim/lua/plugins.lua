@@ -131,18 +131,15 @@ nvimux.config.set_all{
   new_window = function()
     vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(false, true))
     -- _G.dashboard()
-    require("cartographer.v2").files{}
   end,
   new_tab = function()
     -- _G.dashboard()
-    require("cartographer.v2").project{}
   end
 
 }
 
 nvimux.bindings.bind_all{
-  {'f', function() require("cartographer.v2").functions{} end, {'n', 'v', 'i'}},
-  {'g', function() require("cartographer.v2").branch_changed{} end, {'n', 'i'}},
+  {'f', function() require("telescope.builtin").treesitter{} end, {'n', 'v', 'i'}},
   {'s', nvimux.commands.horizontal_split, {'n', 'v', 'i', 't'}},
   {'v', nvimux.commands.vertical_split, {'n', 'v', 'i', 't'}},
   {'*-', function() nvimux.config.set{new_tab = ""} end, {'n', 'v', 'i', 't'}},

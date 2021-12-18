@@ -8,7 +8,6 @@ require("plugins.telescope")
 -- require("plugins.bordet")
 require("plugins.telescope")
 require("config")
-require("project")
 -- require("tasks")
 require("keybindings")
 

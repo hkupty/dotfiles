@@ -78,7 +78,6 @@ return require('packer').startup{
 
     -- Project Navigation
     use {code .. '/vigemus/classifier.nvim'}
-    --use {code .. '/vigemus/cartographer.nvim'}
 
     use {"nvim-telescope/telescope.nvim", requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
