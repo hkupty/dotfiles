@@ -2,13 +2,12 @@
 require("deps")
 require("globals")
 require("plugins")
+require("plugins.orgmode")
 require("plugins.treesitter")
 require("plugins.expressline")
 require("plugins.telescope")
--- require("plugins.bordet")
 require("plugins.telescope")
 require("config")
--- require("tasks")
 require("keybindings")
 
 

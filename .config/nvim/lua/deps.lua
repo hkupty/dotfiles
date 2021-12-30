@@ -28,6 +28,7 @@ return require('packer').startup{
     use {'projekt0n/github-nvim-theme'}
     use {'RRethy/nvim-base16'}
     use {'mhartington/oceanic-next'}
+    use {'rebelot/kanagawa.nvim'}
 
     -- Code Completion
     use {'shougo/deoplete.nvim'}
@@ -46,6 +47,9 @@ return require('packer').startup{
 
     -- Ctags
     --use {'ludovicchabant/vim-gutentags'}
+
+    use {'lewis6991/spellsitter.nvim'}
+    use {'mateusbraga/vim-spell-pt-br'}
 
     -- Colors
     use {'norcalli/nvim-colorizer.lua'}
@@ -189,7 +193,13 @@ return require('packer').startup{
     use {'bakpakin/fennel.vim'}
 
     -- Tasks
-    use {'jceb/vim-orgmode'}
+    --use {'jceb/vim-orgmode'}
+
+    use {'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup{}
+    end
+}
+
     use {'vimwiki/vimwiki', branch = "dev"}
     use {'tools-life/taskwiki',
       requires = {

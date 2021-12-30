@@ -1,10 +1,28 @@
 local treesitter = require('nvim-treesitter.configs')
 
-local ts_langs = {"bash", "lua", "clojure", "go", "json", "regex", "java", "javascript", "python", "yaml"}
+local ts_langs = {
+  "bash",
+  "lua",
+  "clojure",
+  "go",
+  "json",
+  "regex",
+  "java",
+  "javascript",
+  "python",
+  "yaml",
+  "dockerfile",
+  "org",
+}
 
 treesitter.setup{
-    highlight = { enable = ts_langs },
+    ensure_installed = ts_langs,
+    highlight = {
+      enable = true,
+      disable = { 'org' }
+    },
     indent = {enable = ts_langs },
+    additional_vim_regex_highlighting = {'org'},
     incremental_selection = {
       enable = ts_langs,
       keymaps = {
