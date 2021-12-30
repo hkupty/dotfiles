@@ -24,6 +24,7 @@ set $menu kickoff
 
 default_border none
 gaps inner 2
+gaps outer 2
 
 exec gsettings set org.gnome.desktop.interface cursor-theme $cursor
 exec echo -e "[icon theme]\nInherits=$cursor" > ~/.icons/default/index.theme
@@ -68,6 +69,8 @@ input "*" {
 
 input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_options ctrl:nocaps
+  xkb_layout us
+  xkb_variant altgr-intl
 }
 
 input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
