@@ -15,38 +15,46 @@ return require('packer').startup{
     -- API client
     use {code .. '/vigemus/daedalus.nvim'}
 
-    -- Jira client
-    -- use {code .. '/vigemus/gojira.nvim'}
+
+    use {'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+    }
 
     -- GUI stuff
     use {'equalsraf/neovim-gui-shim'}
 
     -- Dark colors
-    --use {'joshdick/onedark.vim'}
-    --use {'arcticicestudio/nord-vim'}
-    --use {'chriskempson/base16-vim'}
     use {'projekt0n/github-nvim-theme'}
     use {'RRethy/nvim-base16'}
     use {'mhartington/oceanic-next'}
     use {'rebelot/kanagawa.nvim'}
 
     -- Code Completion
-    use {'shougo/deoplete.nvim'}
-    use {'deoplete-plugins/deoplete-lsp'}
-    use {'deoplete-plugins/deoplete-tag'}
+    use {'hrsh7th/cmp-nvim-lsp'}
+    use {'hrsh7th/cmp-buffer'}
+    use {'hrsh7th/cmp-path'}
+    use {'hrsh7th/cmp-cmdline'}
+    use {'hrsh7th/cmp-nvim-lua'}
+    use {'f3fora/cmp-spell'}
+    use {'hrsh7th/nvim-cmp'}
+    use {'ray-x/cmp-treesitter'}
+
+  -- snippets
+    use {'L3MON4D3/LuaSnip'}
 
     -- Let on modeline
     use {'vim-scripts/let-modeline.vim'}
 
     -- Statusline
-    use {'tjdevries/express_line.nvim', requires = {'nvim-lua/plenary.nvim'}}
-
-    -- Better lua mapping
-    -- TODO Drop this in favor of https://github.com/neovim/neovim/pull/13823
-    use {'tjdevries/astronauta.nvim'}
+    use {'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    use {'arkav/lualine-lsp-progress'}
 
     -- Ctags
-    --use {'ludovicchabant/vim-gutentags'}
+    use {'ludovicchabant/vim-gutentags'}
 
     use {'lewis6991/spellsitter.nvim'}
     use {'mateusbraga/vim-spell-pt-br'}
@@ -54,28 +62,14 @@ return require('packer').startup{
     -- Colors
     use {'norcalli/nvim-colorizer.lua'}
 
-    -- Snippets
-    --use {'shougo/neosnippet.vim', requires = {'shougo/neosnippet-snippets'}}
 
     -- Tmux substitute
     use {code .. '/vigemus/nvimux'}
 
-    -- Github
-    -- use {code .. '/vigemus/bighut.nvim'}
-
-    -- Track work
-    -- use {code .. '/vigemus/errands.nvim'}
-
-    -- Bubbly windows
-    -- use {code .. '/vigemus/foam.nvim'}
 
     -- Repls
     use {code .. '/vigemus/iron.nvim'}
     use {code .. '/vigemus/trex.nvim'}
-
-    -- Le Dashboard
-    -- use {code .. '/vigemus/bordet/nvim/'}
-
 
     -- Prompt utils
     use {code .. '/vigemus/impromptu.nvim'}
@@ -99,13 +93,12 @@ return require('packer').startup{
     use {'scrooloose/nerdcommenter'}
 
     -- Git stuff
-    use {'mhinz/vim-signify'}
     use {'jreybert/vimagit'}
     use {'TimUntersberger/neogit'}
-    use {'lambdalisue/gina.vim'}
+    use {'pwntester/octo.nvim'}
 
     -- Sidebar
-    use {'GustavoKatel/sidebar.nvim'}
+    use {'sidebar-nvim/sidebar.nvim'}
 
     -- Search TODO comments
     use {'folke/todo-comments.nvim'}
@@ -192,13 +185,7 @@ return require('packer').startup{
     -- Fennel
     use {'bakpakin/fennel.vim'}
 
-    -- Tasks
-    --use {'jceb/vim-orgmode'}
-
-    use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{}
-    end
-}
+    use {'nvim-orgmode/orgmode'}
 
     use {'vimwiki/vimwiki', branch = "dev"}
     use {'tools-life/taskwiki',
@@ -212,12 +199,11 @@ return require('packer').startup{
 
     -- Treesitter <3
     use {'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      requires = {
-        'nvim-treesitter/nvim-treesitter-refactor',
-        'nvim-treesitter/nvim-treesitter-textobjects'
-      }
+      run = ':TSUpdate'
     }
+
+    use {'nvim-treesitter/nvim-treesitter-refactor'}
+    use {'nvim-treesitter/nvim-treesitter-textobjects'}
 
     use {'nvim-treesitter/playground'}
     --
@@ -239,6 +225,8 @@ return require('packer').startup{
     use {'plasticboy/vim-markdown'}
 
     use {'phaazon/hop.nvim'}
+
+    use {'echasnovski/mini.nvim'}
   end,
   config = {ensure_dependencies = true}
 }

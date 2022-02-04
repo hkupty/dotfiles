@@ -1,6 +1,6 @@
 " Leader as ','
 let mapleader = ","
-let maplocalleader = " "
+let maplocalleader = "<space>"
 
 " rg + fzf ftw
 nmap <leader>S :exec "let cft=&ft \| edit scratchpad \| let &ft=cft"<CR>
@@ -18,9 +18,6 @@ vnoremap Y myY`y
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
 
-" Git
-nnoremap gb :Gina branch<CR>
-nnoremap gB :Gina blame :<CR>
 
 " Comment fix
 map <leader>c<space> <plug>NERDCommenterToggle
@@ -30,18 +27,11 @@ nnoremap <silent> <F3> :set number! relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
 
 " Edit me!
-map <silent> <leader>e :tabe $MYVIMRC<CR>:tcd $HOME/.config/nvim/<CR>
-map <silent> <leader>z :tabe $HOME/.zshrc<CR>:tcd $HOME<CR>
+map <silent> <leader>e <CMD>tabe $MYVIMRC \| tcd $HOME/.config/nvim/<CR>
 
 " Buffer nav
-map <leader>. :Buffers<CR>
 map <leader>; :ls<CR>:bd<space>
 
-" Tag Searching
-map <leader>t :Tags<CR>
-
-" Term(ify) the current window
-map g! :term<CR>
 
 " System clipboard
 vnoremap <C-c> "+y
@@ -66,10 +56,6 @@ map <silent> <leader><leader> :nohl<CR>
 nnoremap <silent> <leader>% :let g:paredit_mode=!g:paredit_mode<CR>
 
 " Snippets
-imap <C-k> <Plug>(neosnippet_jump_or_expand)
-smap <C-k> <Plug>(neosnippet_jump_or_expand)
-xmap <C-k> <Plug>(neosnippet_jump_or_expand)
-
 tnoremap <C-w>h <C-\><C-n><C-w><C-h>
 tnoremap <C-w>j <C-\><C-n><C-w><C-j>
 tnoremap <C-w>k <C-\><C-n><C-w><C-k>
@@ -95,8 +81,6 @@ noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
 
 nnoremap <leader>? <plug>GrepAll
-
-nmap <C-space> <Cmd>Goyo<CR>
 
 cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>

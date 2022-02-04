@@ -14,7 +14,7 @@ function s:MapLSP()
   setl omnifunc=v:lua.vim.lsp.omnifunc
 endfunction
 
-autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
+" autocmd BufDelete COMMIT_EDITMSG SignifyRefresh
 
 augroup terminal_commands
     au!

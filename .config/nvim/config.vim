@@ -1,6 +1,6 @@
 set termguicolors
 
-colorscheme base16-default-dark
+colorscheme kanagawa
 
 set noreadonly
 
