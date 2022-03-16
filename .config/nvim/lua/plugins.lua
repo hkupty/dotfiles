@@ -73,11 +73,31 @@ nvimux.setup{
     end
   },
   bindings = {
-    {{'n', 'v', 'i'}, 'f', function() require("telescope.builtin").treesitter{} end},
-    {{'n', 'v', 'i'}, 'l', function() require("telescope.builtin").live_grep{} end},
     {{'n', 'v', 'i', 't'}, 's', nvimux.commands.horizontal_split},
     {{'n', 'v', 'i', 't'}, 'v', nvimux.commands.vertical_split},
     {{'n', 'v', 'i', 't'}, '$', trex.invoke},
     {{'n'}, 'i', _G.hkupty.configure_impromptu}
   }
 }
+
+vim.g.vimwiki_list = {
+  {
+    path = "/opt/code/wiki/",
+    index = "main",
+    sytax = "markdown",
+    ext = "md",
+    auto_diary_index = 1,
+    auto_toc = 1,
+    auto_generte_links = 1
+  }
+}
+
+vim.g.vimwiki_ext2syntax = {
+  ['.md'] = 'markdown',
+  ['.markdown'] = 'markdown',
+  ['.mdown'] = 'markdown',
+}
+
+vim.g.vimwiki_markdown_link_ext = 1
+vim.g.taskwiki_markup_syntax = 'markdown'
+vim.g.markdown_folding = 1

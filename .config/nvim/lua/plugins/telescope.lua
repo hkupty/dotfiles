@@ -59,9 +59,19 @@ local mapper = function(opt)
 end
 
 local ivy = require('telescope.themes').get_ivy({})
-mapper{"<C-p>", require'telescope.builtin'.find_files, ivy}
-mapper{"<C-l>", require'telescope.builtin'.buffers, ivy}
-mapper{"<C-g>", require'telescope.builtin'.git_status, ivy}
-mapper{"<C-M-f>", require'telescope.builtin'.live_grep, ivy}
 
+-- Files
+mapper{"<C-l>", require'telescope.builtin'.buffers, ivy}
+mapper{"<C-p>", require'telescope.builtin'.find_files, ivy}
+mapper{"<C-M-f>", require'telescope.builtin'.live_grep, ivy}
 mapper{"<C-M-p>", project_folders, ivy}
+
+-- Git-related
+mapper{"<C-g>f", require'telescope.builtin'.git_status, ivy}
+mapper{"<C-g>b", require'telescope.builtin'.git_branches, ivy}
+mapper{"<C-g>c", require'telescope.builtin'.git_commits, ivy}
+mapper{"<C-g>C", require'telescope.builtin'.git_bcommits, ivy}
+mapper{"<C-g>s", require'telescope.builtin'.git_stash, ivy}
+
+-- treesitter
+mapper{"<C-s>t", require'telescope.builtin'.treesitter, ivy}

@@ -2,102 +2,110 @@ local treesitter = require('nvim-treesitter.configs')
 
 local ts_langs = {
   "bash",
-  "lua",
   "clojure",
-  "go",
-  "json",
-  "regex",
-  "java",
-  "javascript",
-  "python",
-  "yaml",
   "dockerfile",
+  "java",
+  "json",
+  "kotlin",
+  "lua",
   "org",
+  "python",
+  "regex",
+  "yaml",
 }
 
 treesitter.setup{
-    ensure_installed = ts_langs,
-    highlight = {
-      enable = true,
-      disable = { 'org' }
+  ensure_installed = ts_langs,
+  highlight = {
+    enable = true,
+    disable = { 'org' }
+  },
+  indent = {enable = ts_langs},
+  additional_vim_regex_highlighting = {'org'},
+  incremental_selection = {
+    enable = ts_langs,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    }
+  },
+  tree_docs = {
+    enable = true,
+
+  },
+  refactor = {
+    highlight_definitions = {
+      enable = ts_langs,
     },
-    indent = {enable = ts_langs },
-    additional_vim_regex_highlighting = {'org'},
-    incremental_selection = {
+    highlight_current_scope = { enable = ts_langs },
+    smart_rename = {
       enable = ts_langs,
       keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
-      }
-    },
-    refactor = {
-      highlight_definitions = { enable = ts_langs },
-      highlight_current_scope = { enable = ts_langs },
-      smart_rename = {
-        enable = ts_langs,
-        keymaps = {
-          smart_rename = "grr",
-        },
-      },
-      navigation = {
-        enable = ts_langs,
-        keymaps = {
-          goto_definition = "gnd",
-          list_definitions = "gnD",
-          list_definitions_toc = "gO",
-          goto_next_usage = "<a-*>",
-          goto_previous_usage = "<a-#>",
-        },
+        smart_rename = "grr",
       },
     },
-    textobjects = {
-      select = {
-        enable = ts_langs,
-        keymaps = {
-          ["af"] = "@function.outer",
-          --["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-          ["if"] = {
-            python = "(function_definition) @function",
-            cpp = "(function_definition) @function",
-            c = "(function_definition) @function",
-            java = "(method_declaration) @function",
-          },
-        },
-      },
-      swap = {
-        enable = ts_langs,
-        swap_next = {
-          ["<leader>a"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>A"] = "@parameter.inner",
-        },
-      },
-      move = {
-        enable = ts_langs,
-        goto_next_start = {
-          ["]m"] = "@function.outer",
-          ["]]"] = "@class.outer",
-        },
-        goto_next_end = {
-          ["]M"] = "@function.outer",
-          ["]["] = "@class.outer",
-        },
-        goto_previous_start = {
-          ["[m"] = "@function.outer",
-          ["[["] = "@class.outer",
-        },
-        goto_previous_end = {
-          ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer",
-        },
+    navigation = {
+      enable = ts_langs,
+      keymaps = {
+        goto_definition = "gnd",
+        list_definitions = "gnD",
+        list_definitions_toc = "gO",
+        goto_next_usage = "<a-*>",
+        goto_previous_usage = "<a-#>",
       },
     },
+  },
+  textobjects = {
+    select = {
+      enable = ts_langs,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+    swap = {
+      enable = ts_langs,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
+      },
+    },
+    move = {
+      enable = ts_langs,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
+  },
 }
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.markdown.used_by = "octo"
+parser_config.markdown.filetype_to_parsename = "octo"

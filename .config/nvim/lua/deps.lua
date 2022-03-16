@@ -6,8 +6,9 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup{
   function()
     use {'wbthomason/packer.nvim', opt = true}
-
-    use {'bfredl/nvim-luadev'}
+    -- Make it fast
+    use {'lewis6991/impatient.nvim'}
+    use {'nathom/filetype.nvim'}
 
     -- LSP support
     use {'neovim/nvim-lspconfig'}
@@ -30,6 +31,7 @@ return require('packer').startup{
     use {'RRethy/nvim-base16'}
     use {'mhartington/oceanic-next'}
     use {'rebelot/kanagawa.nvim'}
+    use {'EdenEast/nightfox.nvim'}
 
     -- Code Completion
     use {'hrsh7th/cmp-nvim-lsp'}
@@ -43,29 +45,33 @@ return require('packer').startup{
 
   -- snippets
     use {'L3MON4D3/LuaSnip'}
-
-    -- Let on modeline
-    use {'vim-scripts/let-modeline.vim'}
+    use {'saadparwaiz1/cmp_luasnip'}
+    use {'rafamadriz/friendly-snippets'}
 
     -- Statusline
     use {'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    -- LSP progress
     use {'arkav/lualine-lsp-progress'}
+    use {'j-hui/fidget.nvim', config = function()
+      require("fidget").setup{}
+    end}
+
 
     -- Ctags
     use {'ludovicchabant/vim-gutentags'}
 
+    -- Spelling
     use {'lewis6991/spellsitter.nvim'}
     use {'mateusbraga/vim-spell-pt-br'}
 
     -- Colors
     use {'norcalli/nvim-colorizer.lua'}
 
-
     -- Tmux substitute
     use {code .. '/vigemus/nvimux'}
-
 
     -- Repls
     use {code .. '/vigemus/iron.nvim'}
@@ -74,9 +80,10 @@ return require('packer').startup{
     -- Prompt utils
     use {code .. '/vigemus/impromptu.nvim'}
 
-    -- Project Navigation
+    -- filetype tinkering
     use {code .. '/vigemus/classifier.nvim'}
 
+    -- Navigation
     use {"nvim-telescope/telescope.nvim", requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}}
     use {"nvim-telescope/telescope-fzy-native.nvim"}
 
@@ -90,10 +97,10 @@ return require('packer').startup{
     use {'justinmk/vim-dirvish'}
 
     -- Code commenting
-    use {'scrooloose/nerdcommenter'}
+    use {'terrortylor/nvim-comment'}
+    use {'danymat/neogen'} -- TODO evaluate
 
     -- Git stuff
-    use {'jreybert/vimagit'}
     use {'TimUntersberger/neogit'}
     use {'pwntester/octo.nvim'}
 
@@ -111,17 +118,8 @@ return require('packer').startup{
     use {'tpope/vim-abolish'}
     use {'tpope/vim-eunuch'}
 
-    -- Gist
-    use {'mattn/gist-vim', requires = {'mattn/webapi-vim'}}
-
     -- Eyecandy
     use {'kyazdani42/nvim-web-devicons'}
-
-    -- Align
-    use {'tommcdo/vim-lion'}
-
-    -- Fn signatures
-    use {'Shougo/echodoc.vim'}
 
     -- Syntax specific and some more stuff
     -- Docker
@@ -147,7 +145,6 @@ return require('packer').startup{
     use {code .. '/clojure-vim/acid.nvim'}
     use {code .. '/clojure-vim/jazz.nvim'}
     use {code .. '/clojure-vim/async-clj-highlight'}
-
     use {'guns/vim-sexp', ft = 'clojure' }
     use {'clojure-vim/async-clj-omni'}
     use {'fholiveira/vim-clojure-static', ft = {'clojure'}, branch = 'hack-update'}
@@ -156,16 +153,6 @@ return require('packer').startup{
     use {'hynek/vim-python-pep8-indent', ft = {'python'} }
     use {'davidhalter/jedi-vim', ft = {'python'} }
     use {'zchee/deoplete-jedi', ft = {'python'} }
-
-    -- Bazel
-    use {'google/vim-maktaba'}
-    use {'bazelbuild/vim-bazel'}
-
-    -- Nix
-    use {'LnL7/vim-nix'}
-
-    -- Vim - Vader
-    use {'Shougo/neco-vim', ft = 'vim' }
 
     -- Splunk!
     use {'vim-scripts/splunk.vim'}
@@ -179,14 +166,21 @@ return require('packer').startup{
     -- Yaml
     use {'pedrohdz/vim-yaml-folds'}
 
-    -- Ledger
-    use {'ledger/vim-ledger'}
-
-    -- Fennel
-    use {'bakpakin/fennel.vim'}
-
+    -- orgmode
     use {'nvim-orgmode/orgmode'}
+    use {'akinsho/org-bullets.nvim',
+      config = function()
+        require("org-bullets").setup {
+            symbols = { "◉", "○", "✸", "✿" }
+        }
+      end
+    }
+    use {'lukas-reineke/headlines.nvim', config = function()
+      require('headlines').setup()
+    end}
 
+    -- vimwiki
+    -- TODO check out if vimwiki is still worth it
     use {'vimwiki/vimwiki', branch = "dev"}
     use {'tools-life/taskwiki',
       requires = {
@@ -204,19 +198,15 @@ return require('packer').startup{
 
     use {'nvim-treesitter/nvim-treesitter-refactor'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
+    use {'nvim-treesitter/nvim-tree-docs'}
 
     use {'nvim-treesitter/playground'}
-    --
+
     -- Dim inactive windows
     use {'blueyed/vim-diminactive'}
 
     -- jq syntax
     use {'vito-c/jq.vim'}
-
-    -- Focus mode
-    use {'junegunn/goyo.vim'}
-
-    use {'romainl/vim-cool'}
 
     -- Plan UML
     use {'aklt/plantuml-syntax'}
@@ -226,7 +216,6 @@ return require('packer').startup{
 
     use {'phaazon/hop.nvim'}
 
-    use {'echasnovski/mini.nvim'}
   end,
   config = {ensure_dependencies = true}
 }

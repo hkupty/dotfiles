@@ -93,12 +93,12 @@ local pomodoro = {
 sidebar_nvim.setup({
   disable_default_keybindings = 0,
   bindings = { ["q"] = function() sidebar_nvim.close() end },
-  hide_statusline = true,
+  hide_statusline = false,
   open = true,
   side = "left",
   initial_width = 29,
   update_interval = 1000,
-  sections = { "datetime", pomodoro, "todos", gh_notifications ,"git", "diagnostics", "containers", "symbols" },
+  sections = { "datetime", "todos", "git", "diagnostics", "containers", "symbols" },
   section_separator = {"", "─────────────────────────", ""},
   datetime = {
     icon = "",
