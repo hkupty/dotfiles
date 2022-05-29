@@ -1,22 +1,14 @@
 profile singleton {
-  output eDP-1 position 0,0
-
-  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/skull.jpg
+  output eDP-1 position 0,0 mode 1920x1200 scale 1
+  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/nebula2.png
 }
 
 profile home {
-  output 'Unknown MSI MAG272QP CA8A010800708'  position 0,0 mode 2560x1440@164.802Hz
-  output 'Unknown MSI MAG272QP CA8A010800281'  position 2560,0 mode 2560x1440@164.802Hz
-  output eDP-1 position 2690,1440 mode 1920x1200
+  output 'Unknown MSI MAG272QP CA8A010900475' position 0,0 mode 2560x1440@60Hz
+  output eDP-1 scale 1.3 position 2560,260 mode 1920x1200
+  output 'Unknown MSI MAG272QP CA8A010800281' position 4035,0 mode 2560x1440@60Hz
 
-  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/skull.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/death.jpg -o 'Unknown MSI MAG272QP CA8A010800708' -i $HOME/.local/share/desktop/battery.jpg
-}
-
-profile partial {
-  output eDP-1 position 230,1440 mode 1920x1200
-  output 'Unknown MSI MAG272QP CA8A010800281'  position 0,0 mode 2560x1440@164.802Hz
-
-  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/skull.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/death.jpg
+  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/nebula2.png -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/nebula1.jpg -o 'Unknown MSI MAG272QP CA8A010900475' -i $HOME/.local/share/desktop/nebula3.png
 }
 
 profile office {
