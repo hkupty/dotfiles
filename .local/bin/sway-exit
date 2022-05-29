@@ -1,0 +1,32 @@
+#!/bin/sh
+
+before_lock() {
+    bluetoothctl disconnect
+}
+
+case "$1" in
+    exit)
+        systemctl --user stop sway-session.target
+        swaymsg exit
+        ;;
+    lock)
+        before_lock
+        swaylock -f -c 000000
+        waybar-eyes done
+        ;;
+    suspend)
+        before_lock
+        systemctl -i suspend
+        swaylock
+        ;;
+    reboot)
+        systemctl -i reboot
+        ;;
+    shutdown)
+        systemctl -i poweroff
+        ;;
+    *)
+        echo "Usage: $0 {exit|lock|suspend|reboot|shutdown}"
+        exit 2
+        ;;
+esac

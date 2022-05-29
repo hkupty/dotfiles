@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+aptx=$(pactl list | grep Active | grep aptx)
+card=$(pactl list | grep "Name: bluez_card." | cut -d ' ' -f 2)
+
+if [ -n "$aptx" ]; then
+    pactl set-card-profile "${card}" headset-head-unit-msbc
+    microphone=$(pactl list | grep "Name: bluez_input." | cut -d ' ' -f 2)
+    pactl set-default-source "${microphone}"
+else
+    pactl set-card-profile "${card}" a2dp-sink-aptx
+    microphone=$(pactl list | grep "HiFi__hw_sofhdadsp_6" | cut -d ' ' -f 2 | head -n1)
+    pactl set-default-source "${microphone}"
+fi

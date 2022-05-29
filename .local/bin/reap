@@ -1,0 +1,19 @@
+#!/bin/sh
+
+processes=$(ps aux | rg "$1")
+if [[ -z "$processes" ]]; then
+  echo "No process open with name $1. Aborting"
+  exit 0
+fi
+confirm="$2"
+
+if [[ -n "${confirm}" ]]; then
+  echo $pocesses
+  read -p "kill (y/n)?" choice
+  case "$choice" in
+    y|Y) echo ;;
+    *) exit 0 ;;
+  esac
+fi
+
+echo "$processes" | awk '{print $2 }' | xargs kill -9;
