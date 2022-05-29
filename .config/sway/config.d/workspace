@@ -1,0 +1,12 @@
+#
+# Workspace management
+#
+mode "workspace-management" {
+        bindsym h exec swaymsg move workspace to output left ##Move workspace to output to the left
+        bindsym l exec swaymsg move workspace to output right ##Move workspace to output to the right
+
+        bindsym Return mode default, exec pkill -8 nwg-wrapper ##Exit workspace-management mode
+        bindsym Escape mode default, exec pkill -8 nwg-wrapper ##Exit workspace-management mode
+}
+
+bindsym $mod+w mode "workspace-management"; exec ~/.config/sway/panel/panel.sh ~/.config/sway/config.d/workspace

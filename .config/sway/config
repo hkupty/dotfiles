@@ -62,7 +62,7 @@ seat * {
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "*" {
+input type:keyboard {
   xkb_layout us
   xkb_variant altgr-intl
 }
@@ -94,7 +94,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    bindsym $mod+g exec swaylock -f -c 000000
+    bindsym $mod+g exec sway-exit lock
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -169,9 +169,9 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -186,6 +186,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     bindsym $mod+a focus parent
 
     bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+
 #
 # Scratchpad:
 #
@@ -199,32 +200,6 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-
-
+include config.d/*
 include /etc/sway/config.d/*

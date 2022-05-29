@@ -1,0 +1,12 @@
+mode "system" {
+  bindsym e exec sway-exit exit, mode "default", exec pkill -8 nwg-wrapper ##Exit session
+  bindsym l exec sway-exit lock, mode "default", exec pkill -8 nwg-wrapper ##Lock session
+  bindsym s exec sway-exit suspend, mode "default", exec pkill -8 nwg-wrapper ##Suspend session
+  bindsym r exec sway-exit reboot, mode "default", exec pkill -8 nwg-wrapper ##Reboot machine
+  bindsym h exec sway-exit shutdown, mode "default", exec pkill -8 nwg-wrapper ##Shutdown machine
+
+  bindsym Return mode default, exec pkill -8 nwg-wrapper ##Exit system mode
+  bindsym Escape mode default, exec pkill -8 nwg-wrapper ##Exit system mode
+}
+
+bindsym $mod+s mode "system"; exec ~/.config/sway/panel/panel.sh ~/.config/sway/config.d/system

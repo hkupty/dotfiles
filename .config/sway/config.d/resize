@@ -1,0 +1,19 @@
+#
+# Resizing containers:
+#
+mode "resize" {
+    bindsym $left resize shrink width 10px ##Shrink 10px horizontally
+    bindsym $down resize grow height 10px  ##Grow 10px vertically
+    bindsym $up resize shrink height 10px  ##Shrink 10px vertically
+    bindsym $right resize grow width 10px  ##Grow 10px horizontally
+
+    bindsym Left resize shrink width 10px  ##Shrink 10px horizontally
+    bindsym Down resize grow height 10px   ##Grow 10px vertically
+    bindsym Up resize shrink height 10px   ##Shrink 10px vertically
+    bindsym Right resize grow width 10px   ##Grow 10px horizontally
+
+    bindsym Return mode "default"; exec pkill -8 nwg-wrapper ##Exit resize mode
+    bindsym Escape mode "default"; exec pkill -8 nwg-wrapper ##Exit resize mode
+}
+
+bindsym $mod+r mode "resize"; exec ~/.config/sway/panel/panel.sh ~/.config/sway/config.d/resize

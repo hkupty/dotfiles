@@ -1,0 +1,16 @@
+window {
+        background-color: rgba (0, 0, 0, 0);
+        color: rgba (200, 220, 210, 1.0)
+}
+
+#box-outer {
+        background-color: rgba (0, 0, 0, 0);
+}
+
+#box-inner {
+        box-shadow: 0px 3px 5px black;
+        font-family: "Fira Code Nerd Font";
+        font-size: 12pt;
+        background-color: rgba (0, 0, 0, 0.75);
+        padding: 20px;
+}
