@@ -12,7 +12,7 @@ profile home {
   exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/death.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/skull.jpg -o 'Unknown MSI MAG272QP CA8A010900475' -i $HOME/.local/share/desktop/skull-teeth.jpg
   {% else %}
   exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/nebula2.png -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/nebula1.jpg -o 'Unknown MSI MAG272QP CA8A010900475' -i $HOME/.local/share/desktop/nebula3.png
-  {% endif %}
+  {% end %}
 }
 
 profile office {
