@@ -1,10 +1,10 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    "height": 20, // Waybar height
+    "height": 24, // Waybar height
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -14,7 +14,7 @@
             "code": "",
             "term": "",
             "work": "",
-            "music": "",
+            "music": "",
             "docs": "",
             "urgent": "",
             "focused": "",
@@ -22,10 +22,20 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+      "format": " {}",
+      "max-length": 50
+    },
+    "sway/window": {
+      "format": "{}",
+      "max-length": 60,
+      "rewrite": {
+        "(.*) . Mozilla Firefox": " $1",
+        "nvim (.*)": " $1",
+        "Spotify": " Spotify",
+        "Slack | (.*) | (.)": " $1[$2]"
+      }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -57,7 +67,7 @@
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{volume}% {icon}",
-        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
@@ -69,5 +79,22 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "custom/bt-icon": {
+      "exec": "~/.config/waybar/bt-icon",
+      "type": "json",
+      "interval": 20,
+      "format": "{icon}",
+      "format-icons": {
+        "yes": "",
+        "no": ""
+      }
     }
 }
