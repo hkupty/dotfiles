@@ -1,0 +1,25 @@
+# Kickoff default config
+
+# Characters shown in front of the query.
+prompt = '→ '
+
+# space between window border and the content in pixel
+padding = 100
+
+font = 'Noto Sans Mono'  # otf or ttf only
+font_size = 18.0
+
+[history]
+decrease_interval = 48       # interval to decrease the number of launches
+
+[colors]
+# color format: rgb or rgba, if transparency is desired
+background = '#18181899'
+prompt = '#ba8bafff'
+text = '#d8d8d8ff'           # for search results
+text_query = '#a1b56cff'     # for the search query
+text_selected = '#ba8bafff'  # for the currently selected result
+
+[keybindings]
+nav_up = ["ctrl+p", "Up"]
+nav_down = ["ctrl+n", "Down"]
