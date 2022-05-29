@@ -23,15 +23,9 @@ return require('packer').startup{
       },
     }
 
-    -- GUI stuff
-    use {'equalsraf/neovim-gui-shim'}
-
     -- Dark colors
-    use {'projekt0n/github-nvim-theme'}
-    use {'RRethy/nvim-base16'}
-    use {'mhartington/oceanic-next'}
-    use {'rebelot/kanagawa.nvim'}
     use {'EdenEast/nightfox.nvim'}
+    use {'cocopon/iceberg.vim'}
 
     -- Code Completion
     use {'hrsh7th/cmp-nvim-lsp'}
@@ -76,6 +70,9 @@ return require('packer').startup{
     -- Repls
     use {code .. '/vigemus/iron.nvim'}
     use {code .. '/vigemus/trex.nvim'}
+
+    -- Lua tests
+    use {code .. '/hkupty/runes.nvim'}
 
     -- Prompt utils
     use {code .. '/vigemus/impromptu.nvim'}
@@ -151,8 +148,8 @@ return require('packer').startup{
 
     -- Python
     use {'hynek/vim-python-pep8-indent', ft = {'python'} }
-    use {'davidhalter/jedi-vim', ft = {'python'} }
-    use {'zchee/deoplete-jedi', ft = {'python'} }
+    -- use {'davidhalter/jedi-vim', ft = {'python'} }
+    -- use {'zchee/deoplete-jedi', ft = {'python'} }
 
     -- Splunk!
     use {'vim-scripts/splunk.vim'}
@@ -175,9 +172,6 @@ return require('packer').startup{
         }
       end
     }
-    use {'lukas-reineke/headlines.nvim', config = function()
-      require('headlines').setup()
-    end}
 
     -- vimwiki
     -- TODO check out if vimwiki is still worth it
@@ -187,9 +181,11 @@ return require('packer').startup{
         "blindFS/vim-taskwarrior",
         "preservim/tagbar",
         "powerman/vim-plugin-AnsiEsc"
-
       }
     }
+
+    -- TODO replace vimwiki for telekasten
+    use {'renerocksai/telekasten.nvim'}
 
     -- Treesitter <3
     use {'nvim-treesitter/nvim-treesitter',
@@ -212,7 +208,7 @@ return require('packer').startup{
     use {'aklt/plantuml-syntax'}
 
     -- Markdown syntax
-    use {'plasticboy/vim-markdown'}
+    use {'preservim/vim-markdown'}
 
     use {'phaazon/hop.nvim'}
 

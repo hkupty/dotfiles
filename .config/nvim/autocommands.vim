@@ -25,7 +25,6 @@ augroup END
 " Project/Language specific config
 augroup filetype_settings
     au!
-    au FileType *      set cc=0
     au FileType xml    setlocal foldmethod=syntax
     au FileType scala  set wildignore+=target/*,project/target/*,*.class
     au FileType java   call s:MapLSP()

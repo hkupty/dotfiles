@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/hkupty/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/hkupty/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -141,52 +141,51 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/cmp-treesitter",
     url = "https://github.com/ray-x/cmp-treesitter"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["daedalus.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/daedalus.nvim",
     url = "/opt/code/vigemus/daedalus.nvim"
   },
-  ["deoplete-jedi"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/opt/deoplete-jedi",
-    url = "https://github.com/zchee/deoplete-jedi"
-  },
-  ["echodoc.vim"] = {
+  ["fidget.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vfidget\frequire\0" },
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/echodoc.vim",
-    url = "https://github.com/Shougo/echodoc.vim"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
   },
-  ["fennel.vim"] = {
+  ["filetype.nvim"] = {
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/fennel.vim",
-    url = "https://github.com/bakpakin/fennel.vim"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
   },
-  ["gist-vim"] = {
+  ["friendly-snippets"] = {
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/gist-vim",
-    url = "https://github.com/mattn/gist-vim"
-  },
-  ["github-nvim-theme"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["goyo.vim"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/goyo.vim",
-    url = "https://github.com/junegunn/goyo.vim"
-  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
+  },
+  ["iceberg.vim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/iceberg.vim",
+    url = "https://github.com/cocopon/iceberg.vim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["impromptu.nvim"] = {
     loaded = true,
@@ -203,32 +202,15 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/jazz.nvim",
     url = "/opt/code/clojure-vim/jazz.nvim"
   },
-  ["jedi-vim"] = {
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/opt/jedi-vim",
-    url = "https://github.com/davidhalter/jedi-vim"
-  },
   ["jq.vim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/jq.vim",
     url = "https://github.com/vito-c/jq.vim"
   },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
-  },
   ["kotlin-vim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/kotlin-vim",
     url = "https://github.com/udalov/kotlin-vim"
-  },
-  ["let-modeline.vim"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/let-modeline.vim",
-    url = "https://github.com/vim-scripts/let-modeline.vim"
   },
   ["lualine-lsp-progress"] = {
     loaded = true,
@@ -240,37 +222,20 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["mini.nvim"] = {
+  neogen = {
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/mini.nvim",
-    url = "https://github.com/echasnovski/mini.nvim"
-  },
-  ["neco-vim"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/opt/neco-vim",
-    url = "https://github.com/Shougo/neco-vim"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neogen",
+    url = "https://github.com/danymat/neogen"
   },
   neogit = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
-  ["neovim-gui-shim"] = {
+  ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neovim-gui-shim",
-    url = "https://github.com/equalsraf/neovim-gui-shim"
-  },
-  nerdcommenter = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nerdcommenter",
-    url = "https://github.com/scrooloose/nerdcommenter"
-  },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -282,15 +247,20 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-luadev"] = {
+  ["nvim-tree-docs"] = {
     loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-luadev",
-    url = "https://github.com/bfredl/nvim-luadev"
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-tree-docs",
+    url = "https://github.com/nvim-treesitter/nvim-tree-docs"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -317,15 +287,16 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvimux",
     url = "/opt/code/vigemus/nvimux"
   },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
-  },
   ["octo.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/octo.nvim",
     url = "https://github.com/pwntester/octo.nvim"
+  },
+  ["org-bullets.nvim"] = {
+    config = { "\27LJ\2\nd\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fsymbols\1\0\0\1\5\0\0\b◉\b○\b✸\b✿\nsetup\16org-bullets\frequire\0" },
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/org-bullets.nvim",
+    url = "https://github.com/akinsho/org-bullets.nvim"
   },
   orgmode = {
     loaded = true,
@@ -363,6 +334,11 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["runes.nvim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/runes.nvim",
+    url = "/opt/code/hkupty/runes.nvim"
+  },
   ["rust.vim"] = {
     loaded = false,
     needs_bufread = true,
@@ -395,6 +371,11 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/taskwiki",
     url = "https://github.com/tools-life/taskwiki"
   },
+  ["telekasten.nvim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/telekasten.nvim",
+    url = "https://github.com/renerocksai/telekasten.nvim"
+  },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
@@ -420,22 +401,12 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
   },
-  ["vim-bazel"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-bazel",
-    url = "https://github.com/bazelbuild/vim-bazel"
-  },
   ["vim-clojure-static"] = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static",
     url = "https://github.com/fholiveira/vim-clojure-static"
-  },
-  ["vim-cool"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-cool",
-    url = "https://github.com/romainl/vim-cool"
   },
   ["vim-diminactive"] = {
     loaded = true,
@@ -462,35 +433,15 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-json",
     url = "https://github.com/elzr/vim-json"
   },
-  ["vim-ledger"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-ledger",
-    url = "https://github.com/ledger/vim-ledger"
-  },
-  ["vim-lion"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-lion",
-    url = "https://github.com/tommcdo/vim-lion"
-  },
   ["vim-lua"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-lua",
     url = "https://github.com/tbastos/vim-lua"
   },
-  ["vim-maktaba"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-maktaba",
-    url = "https://github.com/google/vim-maktaba"
-  },
   ["vim-markdown"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-markdown",
-    url = "https://github.com/plasticboy/vim-markdown"
-  },
-  ["vim-nix"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-nix",
-    url = "https://github.com/LnL7/vim-nix"
+    url = "https://github.com/preservim/vim-markdown"
   },
   ["vim-plugin-AnsiEsc"] = {
     loaded = true,
@@ -567,11 +518,6 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-yaml-folds",
     url = "https://github.com/pedrohdz/vim-yaml-folds"
   },
-  vimagit = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vimagit",
-    url = "https://github.com/jreybert/vimagit"
-  },
   vimwiki = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vimwiki",
@@ -585,17 +531,24 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: fidget.nvim
+time([[Config for fidget.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vfidget\frequire\0", "config", "fidget.nvim")
+time([[Config for fidget.nvim]], false)
+-- Config for: org-bullets.nvim
+time([[Config for org-bullets.nvim]], true)
+try_loadstring("\27LJ\2\nd\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fsymbols\1\0\0\1\5\0\0\b◉\b○\b✸\b✿\nsetup\16org-bullets\frequire\0", "config", "org-bullets.nvim")
+time([[Config for org-bullets.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType vim ++once lua require("packer.load")({'neco-vim'}, { ft = "vim" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'jedi-vim', 'vim-python-pep8-indent', 'deoplete-jedi'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType clojure ++once lua require("packer.load")({'vim-clojure-static', 'vim-sexp'}, { ft = "clojure" }, _G.packer_plugins)]]
-vim.cmd [[au FileType scala ++once lua require("packer.load")({'vim-scala', 'vim-scaladoc'}, { ft = "scala" }, _G.packer_plugins)]]
-vim.cmd [[au FileType Dockerfile ++once lua require("packer.load")({'Dockerfile.vim'}, { ft = "Dockerfile" }, _G.packer_plugins)]]
+vim.cmd [[au FileType scala ++once lua require("packer.load")({'vim-scaladoc', 'vim-scala'}, { ft = "scala" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-python-pep8-indent'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType sbt.scala ++once lua require("packer.load")({'vim-sbt'}, { ft = "sbt.scala" }, _G.packer_plugins)]]
+vim.cmd [[au FileType clojure ++once lua require("packer.load")({'vim-sexp', 'vim-clojure-static'}, { ft = "clojure" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType Dockerfile ++once lua require("packer.load")({'Dockerfile.vim'}, { ft = "Dockerfile" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
@@ -605,23 +558,24 @@ time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/pac
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/docker-compose.vim]], true)
 vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/docker-compose.vim]]
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/docker-compose.vim]], false)
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]], true)
-vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]]
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]], false)
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]], true)
-vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]]
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]], false)
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], true)
 vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]]
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], false)
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
 vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]], true)
+vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]]
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-sbt/ftdetect/sbt.vim]], false)
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]], true)
+vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]]
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-scala/ftdetect/scala.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

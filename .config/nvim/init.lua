@@ -8,6 +8,8 @@ require("plugins")
 require("plugins.luasnip")
 require("plugins.cmp")
 require("plugins.nvim_comment")
+-- require("plugins.headlines")
+
 require("plugins.gitsigns")
 require("plugins.iron")
 require("plugins.lsp")
@@ -17,8 +19,10 @@ require("plugins.sidebar")
 require("plugins.neogen")
 require("plugins.telescope")
 require("plugins.treesitter")
+require("plugins.nightfox")
 
 require("config")
+require("colors")
 require("keybindings")
 
 

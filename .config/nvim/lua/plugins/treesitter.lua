@@ -18,12 +18,12 @@ treesitter.setup{
   ensure_installed = ts_langs,
   highlight = {
     enable = true,
-    disable = { 'org' }
+    disable = { 'org' },
+    additional_vim_regex_highlighting = {'org'}
   },
-  indent = {enable = ts_langs},
-  additional_vim_regex_highlighting = {'org'},
+  indent = {enable = true},
   incremental_selection = {
-    enable = ts_langs,
+    enable = true,
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
@@ -37,17 +37,17 @@ treesitter.setup{
   },
   refactor = {
     highlight_definitions = {
-      enable = ts_langs,
+      enable = true,
     },
-    highlight_current_scope = { enable = ts_langs },
+    highlight_current_scope = { enable = true },
     smart_rename = {
-      enable = ts_langs,
+      enable = true,
       keymaps = {
         smart_rename = "grr",
       },
     },
     navigation = {
-      enable = ts_langs,
+      enable = true,
       keymaps = {
         goto_definition = "gnd",
         list_definitions = "gnD",
@@ -59,7 +59,7 @@ treesitter.setup{
   },
   textobjects = {
     select = {
-      enable = ts_langs,
+      enable = true,
       lookahead = true,
       keymaps = {
         ["af"] = "@function.outer",
@@ -69,7 +69,7 @@ treesitter.setup{
       },
     },
     swap = {
-      enable = ts_langs,
+      enable = true,
       swap_next = {
         ["<leader>a"] = "@parameter.inner",
       },
@@ -78,7 +78,7 @@ treesitter.setup{
       },
     },
     move = {
-      enable = ts_langs,
+      enable = true,
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",

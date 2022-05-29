@@ -1,7 +1,5 @@
 set termguicolors
 
-colorscheme kanagawa
-
 set noreadonly
 
 " Better nav

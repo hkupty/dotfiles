@@ -18,10 +18,6 @@ vnoremap Y myY`y
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
 
-
-" Comment fix
-map <leader>c<space> <plug>NERDCommenterToggle
-
 " Quickly toggle lines.
 nnoremap <silent> <F3> :set number! relativenumber!<CR>
 nnoremap <F2> :QuickScopeToggle<CR>
@@ -53,7 +49,6 @@ map <silent> <leader><down> :call Grab()<CR>
 map <silent> <leader>o :only<CR>
 map <silent> <leader><leader> :nohl<CR>
 
-nnoremap <silent> <leader>% :let g:paredit_mode=!g:paredit_mode<CR>
 
 " Snippets
 tnoremap <C-w>h <C-\><C-n><C-w><C-h>
