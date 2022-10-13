@@ -3,10 +3,11 @@ profile singleton {
   exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/nebula2.png
 }
 
+
 profile home {
-  output 'Unknown MSI MAG272QP CA8A010900475' position 0,0 mode 2560x1440@60Hz
-  output eDP-1 scale 1.3 position 2560,260 mode 1920x1200
-  output 'Unknown MSI MAG272QP CA8A010800281' position 4035,0 mode 2560x1440@60Hz
+  output 'Unknown MSI MAG272QP CA8A010900475' position 0,0 mode 2560x1440@60Hz transform 270
+  output eDP-1 scale 1.45 position 1436,828 mode 1920x1200
+  output 'Unknown MSI MAG272QP CA8A010800281' position 2761,600 mode 2560x1440@60Hz
 
   {% if YADM_USER == "hkupty" %}
   exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/death.jpg -o 'Unknown MSI MAG272QP CA8A010800281' -i $HOME/.local/share/desktop/skull.jpg -o 'Unknown MSI MAG272QP CA8A010900475' -i $HOME/.local/share/desktop/skull-teeth.jpg
@@ -16,8 +17,8 @@ profile home {
 }
 
 profile office {
-  output 'Hewlett Packard HP E242 CNC6050D81' position 0,0 mode 1920x1200
-  output eDP-1 position 230,1440 mode 1920x1200 position 370,1200 mode 1920x1200
+  output DP-2 position 0,0 mode 3840x2160@59.997Hz
+  output eDP-1 position 0,2160 mode 1920x1200
 
-  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/skull.jpg -o 'Hewlett Packard HP E242 CNC6050D81' -i $HOME/.local/share/desktop/death.jpg
+  exec swaybg -o eDP-1 -i $HOME/.local/share/desktop/skull.jpg -o DP-2 -i $HOME/.local/share/desktop/death.jpg
 }
