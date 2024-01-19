@@ -1,5 +1,0 @@
-vim.cmd [[highlight Headline guibg=#1e2718 ]]
-vim.cmd [[highlight Subline guibg=#21262d ]]
-vim.cmd [[highlight Detail guibg=#27222E ]]
-vim.cmd [[highlight CodeBlock guibg=#1c1c1c ]]
-vim.cmd [[highlight Dash guibg=#D19A66 gui=bold]]

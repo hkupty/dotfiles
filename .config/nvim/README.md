@@ -1,5 +1,3 @@
-# Some headline
+# This should be a title
 
-## Some
-
-### ss
+So I'm testing the spell checker.

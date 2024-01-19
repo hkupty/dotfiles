@@ -1,39 +1,49 @@
 local treesitter = require('nvim-treesitter.configs')
 
-local ts_langs = {
+local langs = {
   "bash",
   "clojure",
   "dockerfile",
+  "git_config",
+  "git_rebase",
+  "gitcommit",
+  "gitignore",
+  "hocon",
+  "html",
   "java",
+  "javascript",
+  "jq",
   "json",
   "kotlin",
   "lua",
-  "org",
+  "markdown",
+  "markdown_inline",
   "python",
+  "rust",
   "regex",
+  "toml",
+  "tsx",
+  "vim",
   "yaml",
 }
 
-treesitter.setup{
-  ensure_installed = ts_langs,
+treesitter.setup {
+  ensure_installed = langs,
   highlight = {
     enable = true,
-    disable = { 'org' },
-    additional_vim_regex_highlighting = {'org'}
   },
-  indent = {enable = true},
+  indent = { enable = true },
   incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      node_incremental = "gni",
+      scope_incremental = "gnI",
+      node_decremental = "gnd",
     }
   },
   tree_docs = {
     enable = true,
-
   },
   refactor = {
     highlight_definitions = {
@@ -43,7 +53,7 @@ treesitter.setup{
     smart_rename = {
       enable = true,
       keymaps = {
-        smart_rename = "grr",
+        smart_rename = "ctr",
       },
     },
     navigation = {
@@ -66,6 +76,7 @@ treesitter.setup{
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
+        ["ib"] = "@block_mapping_pair.inner",
       },
     },
     swap = {

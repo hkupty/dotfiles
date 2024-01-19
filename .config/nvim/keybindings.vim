@@ -1,54 +1,7 @@
-" Leader as ','
-let mapleader = ","
-let maplocalleader = "<space>"
-
-" rg + fzf ftw
-nmap <leader>S :exec "let cft=&ft \| edit scratchpad \| let &ft=cft"<CR>
-
-" Quick Scope
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-
-" Git
-nmap <C-M-d> <plug>GitDirty
-nmap <C-M-u> <plug>GitUnsynced
-
 vnoremap Y myY`y
 
 "normal @a
 vnoremap gna :'<,'>normal @a<CR>
-
-" Quickly toggle lines.
-nnoremap <silent> <F3> :set number! relativenumber!<CR>
-nnoremap <F2> :QuickScopeToggle<CR>
-
-" Edit me!
-map <silent> <leader>e <CMD>tabe $MYVIMRC \| tcd $HOME/.config/nvim/<CR>
-
-" Buffer nav
-map <leader>; :ls<CR>:bd<space>
-
-
-" System clipboard
-vnoremap <C-c> "+y
-
-vnoremap <S-Ins> c<C-R>+<ESC>
-nnoremap <silent> <S-Ins> :set paste<CR>"+p:set nopaste<CR>
-inoremap <silent> <S-Ins> <C-R>+
-tnoremap <S-Ins> <C-\><C-n>"+pa
-
-inoremap <silent> <C-v> <ESC>:set paste<CR>"+p:set nopaste<CR>a
-tnoremap <silent> <C-v> <C-\><C-n>"+pa
-
-" Refresh me!
-map <silent> <leader>rr :so $MYVIMRC<CR>
-map <silent> <leader>R  :so %<CR>
-
-" Clear window
-map <silent> <leader><down> :call Grab()<CR>
-map <silent> <leader>o :only<CR>
-map <silent> <leader><leader> :nohl<CR>
-
 
 " Snippets
 tnoremap <C-w>h <C-\><C-n><C-w><C-h>
@@ -74,8 +27,6 @@ noremap <S-Up> <NOP>
 noremap <S-Down> <NOP>
 noremap <S-Left> <NOP>
 noremap <S-Right> <NOP>
-
-nnoremap <leader>? <plug>GrepAll
 
 cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>

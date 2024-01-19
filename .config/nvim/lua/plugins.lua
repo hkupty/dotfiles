@@ -1,7 +1,6 @@
 -- luacheck: globals vim
 -- Plugins
 --- Acid
-local nrepl = require('acid.nrepl')
 
 -- Impromptu
 local impromptu = require("impromptu")
@@ -9,20 +8,50 @@ local impromptu = require("impromptu")
 local filter_fzy = require("impromptu.internals.extra.fzy")
 local default_filter = require("impromptu.internals.filter")
 
--- Iron
-local trex = require("trex")
-
 -- Nvimux
 local nvimux = require('nvimux')
 
 -- Icons
 require('nvim-web-devicons').setup()
 
+local hkupty = {}
+
+_G.tap = function(obj)
+  print(vim.inspect(obj))
+  return obj
+end
+
+hkupty.unload = function(key)
+  local pattern = "^" .. key .. ".-$"
+  for k, _ in pairs(package.loaded) do
+    if k:match(pattern) ~= nil then
+      package.loaded[k] = nil
+    end
+  end
+end
+
+local starts_with = function(str, begin)
+  return str:sub(1, #begin) == begin
+end
+
+
+hkupty.reload = function(ns)
+  for k, _ in pairs(package.loaded) do
+    if starts_with(k, ns) then
+      package.loaded[k] = nil
+    end
+  end
+end
+
+hkupty.openfile = function(fname)
+  vim.cmd("edit " .. fname)
+end
+
 filter_fzy.load(vim.fn.findfile("so/libfzy.so", vim.o.rtp))
 impromptu.config.filter.filter_fn = filter_fzy.filter
 
-_G.hkupty.configure_impromptu = function()
-  impromptu.ask{
+hkupty.configure_impromptu = function()
+  impromptu.ask {
     title = "Configure impromptu",
     options = {
       default_filter = {
@@ -45,14 +74,7 @@ _G.hkupty.configure_impromptu = function()
   }
 end
 
-nrepl.default_middlewares = {
-  'nrepl/nrepl',
-  'cider/cider-nrepl',
-  'refactor-nrepl/refactor-nrepl',
-  'com.github.liquidz/iced-nrepl'
-}
-
-nvimux.setup{
+nvimux.setup {
   config = {
     prefix = "<C-H>",
     open_term_by_default = true,
@@ -73,31 +95,13 @@ nvimux.setup{
     end
   },
   bindings = {
-    {{'n', 'v', 'i', 't'}, 's', nvimux.commands.horizontal_split},
-    {{'n', 'v', 'i', 't'}, 'v', nvimux.commands.vertical_split},
-    {{'n', 'v', 'i', 't'}, '$', trex.invoke},
-    {{'n'}, 'i', _G.hkupty.configure_impromptu}
+    { { 'n', 'v', 'i', 't' }, 's', nvimux.commands.horizontal_split },
+    { { 'n', 'v', 'i', 't' }, 'v', nvimux.commands.vertical_split },
+    { { 'n', 'v', 'i', 't' }, '$', function()
+      require("text").invoke()
+    end },
+    { { 'n' }, 'i', hkupty.configure_impromptu }
   }
 }
 
-vim.g.vimwiki_list = {
-  {
-    path = "/opt/code/wiki/",
-    index = "main",
-    sytax = "markdown",
-    ext = "md",
-    auto_diary_index = 1,
-    auto_toc = 1,
-    auto_generte_links = 1
-  }
-}
-
-vim.g.vimwiki_ext2syntax = {
-  ['.md'] = 'markdown',
-  ['.markdown'] = 'markdown',
-  ['.mdown'] = 'markdown',
-}
-
-vim.g.vimwiki_markdown_link_ext = 1
-vim.g.taskwiki_markup_syntax = 'markdown'
 vim.g.markdown_folding = 1
