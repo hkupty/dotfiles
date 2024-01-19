@@ -24,19 +24,13 @@ md(){
 alias vim=$(which nvim)
 alias svim="sudo $(which nvim)"
 
-if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
-  export EDITOR="nvr -cc vnew -c 'set bh=delete' --remote-wait"
+export EDITOR="nvr -s -cc vnew -c 'set bh=delete' --remote-wait"
 
-  alias h='nvr -o'
-  alias v='nvr -O'
-  alias t='nvr --remote-tab'
-  alias _='nvr -c'
-  alias _pwd='nvr -c "tcd `pwd`"'
-else
-  export EDITOR="nvim"
-  alias h='nvim'
-  alias v='nvim'
-fi
+alias h='nvr -o'
+alias v='nvr -O'
+alias t='nvr --remote-tab'
+alias _='nvr -c'
+alias _pwd='nvr -c "tcd `pwd`"'
 
 export TERM=xterm-256color
 
@@ -47,6 +41,7 @@ eval $(gpg-agent --daemon 2>/dev/null)
 
 setopt PROMPT_SUBST
 
+source /etc/profile
 source ~/.local/bin/_fns
 
 source <(antibody init)
@@ -63,6 +58,7 @@ bindkey '^n' autosuggest-accept
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+source <(helm completion zsh)
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='--border --info=inline'
@@ -86,3 +82,9 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(starship init zsh)"

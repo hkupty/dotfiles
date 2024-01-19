@@ -3,6 +3,7 @@
   email = hkupty@gmail.com
 [push]
   default = current
+#	autoSetupRemote = true
 [color]
   ui = true
   diff = true
@@ -19,7 +20,7 @@
   excludesfile = ~/.gitignore_global
   pager = delta --dark --line-numbers
 [includeIf "gitdir:/opt/code/znipe/"]
-  path = /opt/code/znipe/.gitconfig
+  path = /opt/code/znipeesport/.gitconfig
 [pull]
   rebase = true
   ff = only
@@ -27,3 +28,5 @@
   defaultBranch = main
 [delta]
   side-by-side = true
+[alias]
+	root = rev-parse --show-toplevel

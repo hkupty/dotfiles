@@ -9,8 +9,10 @@ mode "bluetooth" {
     bindsym b exec ~/.local/bin/toggle-bt-profile  ##Swap bluetooth profiles
     bindsym o exec bluetoothctl power on ##Turn on bluetooth
     bindsym f exec bluetoothctl power off ##Turn off bluetooth
-    bindsym c exec bluetoothctl connect 00:16:94:42:20:4C ##Connect headset
-    bindsym d exec bluetoothctl disconnect 00:16:94:42:20:4C ##Disconnect headset
+    bindsym c exec bluetoothctl connect 00:16:94:42:20:4C ##Connect HD 4.50BTNC
+    bindsym m exec bluetoothctl connect 80:C3:BA:3F:AB:01 ##Connect Momentum 4
+    bindsym d exec bluetoothctl disconnect 80:C3:BA:3F:AB:01 ##Disconnect Momentum 4
+    bindsym n exec bluetoothctl disconnect 00:16:94:42:20:4C  ##Disconnect HD 4.50BTNC
 
     bindsym Return mode "default"; exec pkill -8 nwg-wrapper ##Exit bluetooth mode
     bindsym Escape mode "default"; exec pkill -8 nwg-wrapper ##Exit bluetooth mode

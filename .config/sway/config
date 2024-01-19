@@ -67,6 +67,11 @@ input type:keyboard {
   xkb_variant altgr-intl
 }
 
+input type:tablet_tool {
+  tool_mode * relative
+  map_to_output 'Microstep MSI MAG272QP CA8A010800281'
+}
+
 input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_options ctrl:nocaps
   xkb_layout us
@@ -94,7 +99,7 @@ input "1267:12680:ELAN0673:00_04F3:3188_Touchpad" {
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    bindsym $mod+g exec sway-exit lock
+    bindsym $mod+g exec loginctl lock-session
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

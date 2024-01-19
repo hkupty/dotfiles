@@ -44,7 +44,6 @@ sd () {
   pushd "$CODE/$TGT" > /dev/null
 
   unset TGT
-  unset IAMAT
 
   return 0
 }
