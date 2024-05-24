@@ -24,7 +24,11 @@ md(){
 alias vim=$(which nvim)
 alias svim="sudo $(which nvim)"
 
-export EDITOR="nvr -s -cc vnew -c 'set bh=delete' --remote-wait"
+if [[ -v NVIM ]]; then 
+  export EDITOR='nvb'
+else
+  export EDITOR='nvr -cc vnew --remote-wait-silent'
+fi
 
 alias h='nvr -o'
 alias v='nvr -O'
