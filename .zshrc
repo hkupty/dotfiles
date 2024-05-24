@@ -17,10 +17,6 @@ compinit
 zstyle ':completion:*' menu select=2
 # End of lines added by compinstall
 
-md(){
-  pandoc --to=plain $1 | less
-}
-
 alias vim=$(which nvim)
 alias svim="sudo $(which nvim)"
 
@@ -41,15 +37,30 @@ export TERM=xterm-256color
 compctl -/ -W $CODE sd
 compctl -/ -W $AUR_DIR aur up
 
-eval $(gpg-agent --daemon 2>/dev/null)
-
 setopt PROMPT_SUBST
 
 source /etc/profile
 source ~/.local/bin/_fns
 
-source <(antibody init)
-antibody bundle < ~/.plugins
+# https://github.com/hcgraf/zsh-sudo/blob/master/sudo.plugin.zsh
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    if [[ $BUFFER == sudo\ * ]]; then
+        LBUFFER="${LBUFFER#sudo }"
+    elif [[ $BUFFER == $EDITOR\ * ]]; then
+        LBUFFER="${LBUFFER#$EDITOR }"
+        LBUFFER="sudoedit $LBUFFER"
+    elif [[ $BUFFER == sudoedit\ * ]]; then
+        LBUFFER="${LBUFFER#sudoedit }"
+        LBUFFER="$EDITOR $LBUFFER"
+    else
+        LBUFFER="sudo $LBUFFER"
+    fi
+}
+zle -N sudo-command-line
+# Defined shortcut keys: [Esc] [Esc]
+bindkey "\e\e" sudo-command-line
+bindkey -M vicmd '\e\e' sudo-command-line
 
 fzf-history-widget-accept() {
   fzf-history-widget
