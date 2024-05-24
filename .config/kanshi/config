@@ -12,6 +12,8 @@ profile office-hdmi {
   output HDMI-A-1 position 2560,0 mode 2560x1440
   output DP-3 position 0,0 mode 2560x1440
   output eDP-1 position 1640,1440 mode 1920x1200
+
+  exec swaymsg workspace 2, layout splitv, workspace 1
 }
 
 profile office {

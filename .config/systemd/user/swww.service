@@ -5,8 +5,8 @@ BindsTo=graphical-session.target
 After=graphical-session.target
 
 [Service]
-Type=forking
-ExecStart=/usr/bin/swww init
+Type=exec
+ExecStart=/usr/bin/swww-daemon
 ExecStop=/usr/bin/swww kill
 
 [Install]
