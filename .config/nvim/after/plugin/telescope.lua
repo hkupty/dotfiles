@@ -16,7 +16,7 @@ local project_folders = function(opts)
     finder = finders.new_oneshot_job(find_command, opts),
     previewer = conf.file_previewer(opts),
     sorter = conf.file_sorter(opts),
-    attach_mappings = function(prompt_bufnr, _map)
+    attach_mappings = function(prompt_bufnr)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local selection = action_state.get_selected_entry()
@@ -33,19 +33,19 @@ require('telescope').load_extension('fzy_native')
 local mapper = function(opt)
   vim.keymap.set('n', opt.lhs or opt[1], function()
     (opt.fn or opt[2])(opt.arg or opt[3] or {})
-  end, {})
+  end, { desc = opt.desc })
 end
 
 -- Files
-mapper { "<C-l>", require 'telescope.builtin'.buffers }
-mapper { "<C-p>", require 'telescope.builtin'.find_files }
-mapper { "<C-M-f>", require 'telescope.builtin'.live_grep }
-mapper { "<C-M-r>", require 'telescope.builtin'.resume }
+mapper { "<C-b>", require 'telescope.builtin'.buffers, desc = "buffers" }
+mapper { "<C-p>", require 'telescope.builtin'.find_files, desc = "find files" }
+mapper { "<C-M-f>", require 'telescope.builtin'.live_grep, desc = "live grep" }
+mapper { "<C-M-r>", require 'telescope.builtin'.resume, desc = "resume" }
 mapper { "<C-M-p>", project_folders }
 
 -- Fixing
 mapper { "<C-q>f", require 'telescope.builtin'.quickfix }
-mapper { "<C-q>d", require 'telescope.builtin'.diagnostics }
+mapper { "<C-q>d", require 'telescope.builtin'.diagnostics, desc = "diagnostics" }
 
 -- Git-related
 mapper { "<C-g>f", require 'telescope.builtin'.git_status }

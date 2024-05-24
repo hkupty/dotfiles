@@ -41,7 +41,7 @@ iron.setup {
     -- },
     repl_definition = {
       sh = {
-        command = {"zsh"}
+        command = { "zsh" }
       },
       python = require("iron.fts.python").ipython,
     }

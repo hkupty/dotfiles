@@ -10,7 +10,7 @@ local map = function(mode, opt)
     arg = opt[2]
   end
 
-  vim.keymap.set(mode, opt.lhs or opt[1], arg, {})
+  vim.keymap.set(mode, opt.lhs or opt[1], arg, opt.cfg or opt[4] or {})
 end
 
 local nnoremap = function(opt) map('n', opt) end
@@ -52,3 +52,6 @@ vnoremap { '<C-c>', [["+y]] }
 inoremap { '<C-v>', [[<esc>"+pa]] }
 
 tnoremap { '<C-v>', [[<C-\><C-n> "+pa]] }
+
+nnoremap { '[d', vim.diagnostic.goto_prev }
+nnoremap { ']d', vim.diagnostic.goto_next }

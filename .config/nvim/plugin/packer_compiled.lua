@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?/init.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.1702233742/lib/lua/5.1/?.so"
+local package_path_str = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/home/hkupty/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/hkupty/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -80,6 +80,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim",
     url = "https://github.com/ekalinin/Dockerfile.vim"
+  },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
   LuaSnip = {
     loaded = true,
@@ -227,6 +232,11 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/kotlin-vim",
     url = "https://github.com/udalov/kotlin-vim"
   },
+  ["lsp-progress.nvim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/lsp-progress.nvim",
+    url = "https://github.com/linrongbin16/lsp-progress.nvim"
+  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
@@ -236,11 +246,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
-  },
-  ["lualine-lsp-progress"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/lualine-lsp-progress",
-    url = "https://github.com/arkav/lualine-lsp-progress"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -267,6 +272,21 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
+  neotest = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-go"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neotest-go",
+    url = "https://github.com/nvim-neotest/neotest-go"
+  },
+  ["neotest-java"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/neotest-java",
+    url = "https://github.com/rcasia/neotest-java"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -282,11 +302,6 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-comment",
-    url = "https://github.com/terrortylor/nvim-comment"
-  },
   ["nvim-lint"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-lint",
@@ -296,6 +311,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-tree-docs"] = {
     loaded = true,
@@ -472,11 +492,6 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-lua",
     url = "https://github.com/tbastos/vim-lua"
   },
-  ["vim-markdown"] = {
-    loaded = true,
-    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-markdown",
-    url = "https://github.com/preservim/vim-markdown"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/vim-repeat",
@@ -524,6 +539,11 @@ _G.packer_plugins = {
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/webapi-vim",
     url = "https://github.com/mattn/webapi-vim"
   },
+  ["yuck.vim"] = {
+    loaded = true,
+    path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/yuck.vim",
+    url = "https://github.com/elkowar/yuck.vim"
+  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/hkupty/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -540,19 +560,13 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType clojure ++once lua require("packer.load")({'async-clj-omni', 'acid.nvim', 'jazz.nvim', 'vim-sexp', 'async-clj-highlight', 'vim-clojure-static'}, { ft = "clojure" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType go ++once lua require("packer.load")({'go.nvim'}, { ft = "go" }, _G.packer_plugins)]]
 vim.cmd [[au FileType Dockerfile ++once lua require("packer.load")({'Dockerfile.vim'}, { ft = "Dockerfile" }, _G.packer_plugins)]]
-vim.cmd [[au FileType clojure ++once lua require("packer.load")({'jazz.nvim', 'vim-clojure-static', 'acid.nvim', 'async-clj-highlight', 'vim-sexp', 'async-clj-omni'}, { ft = "clojure" }, _G.packer_plugins)]]
+vim.cmd [[au FileType go ++once lua require("packer.load")({'go.nvim'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]], true)
-vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]]
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]], false)
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], true)
-vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]]
-time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], false)
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/Dockerfile.vim]], true)
 vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/Dockerfile.vim]]
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/Dockerfile.vim/ftdetect/Dockerfile.vim]], false)
@@ -562,6 +576,12 @@ time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/pac
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
 vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
 time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], true)
+vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]]
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/vim-clojure-static/ftdetect/clojure.vim]], false)
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]], true)
+vim.cmd [[source /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]]
+time([[Sourcing ftdetect script at: /home/hkupty/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/filetype.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false

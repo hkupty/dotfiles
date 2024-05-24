@@ -42,6 +42,21 @@ return require('packer').startup {
       }
     }
 
+    use { "linrongbin16/lsp-progress.nvim" }
+
+    use {
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-neotest/nvim-nio",
+        "nvim-lua/plenary.nvim",
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-treesitter/nvim-treesitter"
+      }
+    }
+
+    use { "rcasia/neotest-java" }
+    use { "nvim-neotest/neotest-go" }
+
     -- API client
     use { code .. '/vigemus/daedalus.nvim' }
 
@@ -79,7 +94,6 @@ return require('packer').startup {
     use { 'nvim-lualine/lualine.nvim',
       requires = {
         { 'kyazdani42/nvim-web-devicons', opt = true },
-        { 'arkav/lualine-lsp-progress' },
         { 'nvim-lua/lsp-status.nvim' },
       }
     }
@@ -128,8 +142,6 @@ return require('packer').startup {
     -- Filesystem tinkering
     use { 'stevearc/oil.nvim' }
 
-    -- Code commenting
-    use { 'terrortylor/nvim-comment' }
     use { 'danymat/neogen' } -- TODO evaluate
 
     -- Git stuff
@@ -204,13 +216,12 @@ return require('packer').startup {
     -- jq syntax
     use { 'vito-c/jq.vim' }
 
+    use { 'elkowar/yuck.vim' }
+
     use { 'ray-x/go.nvim', ft = { 'go' } }
 
     -- Plant UML
     use { 'aklt/plantuml-syntax' }
-
-    -- Markdown syntax
-    use { 'preservim/vim-markdown' }
 
     use { 'jjo/vim-cue' }
 
