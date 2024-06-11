@@ -42,25 +42,15 @@ setopt PROMPT_SUBST
 source /etc/profile
 source ~/.local/bin/_fns
 
-# https://github.com/hcgraf/zsh-sudo/blob/master/sudo.plugin.zsh
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER == sudo\ * ]]; then
-        LBUFFER="${LBUFFER#sudo }"
-    elif [[ $BUFFER == $EDITOR\ * ]]; then
-        LBUFFER="${LBUFFER#$EDITOR }"
-        LBUFFER="sudoedit $LBUFFER"
-    elif [[ $BUFFER == sudoedit\ * ]]; then
-        LBUFFER="${LBUFFER#sudoedit }"
-        LBUFFER="$EDITOR $LBUFFER"
-    else
-        LBUFFER="sudo $LBUFFER"
-    fi
-}
-zle -N sudo-command-line
-# Defined shortcut keys: [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-bindkey -M vicmd '\e\e' sudo-command-line
+antidote=${ZDOTDIR:-$HOME}/.antidote
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  (
+    source ${antidote}/antidote.zsh
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+  )
+fi
+source ${zsh_plugins}.zsh
 
 fzf-history-widget-accept() {
   fzf-history-widget
@@ -74,6 +64,7 @@ bindkey '^n' autosuggest-accept
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source <(helm completion zsh)
+source <(apko completion zsh)
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='--border --info=inline'
