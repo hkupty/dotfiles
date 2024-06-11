@@ -45,7 +45,7 @@ lsp.format_on_save {
 
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-vim.lsp.set_log_level("info")
+vim.lsp.set_log_level("warn")
 
 lsp.setup()
 require('lsp-progress').setup()

@@ -1,230 +1,231 @@
 -- luacheck: globals vim use
 local code = vim.fn.expand("$CODE")
 
-vim.cmd [[packadd packer.nvim]]
+require('lazy').setup({
+  { 'wbthomason/packer.nvim',        optional = true },
+  -- Make it fast
+  { 'lewis6991/impatient.nvim' },
+  --     { 'nathom/filetype.nvim' },
 
-return require('packer').startup {
-  function()
-    use { 'wbthomason/packer.nvim', opt = true }
-    -- Make it fast
-    use { 'lewis6991/impatient.nvim' }
-    -- use { 'nathom/filetype.nvim' }
+  { "lukas-reineke/virt-column.nvim" },
 
-    use { "lukas-reineke/virt-column.nvim" }
+  -- LSP support
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' }, -- Required
+      {
+        -- Optional
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+          require("fidget").setup {}
+        end
+      },
 
-    -- LSP support
-    use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v2.x',
-      requires = {
-        -- LSP Support
-        { 'neovim/nvim-lspconfig' }, -- Required
-        {
-          -- Optional
-          'williamboman/mason.nvim',
-          run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-          end,
-        },
-        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-        {
-          'j-hui/fidget.nvim',
-          tag = 'legacy',
-          config = function()
-            require("fidget").setup {}
-          end
-        },
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
+    },
+  },
 
-        -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },     -- Required
-        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-        { 'L3MON4D3/LuaSnip' },     -- Required
-      }
-    }
+  { "linrongbin16/lsp-progress.nvim" },
 
-    use { "linrongbin16/lsp-progress.nvim" }
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+  },
 
-    use {
-      "nvim-neotest/neotest",
-      requires = {
-        "nvim-neotest/nvim-nio",
-        "nvim-lua/plenary.nvim",
-        "antoinemadec/FixCursorHold.nvim",
-        "nvim-treesitter/nvim-treesitter"
-      }
-    }
+  { "rcasia/neotest-java" },
+  { "nvim-neotest/neotest-go" },
 
-    use { "rcasia/neotest-java" }
-    use { "nvim-neotest/neotest-go" }
+  -- API client
+  { dir = code .. '/vigemus/daedalus.nvim' },
 
-    -- API client
-    use { code .. '/vigemus/daedalus.nvim' }
+  -- Task tracking
+  { dir = code .. '/vigemus/steadfast.nvim' },
 
-    -- Task tracking
-    use { code .. '/vigemus/steadfast.nvim' }
+  {
+    'lewis6991/gitsigns.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+  },
 
-    use { 'lewis6991/gitsigns.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      }
-    }
+  { 'ThePrimeagen/git-worktree.nvim' },
 
-    use { 'ThePrimeagen/git-worktree.nvim' }
+  -- Dark colors
+  { 'EdenEast/nightfox.nvim' },
+  { 'folke/tokyonight.nvim' },
 
-    -- Dark colors
-    use { 'EdenEast/nightfox.nvim' }
-    use { 'folke/tokyonight.nvim' }
+  -- Code Completion
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'hrsh7th/cmp-nvim-lua' },
+      { 'f3fora/cmp-spell' },
+      { 'piero-vic/cmp-ledger' },
+      { 'ray-x/cmp-treesitter' },
+      { 'uga-rosa/cmp-dictionary' },
+    },
+  },
 
-    -- Code Completion
-    use { 'hrsh7th/nvim-cmp',
-      requires = {
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-cmdline' },
-        { 'hrsh7th/cmp-nvim-lua' },
-        { 'f3fora/cmp-spell' },
-        { 'piero-vic/cmp-ledger' },
-        { 'ray-x/cmp-treesitter' },
-        { 'uga-rosa/cmp-dictionary' },
-      }
-    }
+  -- Statusline
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      { 'kyazdani42/nvim-web-devicons', optional = true },
+    },
+  },
 
-    -- Statusline
-    use { 'nvim-lualine/lualine.nvim',
-      requires = {
-        { 'kyazdani42/nvim-web-devicons', opt = true },
-      }
-    }
+  -- test
+  { 'vim-test/vim-test' },
 
-    -- test
-    use { 'vim-test/vim-test' }
+  -- Lint
+  { 'mfussenegger/nvim-lint' },
 
-    -- Lint
-    use { 'mfussenegger/nvim-lint' }
+  -- Ctags
+  { 'ludovicchabant/vim-gutentags' },
 
-    -- Ctags
-    use { 'ludovicchabant/vim-gutentags' }
+  -- Spelling
+  { 'lewis6991/spellsitter.nvim' },
+  { 'mateusbraga/vim-spell-pt-br' },
 
-    -- Spelling
-    use { 'lewis6991/spellsitter.nvim' }
-    use { 'mateusbraga/vim-spell-pt-br' }
+  -- Colors
+  { 'norcalli/nvim-colorizer.lua' },
 
-    -- Colors
-    use { 'norcalli/nvim-colorizer.lua' }
+  -- Tmux substitute
+  { dir = code .. '/vigemus/nvimux' },
 
-    -- Tmux substitute
-    use { code .. '/vigemus/nvimux' }
+  -- Repls
+  { dir = code .. '/vigemus/iron.nvim' },
+  { dir = code .. '/vigemus/trex.nvim' },
 
-    -- Repls
-    use { code .. '/vigemus/iron.nvim' }
-    use { code .. '/vigemus/trex.nvim' }
+  -- Lua tests
+  { dir = code .. '/hkupty/runes.nvim' },
 
-    -- Lua tests
-    use { code .. '/hkupty/runes.nvim' }
+  -- Prompt utils
+  { dir = code .. '/vigemus/impromptu.nvim' },
 
-    -- Prompt utils
-    use { code .. '/vigemus/impromptu.nvim' }
+  -- filetype tinkering
+  { dir = code .. '/vigemus/classifier.nvim' },
 
-    -- filetype tinkering
-    use { code .. '/vigemus/classifier.nvim' }
+  -- Navigation
+  { "nvim-telescope/telescope.nvim",           dependencies = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } },
+  { "nvim-telescope/telescope-fzy-native.nvim" },
 
-    -- Navigation
-    use { "nvim-telescope/telescope.nvim", requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
-    use { "nvim-telescope/telescope-fzy-native.nvim" }
+  -- Points to where I want
+  { dir = code .. '/vigemus/pointer.nvim' },
 
-    -- Points to where I want
-    use { code .. '/vigemus/pointer.nvim' }
+  { 'mhartington/formatter.nvim' },
 
-    use { 'mhartington/formatter.nvim' }
+  -- Filesystem tinkering
+  { 'stevearc/oil.nvim' },
+  -- TODO evaluate
+  { 'danymat/neogen' },
 
-    -- Filesystem tinkering
-    use { 'stevearc/oil.nvim' }
+  -- Git stuff
+  { 'TimUntersberger/neogit' },
 
-    use { 'danymat/neogen' } -- TODO evaluate
+  -- Search TODO comments
+  { 'folke/todo-comments.nvim' },
 
-    -- Git stuff
-    use { 'TimUntersberger/neogit' }
+  -- Tpope stuff
+  { 'tpope/vim-surround' },
+  { 'tpope/vim-speeddating' },
+  { 'tpope/vim-repeat' },
+  { 'tpope/vim-abolish' },
+  { 'tpope/vim-eunuch' },
 
-    -- Search TODO comments
-    use { 'folke/todo-comments.nvim' }
+  -- Eyecandy
+  { 'kyazdani42/nvim-web-devicons' },
 
-    -- Tpope stuff
-    use { 'tpope/vim-surround' }
-    use { 'tpope/vim-speeddating' }
-    use { 'tpope/vim-repeat' }
-    use { 'tpope/vim-abolish' }
-    use { 'tpope/vim-eunuch' }
+  -- Syntax specific and some more stuff
+  -- Docker
+  { 'ekalinin/Dockerfile.vim',                 ft = { 'Dockerfile' } },
 
-    -- Eyecandy
-    use { 'kyazdani42/nvim-web-devicons' }
+  -- Lua
+  { 'tbastos/vim-lua' },
 
-    -- Syntax specific and some more stuff
-    -- Docker
-    use { 'ekalinin/Dockerfile.vim', ft = { 'Dockerfile' } }
+  -- Rust
+  {
+    'rust-lang/rust.vim',
+    ft = { 'rust' },
+    dependencies = { 'mattn/webapi-vim' },
+  },
 
-    -- Lua
-    use { 'tbastos/vim-lua' }
+  -- Clojure
+  { dir = code .. '/clojure-vim/acid.nvim',           ft = 'clojure' },
+  { dir = code .. '/clojure-vim/jazz.nvim',           ft = 'clojure' },
+  { dir = code .. '/clojure-vim/async-clj-highlight', ft = 'clojure' },
+  { 'guns/vim-sexp',                                  ft = 'clojure' },
+  { 'clojure-vim/async-clj-omni',                     ft = 'clojure' },
+  { 'fholiveira/vim-clojure-static',                  ft = 'clojure', branch = 'hack-update' },
 
-    -- Rust
-    use { 'rust-lang/rust.vim', ft = { 'rust' },
-      requires = { 'mattn/webapi-vim' }
-    }
+  -- Splunk!
+  { 'vim-scripts/splunk.vim' },
 
-    -- Clojure
-    use { code .. '/clojure-vim/acid.nvim', ft = 'clojure' }
-    use { code .. '/clojure-vim/jazz.nvim', ft = 'clojure' }
-    use { code .. '/clojure-vim/async-clj-highlight', ft = 'clojure' }
-    use { 'guns/vim-sexp', ft = 'clojure' }
-    use { 'clojure-vim/async-clj-omni', ft = 'clojure' }
-    use { 'fholiveira/vim-clojure-static', ft = 'clojure', branch = 'hack-update' }
+  -- json
+  { 'elzr/vim-json' },
 
-    -- Splunk!
-    use { 'vim-scripts/splunk.vim' }
+  -- Kotlin
+  { 'udalov/kotlin-vim' },
 
-    -- json
-    use { 'elzr/vim-json' }
+  -- Yaml
+  { 'pedrohdz/vim-yaml-folds' },
 
-    -- Kotlin
-    use { 'udalov/kotlin-vim' }
+  -- Treesitter <3
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+      'nvim-treesitter/nvim-tree-docs',
+    },
+  },
 
-    -- Yaml
-    use { 'pedrohdz/vim-yaml-folds' }
+  { 'folke/twilight.nvim' },
+  { 'folke/zen-mode.nvim' },
 
-    -- Treesitter <3
-    use { 'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      requires = {
-        'nvim-treesitter/nvim-treesitter-refactor',
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        'nvim-treesitter/nvim-treesitter-context',
-        'nvim-treesitter/nvim-tree-docs',
-      }
-    }
+  { 'nvim-treesitter/playground' },
 
-    use { 'folke/twilight.nvim' }
-    use { 'folke/zen-mode.nvim' }
+  -- Dim inactive windows
+  { 'blueyed/vim-diminactive' },
 
-    use { 'nvim-treesitter/playground' }
+  { 'jvirtanen/vim-hcl' },
 
-    -- Dim inactive windows
-    use { 'blueyed/vim-diminactive' }
+  -- jq syntax
+  { 'vito-c/jq.vim' },
 
-    use { 'jvirtanen/vim-hcl' }
+  { 'elkowar/yuck.vim' },
 
-    -- jq syntax
-    use { 'vito-c/jq.vim' }
+  { 'ray-x/go.nvim',             ft = { 'go' } },
 
-    use { 'elkowar/yuck.vim' }
+  -- Plant UML
+  { 'aklt/plantuml-syntax' },
 
-    use { 'ray-x/go.nvim', ft = { 'go' } }
+  { 'jjo/vim-cue' },
 
-    -- Plant UML
-    use { 'aklt/plantuml-syntax' }
-
-    use { 'jjo/vim-cue' }
-
-    use { 'phaazon/hop.nvim' }
-  end,
-  config = { ensure_dependencies = true }
-}
+  { 'phaazon/hop.nvim' },
+})

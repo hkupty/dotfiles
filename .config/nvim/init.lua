@@ -1,4 +1,5 @@
 -- luacheck: globals vim
+require("bootstrap")
 require("deps")
 require("impatient")
 require("plugins")
