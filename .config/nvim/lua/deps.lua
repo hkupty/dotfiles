@@ -94,7 +94,6 @@ return require('packer').startup {
     use { 'nvim-lualine/lualine.nvim',
       requires = {
         { 'kyazdani42/nvim-web-devicons', opt = true },
-        { 'nvim-lua/lsp-status.nvim' },
       }
     }
 
