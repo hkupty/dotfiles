@@ -1,0 +1,89 @@
+#!/bin/bash
+
+declare -A ALIASES
+
+function nv-load(){
+  if [ -e /tmp/nvim-server ]; then
+    NVIM_LISTEN_ADDRESS=$(cat /tmp/nvim-server)
+    export NVIM_LISTEN_ADDRESS
+    return 0
+  fi
+  return 1
+}
+
+function deq() {
+  if [[ -z "$1" ]]
+  then
+    docker run -i jturolla/deq:latest eq
+  else
+    docker run -i jturolla/deq:latest eq "$1"
+  fi
+}
+
+_prepend_line() {
+  xargs -I {} echo "$1 {}"
+}
+
+sd () {
+  # Find matching target
+  if [ -z "$1" ]; then
+
+    # Go to home if none
+    pushd "$CODE" > /dev/null
+  else
+    TGT=$1
+  fi
+
+  # Check if target exists
+  if [ ! -e "$CODE/$TGT" ]; then
+    echo "Target directory not found" >> /dev/stderr
+    return 1
+  fi
+
+  # Force directory change
+  pushd "$CODE/$TGT" > /dev/null
+
+  unset TGT
+
+  return 0
+}
+
+λ() {
+  loc="$ASSETS/hk.d/$1"
+  cmd="${@:2}"
+  if [ ! -e "$loc" ]; then
+    loc="$ASSETS/hk.d/${ALIASES[$1]}"
+    if [ ! -e "$loc" ]; then
+      echo "Unable to find script"
+      exit 1
+    fi
+  fi
+
+  bash -c "source $loc; $cmd"
+}
+
+Ω() {
+  mach -f "$ASSETS/tasks.edn" "$1"
+}
+
+list(){
+  case $1 in
+    "Ω") deq '(map (get 0))' < "$ASSETS/tasks.edn"
+      ;;
+    "λ") find "$ASSETS/hk.d"
+      ;;
+    "*") echo ""
+  esac
+
+
+}
+
+help() {
+  cat <<- EOF
+  sd [\$project]  Switch Directories - sends to ${CODE}[/\$project]
+  deq             Docker eq - jq for edn
+  λ               Scripts that accept parameters
+  Ω               Routines that are executed frequently
+  list \$greek    Lists nested scripts/routins on \$greek
+EOF
+}

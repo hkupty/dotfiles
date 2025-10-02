@@ -1,0 +1,1 @@
+-- luacheck: globals vim

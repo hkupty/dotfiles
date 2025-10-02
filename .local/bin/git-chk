@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# TODO Fix multiple remotes
+readarray LOCAL <<< $(git branch --no-color | awk '{print $NF}')
+readarray REMOTE <<< $(git branch -r | sed 's/.*origin\///g')
+
+REMOTE_ONLY=($(echo ${LOCAL[@]} ${LOCAL[@]} ${REMOTE[@]} | tr ' ' '\n' | sort | uniq -u))
+
+fancy(){
+  for i in $@; do
+    echo -e  "\e[32m✦\e[39m $i"
+  done
+}
+
+boring(){
+  for i in $@; do
+    echo "  $i"
+  done
+}
+
+git checkout $(echo -e "$(boring ${LOCAL[@]})\n$(fancy ${REMOTE_ONLY[@]})" | fzf --ansi | awk '{print $NF}')

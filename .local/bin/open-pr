@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+gh pr create -F $(git rev-parse --show-toplevel)/.github/PULL_REQUEST_TEMPLATE/backend.md -e -lbackend -rznipeesport/backend ${@}
