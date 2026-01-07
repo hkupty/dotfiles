@@ -33,3 +33,5 @@ local function bootstrapLuaConfig(cachefile, configfile)
 end
 
 bootstrapLuaConfig(vim.fn.stdpath("cache") .. "/luals-hash", vim.fn.stdpath("config") .. "/.luarc.json")
+
+require("mason").setup()

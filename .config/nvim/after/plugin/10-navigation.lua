@@ -7,6 +7,7 @@ local conf = require("telescope.config").values
 local telescope = require("telescope.builtin")
 local todo = require("telescope._extensions.todo-comments").exports.todo
 local nvimux = require("nvimux")
+local oil = require("oil")
 
 local project_folders = function(opts)
 	opts = opts or {}
@@ -93,5 +94,27 @@ nvimux.setup({
 	bindings = {
 		{ { "n", "v", "i", "t" }, "s", nvimux.commands.horizontal_split },
 		{ { "n", "v", "i", "t" }, "v", nvimux.commands.vertical_split },
+	},
+})
+
+oil.setup({
+	keymaps = {
+		["<C-p>"] = false,
+		["<C-q>"] = {
+			"actions.send_to_qflist",
+			opts = { action = "r", target = "qflist" },
+		},
+		["<C-S-q>"] = {
+			"actions.send_to_qflist",
+			opts = { action = "a", target = "qflist" },
+		},
+		["<M-q>"] = {
+			"actions.send_to_qflist",
+			opts = { action = "r", only_matching_search = true, target = "qflist" },
+		},
+		["<M-S-q>"] = {
+			"actions.send_to_qflist",
+			opts = { action = "a", only_matching_search = true, target = "qflist" },
+		},
 	},
 })

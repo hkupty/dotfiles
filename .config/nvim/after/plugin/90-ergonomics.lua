@@ -82,8 +82,10 @@ vim.keymap.set("c", "<C-l>", "<S-Right>", {})
 vim.keymap.set("c", "<M-f>", "<S-Right>", {})
 vim.keymap.set("c", "<C-e>", "<End>", {})
 
+vim.keymap.set("n", "<M-h>", "<cmd>colder<CR>", {})
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", {})
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", {})
+vim.keymap.set("n", "<M-l>", "<cmd>cnewer<CR>", {})
 
 -- terminal
 vim.keymap.set("t", "<C-v>", [[<C-\><C-n>"+pa]], {})

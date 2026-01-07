@@ -1,8 +1,45 @@
--- luacheck: globals vim
-require("bootstrap")
-require("deps")
+local code = vim.fn.expand("$CODE")
+
+vim.pack.add({
+	"https://github.com/lewis6991/impatient.nvim",
+	"https://github.com/dstein64/vim-startuptime",
+	"https://github.com/williamboman/mason.nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/nvim-lua/popup.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-fzy-native.nvim",
+	"https://github.com/TimUntersberger/neogit",
+	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/j-hui/fidget.nvim",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/rafamadriz/friendly-snippets",
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/mfussenegger/nvim-lint",
+	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/nvim-treesitter/nvim-treesitter-context",
+	"https://github.com/kyazdani42/nvim-web-devicons",
+	"https://github.com/norcalli/nvim-colorizer.lua",
+	"https://github.com/mateusbraga/vim-spell-pt-br",
+	"https://github.com/tpope/vim-surround",
+	"https://github.com/tpope/vim-speeddating",
+	"https://github.com/tpope/vim-repeat",
+	"https://github.com/tpope/vim-abolish",
+	"https://github.com/tpope/vim-eunuch",
+	"https://github.com/ekalinin/Dockerfile.vim",
+	"https://github.com/elzr/vim-json",
+	"https://github.com/udalov/kotlin-vim",
+	"https://github.com/pedrohdz/vim-yaml-folds",
+	"https://github.com/jvirtanen/vim-hcl",
+	"https://github.com/vito-c/jq.vim",
+	"https://github.com/ray-x/go.nvim",
+	"https://github.com/ziglang/zig.vim",
+	"https://github.com/aklt/plantuml-syntax",
+	"https://github.com/jjo/vim-cue",
+
+	-- TMUX bindings
+	{ src = code .. "/vigemus/nvimux" },
+	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+})
 require("impatient")
-
-
--- TODO: Move to lua
-vim.cmd([[source $HOME/.config/nvim/plugins.vim]])

@@ -1,6 +1,8 @@
 -- luacheck: globals vim
 
 -- TODO: Notes & github review comments
+-- FIX: Sometimes the window reference is lost and I can't navigate to files
+-- FIX: Should jump to a file from anywhere in the diff, not only from file name
 
 local scholar = {}
 
@@ -11,6 +13,7 @@ scholar.init = function()
 	scholar.prevwindow = nil
 	scholar.showbuf = 0
 end
+
 scholar.load = function()
 	scholar.init()
 	local function on_event(_, data, _)
@@ -33,18 +36,37 @@ scholar.load = function()
 	})
 end
 
-scholar.next = function()
+scholar.prev = function()
 	if scholar.current < vim.tbl_count(scholar.commits) then
 		scholar.current = scholar.current + 1
 	end
 	scholar.show()
 end
 
-scholar.prev = function()
+scholar.next = function()
 	if scholar.current > 1 then
 		scholar.current = scholar.current - 1
 	end
 	scholar.show()
+end
+
+scholar.close = function()
+	-- Only close if there's more than one window
+	if #vim.api.nvim_list_wins() > 1 then
+		if scholar.window and vim.api.nvim_win_is_valid(scholar.window) then
+			vim.api.nvim_win_close(scholar.window, false)
+		end
+	end
+
+	-- Delete buffers if they exist
+	if scholar.buf and vim.api.nvim_buf_is_valid(scholar.buf) then
+		vim.api.nvim_buf_delete(scholar.buf, {})
+	end
+
+	if scholar.showbuf and vim.api.nvim_buf_is_valid(scholar.showbuf) then
+		vim.api.nvim_buf_delete(scholar.showbuf, {})
+	end
+	scholar.init()
 end
 
 scholar.show = function()
@@ -57,6 +79,7 @@ scholar.show = function()
 		})
 		vim.bo[scholar.buf].ft = "diff"
 
+		vim.keymap.set("n", "q", scholar.close, { buffer = scholar.buf })
 		vim.keymap.set("n", "<M-l>", scholar.next, { buffer = scholar.buf })
 		vim.keymap.set("n", "<M-h>", scholar.prev, { buffer = scholar.buf })
 		vim.keymap.set("n", "<CR>", scholar.file, { buffer = scholar.buf })
@@ -74,6 +97,8 @@ scholar.show = function()
 			stdout_buffered = true,
 		})
 		vim.b[scholar.buf].id = scholar.current
+		local target = "scholar://" .. scholar.commits[scholar.current]
+		vim.api.nvim_buf_set_name(scholar.buf, target)
 	end
 end
 
@@ -138,10 +163,23 @@ scholar.locate = function(direction, enter)
 	end
 end
 
+scholar.close_file = function()
+	local prev_buffer = vim.w[scholar.prevwindow].previous
+	if vim.api.nvim_buf_is_valid(prev_buffer) then
+		vim.api.nvim_win_set_buf(scholar.prevwindow, prev_buffer)
+		vim.api.nvim_win_del_var(scholar.prevwindow, "previous")
+	else
+		vim.api.nvim_win_close(scholar.prevwindow, false)
+	end
+	vim.api.nvim_buf_delete(scholar.showbuf, {})
+	scholar.showbuf = 0
+end
+
 scholar.file = function()
 	local ret = scholar.locate("up", true)
 	local filepath = ret[2]
 	if filepath then
+		vim.w[scholar.prevwindow].previous = vim.api.nvim_win_get_buf(scholar.prevwindow)
 		vim.api.nvim_set_current_win(scholar.prevwindow)
 
 		local function update_pos()
@@ -153,7 +191,10 @@ scholar.file = function()
 		local target = "scholar://" .. scholar.commits[scholar.current] .. "/" .. filepath
 
 		if vim.api.nvim_buf_get_name(scholar.showbuf) ~= target then
+			vim.api.nvim_buf_delete(scholar.showbuf, {})
 			scholar.showbuf = vim.api.nvim_create_buf(false, true)
+			vim.keymap.set("n", "q", scholar.close_file, { buffer = scholar.showbuf })
+			-- TODO: figure out window dynamically (if closed, open a new one)
 			vim.api.nvim_win_set_buf(scholar.prevwindow, scholar.showbuf)
 
 			local function on_enter(_, data, _)
