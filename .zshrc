@@ -58,8 +58,9 @@ add-zsh-hook preexec __transient_exec
 add-zsh-hook zshexit __cleanup
 add-zsh-hook precmd __record_status
 
+function sd() { pushd "$(sd_locate "$1")" > /dev/null || return }
+
 source /etc/profile
-source ~/.local/bin/_fns
 compctl -/ -W $CODE sd
 
 MAX_MEMORY_UNITS=MB
