@@ -39,7 +39,10 @@ vim.pack.add({
 
 	-- TMUX bindings
 	{ src = code .. "/vigemus/nvimux" },
+	{ src = code .. "/vigemus/pointer.nvim", version = "refactor" },
 	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+
+	"https://github.com/OXY2DEV/markview.nvim",
 })
 require("impatient")

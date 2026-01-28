@@ -4,6 +4,7 @@ vim.lsp.enable("gopls")
 vim.lsp.enable("zls")
 vim.lsp.enable("kotlinls")
 vim.lsp.enable("java")
+vim.lsp.enable("markdown-oxide")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
@@ -52,6 +53,8 @@ end, {})
 vim.keymap.set("n", "<space>pr", function()
 	require("scholar").load()
 end, {})
+
+vim.keymap.set("n", "gvf", "<Cmd>vertical wincmd f<CR>", {})
 
 require("neogit").setup({
 	commit_popup = "vertical split",

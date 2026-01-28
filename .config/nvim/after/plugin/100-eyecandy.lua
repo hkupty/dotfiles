@@ -2,6 +2,6 @@ require("colorizer").setup()
 
 local fidget = require("fidget")
 
-fidget.setup()
+fidget.setup({})
 
 vim.notify = fidget.notify

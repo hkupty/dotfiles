@@ -118,3 +118,5 @@ oil.setup({
 		},
 	},
 })
+
+require("pointer").setup({})
