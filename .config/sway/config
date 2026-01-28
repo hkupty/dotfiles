@@ -13,7 +13,7 @@ set $right l
 set $term ghostty +new-window
 # Your preferred application launcher
 set $menu wmenu-run
-set $cursor "Nordzy-cursors"
+set $cursor "BreezeX-RosePine-Linux"
 
 default_border none
 gaps inner 2
