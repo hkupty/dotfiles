@@ -48,17 +48,17 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 export EDITOR='nvb'
 
-export STOA_SESION="$(stoa-session)"
-export PROMPT='$(stoa-prompt)'
-export RPROMPT='$(stoa-rprompt)'
-function __transient_exec() { stoa-transient }
-function __record_status() { stoa-status $? }
+export STOA_SESION="$(~/.local/bin/stoa-session)"
+export PROMPT='$(~/.local/bin/stoa-prompt)'
+export RPROMPT='$(~/.local/bin/stoa-rprompt)'
+function __transient_exec() { ~/.local/bin/stoa-transient }
+function __record_status() { ~/.local/bin/stoa-status $? }
 function __cleanup() { rm $STOA_SESION }
 add-zsh-hook preexec __transient_exec
 add-zsh-hook zshexit __cleanup
 add-zsh-hook precmd __record_status
 
-function sd() { pushd "$(sd_locate "$1")" > /dev/null || return }
+function sd() { pushd "$(~/.local/bin/sd_locate "$1")" > /dev/null || return }
 
 source /etc/profile
 compctl -/ -W $CODE sd
