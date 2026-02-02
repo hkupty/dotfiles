@@ -1,0 +1,51 @@
+profile singleton {
+  output eDP-1 position 0,0 mode 1920x1200 scale 1
+}
+
+profile desktop {
+  output "Microstep MSI MAG272QP CA8A010800639" {
+    position 0,0
+    mode 2560x1440@164.802Hz
+    transform 90
+  }
+
+  output "Microstep MSI MAG272QP CA8A010800281" {
+    position 1440,450
+    mode 2560x1440@164.802Hz
+  }
+
+  exec swaymsg workspace 2, layout splitv, workspace 1
+}
+
+profile office {
+  output "Ancor Communications Inc ASUS MG278 0x0000306D" {
+    position 0,0
+    mode 2560x1440@59.951Hz
+    adaptive_sync on
+  }
+
+  output "Ancor Communications Inc ASUS MG278 0x000031D5" {
+    position 2560,0
+    mode 2560x1440@59.951Hz
+    adaptive_sync on
+  }
+
+  output eDP-1 {
+    position 1640,1440
+    mode 1920x1200
+  }
+}
+
+profile home2 {
+
+  output "Microstep MSI MAG272QP CA8A010900475" {
+    position 0,0
+    mode 2560x1440@59.951Hz
+  }
+
+  output eDP-1 {
+    position 2560,700
+    mode 2560x1600
+    scale 1.6
+  }
+}

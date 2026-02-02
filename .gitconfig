@@ -3,7 +3,6 @@
 	email = hkuty@gmail.com
 [push]
   default = current
-#	autoSetupRemote = true
 [color]
   ui = true
   diff = true
@@ -19,8 +18,6 @@
 [core]
   excludesfile = ~/.gitignore_global
   pager = delta --dark --line-numbers
-[includeIf "gitdir:/opt/code/znipe/"]
-  path = /opt/code/znipeesport/.gitconfig
 [pull]
   rebase = true
   ff = only
