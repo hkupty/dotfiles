@@ -1,0 +1,13 @@
+[Unit]
+Description=Initialize SWWW daemon
+Documentation=https://github.com/Horus645/swww
+BindsTo=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/swww-daemon
+ExecStop=/usr/bin/swww kill
+
+[Install]
+WantedBy=sway-session.target

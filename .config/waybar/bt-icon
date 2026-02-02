@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+jq -creMn --arg powered "$(bluetoothctl show | grep Powered | awk '{print $NF}')" '.alt = $powered'

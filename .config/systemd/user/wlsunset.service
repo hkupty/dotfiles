@@ -1,0 +1,12 @@
+[Unit]
+Description=Dynamic gamma configuration based on geolocation
+Documentation=https://git.sr.ht/~kennylevinsen/wlsunset
+BindsTo=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wlsunset -l 59.3 -L 17.9
+
+[Install]
+WantedBy=sway-session.target

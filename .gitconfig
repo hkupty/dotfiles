@@ -1,0 +1,32 @@
+[user]
+	name = Henry Kupty
+	email = hkuty@gmail.com
+[push]
+  default = current
+#	autoSetupRemote = true
+[color]
+  ui = true
+  diff = true
+[github]
+  user = hkupty
+[gc]
+  auto = 1
+[merge]
+  summary = true
+[rerere]
+  enabled = 1
+  autoupdate = true
+[core]
+  excludesfile = ~/.gitignore_global
+  pager = delta --dark --line-numbers
+[includeIf "gitdir:/opt/code/znipe/"]
+  path = /opt/code/znipeesport/.gitconfig
+[pull]
+  rebase = true
+  ff = only
+[init]
+  defaultBranch = main
+[delta]
+  side-by-side = true
+[alias]
+	root = rev-parse --show-toplevel
