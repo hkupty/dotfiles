@@ -17,7 +17,6 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 	"https://github.com/kyazdani42/nvim-web-devicons",
 	"https://github.com/norcalli/nvim-colorizer.lua",
 	"https://github.com/mateusbraga/vim-spell-pt-br",
@@ -39,10 +38,11 @@ vim.pack.add({
 
 	-- TMUX bindings
 	{ src = code .. "/vigemus/nvimux" },
-	{ src = code .. "/vigemus/pointer.nvim", version = "refactor" },
+	{ src = code .. "/vigemus/pointer.nvim" },
 	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
 	"https://github.com/OXY2DEV/markview.nvim",
+	"https://github.com/jiaoshijie/undotree",
 })
 require("impatient")

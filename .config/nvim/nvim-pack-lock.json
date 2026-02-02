@@ -66,13 +66,9 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "rev": "f8bbc3177d929dc86e272c41cc15219f0a7aa1ac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
-    },
-    "nvim-treesitter-context": {
-      "rev": "64dd4cf3f6fd0ab17622c5ce15c91fc539c3f24a",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+      "version": "'main'"
     },
     "nvim-web-devicons": {
       "rev": "803353450c374192393f5387b6a0176d0972b848",
@@ -80,7 +76,7 @@
     },
     "nvimux": {
       "rev": "a2cd0cab0acf6c37d999e0cfd199a9fa126a8dcf",
-      "src": "$CODE/vigemus/nvimux"
+      "src": "/home/hkupty/code//vigemus/nvimux"
     },
     "oil.nvim": {
       "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
@@ -95,9 +91,8 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "pointer.nvim": {
-      "rev": "857e4a9f85dea558e4da3484adcbd7a8878cf655",
-      "src": "$CODE/vigemus/pointer.nvim",
-      "version": "'refactor'"
+      "rev": "433ff95a3acf1c1f6dc6da93b511ca853c468214",
+      "src": "/home/hkupty/code//vigemus/pointer.nvim"
     },
     "popup.nvim": {
       "rev": "b7404d35d5d3548a82149238289fa71f7f6de4ac",
@@ -114,6 +109,10 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "undotree": {
+      "rev": "f68aed28c8ff1294b012dfadaced2084dc045870",
+      "src": "https://github.com/jiaoshijie/undotree"
     },
     "vim-abolish": {
       "rev": "dcbfe065297d31823561ba787f51056c147aa682",

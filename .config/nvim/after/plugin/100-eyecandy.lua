@@ -4,4 +4,4 @@ local fidget = require("fidget")
 
 fidget.setup({})
 
-vim.notify = fidget.notify
+vim.notify = require("fidget.notification").notify
