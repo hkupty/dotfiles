@@ -1,0 +1,14 @@
+max-history=20
+default-timeout=5000
+ignore-timeout=1
+group-by=app-name
+background-color=#333333AA
+height=80
+width=400
+border-color=#2f2f2fA0
+border-size=1
+anchor=bottom-right
+font=Noto Sans Mono 10
+
+[mode=silent]
+invisible=1

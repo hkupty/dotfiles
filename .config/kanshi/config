@@ -14,7 +14,6 @@ profile desktop {
     mode 2560x1440@164.802Hz
   }
 
-  exec swaymsg workspace 2, layout splitv, workspace 1
 }
 
 profile office {

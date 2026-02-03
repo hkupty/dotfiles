@@ -2,10 +2,10 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
         "format": "{name}. {icon}",
@@ -17,15 +17,18 @@
             "music": "",
             "docs": "",
             "urgent": "",
-            "focused": "",
+            "active": "",
+            "persistent": "◒",
+            "special": "◓",
+            "empty": "◯",
             "default": ""
         }
     },
-    "sway/mode": {
+    "hyprland/submap": {
       "format": " {}",
       "max-length": 50
     },
-    "sway/window": {
+    "hyprland/window": {
       "format": "{}",
       "max-length": 60,
       "rewrite": {
