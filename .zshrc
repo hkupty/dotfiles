@@ -49,8 +49,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 export EDITOR='nvb'
 
 export STOA_SESSION="$(~/.local/bin/stoa-session)"
-export PROMPT="$(~/.local/bin/stoa-prompt)"
-export RPROMPT="$(~/.local/bin/stoa-rprompt)"
+export PROMPT='$(~/.local/bin/stoa-prompt)'
+export RPROMPT='$(~/.local/bin/stoa-rprompt)'
 function __transient_exec() { ~/.local/bin/stoa-transient }
 function __record_status() { ~/.local/bin/stoa-status $? }
 function __cleanup() { rm $STOA_SESSION }
