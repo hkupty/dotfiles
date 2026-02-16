@@ -70,6 +70,10 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "nvim-web-devicons": {
       "rev": "803353450c374192393f5387b6a0176d0972b848",
       "src": "https://github.com/kyazdani42/nvim-web-devicons"
@@ -161,6 +165,10 @@
     "zig.vim": {
       "rev": "1a1112eec20e28c832a06ddb1d0060f6ce652372",
       "src": "https://github.com/ziglang/zig.vim"
+    },
+    "zk-nvim": {
+      "rev": "51c8f858420112dda495a6f4ddbd3943ae433e39",
+      "src": "https://github.com/zk-org/zk-nvim"
     }
   }
 }
