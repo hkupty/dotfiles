@@ -1,0 +1,12 @@
+[Unit]
+Description=Adds SSH keys
+PartOf=graphical-session-pre.target
+After=graphical-session-pre.target ssh-agent.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ssh-add %h/.ssh/%i
+
+[Install]
+WantedBy=graphical-session-pre.target
+

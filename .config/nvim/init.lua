@@ -35,12 +35,14 @@ vim.pack.add({
 	"https://github.com/ziglang/zig.vim",
 	"https://github.com/aklt/plantuml-syntax",
 	"https://github.com/jjo/vim-cue",
+	"https://github.com/zk-org/zk-nvim",
 
 	-- TMUX bindings
 	{ src = code .. "/vigemus/nvimux" },
 	{ src = code .. "/vigemus/pointer.nvim" },
 	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 
 	"https://github.com/OXY2DEV/markview.nvim",
 	"https://github.com/jiaoshijie/undotree",

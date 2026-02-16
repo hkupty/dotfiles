@@ -1,10 +1,10 @@
 [Unit]
-Description=Runs swaylock on session lock
+Description=Runs waylock on session lock
 Requisite=graphical-session.target
 PartOf=lock.target
 
 [Service]
-ExecStart=/usr/bin/swaylock -c 000000
+ExecStart=/usr/bin/waylock -init-color 0x000000 -input-color 0x0e0e0e
 # Unlock the session when the screen locker exit:
 ExecStopPost=/usr/bin/loginctl unlock-session
 

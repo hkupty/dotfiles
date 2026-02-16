@@ -17,7 +17,7 @@
   autoupdate = true
 [core]
   excludesfile = ~/.gitignore_global
-  pager = delta --dark --line-numbers
+  ; pager = delta --dark --line-numbers
 [pull]
   rebase = true
   ff = only
