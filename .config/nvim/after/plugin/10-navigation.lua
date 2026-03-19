@@ -120,4 +120,4 @@ oil.setup({
   },
 })
 
-require("pointer").setup({})
+-- require("pointer").setup({})

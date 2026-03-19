@@ -27,24 +27,23 @@ vim.pack.add({
 	"https://github.com/tpope/vim-eunuch",
 	"https://github.com/ekalinin/Dockerfile.vim",
 	"https://github.com/elzr/vim-json",
-	"https://github.com/udalov/kotlin-vim",
 	"https://github.com/pedrohdz/vim-yaml-folds",
-	"https://github.com/jvirtanen/vim-hcl",
 	"https://github.com/vito-c/jq.vim",
 	"https://github.com/ray-x/go.nvim",
 	"https://github.com/ziglang/zig.vim",
-	"https://github.com/aklt/plantuml-syntax",
-	"https://github.com/jjo/vim-cue",
 	"https://github.com/zk-org/zk-nvim",
 
 	-- TMUX bindings
 	{ src = code .. "/vigemus/nvimux" },
-	{ src = code .. "/vigemus/pointer.nvim" },
-	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
+	-- { src = code .. "/vigemus/pointer.nvim" },
+	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.9.1" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 
 	"https://github.com/OXY2DEV/markview.nvim",
 	"https://github.com/jiaoshijie/undotree",
 })
 require("impatient")
+
+vim.cmd([[set exrc]])

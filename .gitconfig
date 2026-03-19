@@ -27,3 +27,5 @@
   side-by-side = true
 [alias]
 	root = rev-parse --show-toplevel
+[url "git@github.com:"]
+	insteadOf = https://github.com/

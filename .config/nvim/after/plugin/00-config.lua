@@ -27,7 +27,6 @@ vim.cmd([[set autowriteall]])
 vim.cmd([[set writeany]])
 
 -- Also, let me have settings per project
-vim.cmd([[set exrc]])
 vim.cmd([[set secure]])
 
 -- Global taboptions

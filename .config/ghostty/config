@@ -4,3 +4,5 @@ font-size = 9
 font-family = 'FiraCode Nerd Font'
 quit-after-last-window-closed = false
 window-inherit-working-directory = false
+
+gtk-single-instance = desktop

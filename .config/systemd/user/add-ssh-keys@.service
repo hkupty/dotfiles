@@ -1,6 +1,8 @@
 [Unit]
 Description=Adds SSH keys
 PartOf=graphical-session-pre.target
+Requires=ssh-agent.service
+After=ssh-agent.service
 After=graphical-session-pre.target ssh-agent.service
 
 [Service]

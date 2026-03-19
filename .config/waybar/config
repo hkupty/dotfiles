@@ -1,10 +1,10 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    "height": 24, // Waybar height
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "height": 25, // Waybar height
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["wireplumber", "network", "cpu", "memory", "battery", "bluetooth", "tray", "clock"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -23,6 +23,9 @@
             "empty": "◯",
             "default": ""
         }
+    },
+    "sway/scratchpad":{
+      "format-icons": ["", "󰅍"]
     },
     "hyprland/submap": {
       "format": " {}",
@@ -50,6 +53,9 @@
     "memory": {
         "format": "{}% "
     },
+    "bluetooth": {
+        "format-on": "  "
+    },
     "battery": {
         "bat": "BAT0",
         "states": {
@@ -67,37 +73,11 @@
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },
-    "pulseaudio": {
+    "wireplumber": {
         //"scroll-step": 1,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      }
-    },
-    "custom/bt-icon": {
-      "exec": "~/.config/waybar/bt-icon",
-      "type": "json",
-      "interval": 20,
-      "format": "{icon}",
-      "format-icons": {
-        "yes": "",
-        "no": ""
-      }
+        "format": "{volume}% {icon} ",
+        "format-muted": "",
+        "format-icons": ["", ""],
+        "on-click": "pwvucontrol"
     }
 }

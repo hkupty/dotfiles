@@ -2,7 +2,9 @@
 vim.lsp.enable("luals")
 vim.lsp.enable("gopls")
 vim.lsp.enable("zls")
-vim.lsp.enable("kotlinls")
+vim.lsp.enable("protols")
+vim.lsp.enable("pylsp")
+-- vim.lsp.enable("kotlinls")
 vim.lsp.enable("java")
 vim.lsp.enable("markdown-oxide")
 

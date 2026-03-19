@@ -3,6 +3,7 @@
 -- TODO: Notes & github review comments
 -- FIX: Sometimes the window reference is lost and I can't navigate to files
 -- FIX: Should jump to a file from anywhere in the diff, not only from file name
+-- TODO:  Add notes to Quickfix
 
 local scholar = {}
 

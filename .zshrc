@@ -11,7 +11,8 @@ zinit light Aloxaf/fzf-tab
 # Add in snippets
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::sudo
-zinit snippet OMZP::aws
+zinit snippet OMZP::gcloud
+zinit snippet OMZP::fzf
 # zinit snippet OMZP::kubectx ## Perhaps?
 zinit snippet OMZP::command-not-found
 
