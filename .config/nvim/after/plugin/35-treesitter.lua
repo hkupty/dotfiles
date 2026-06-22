@@ -1,5 +1,6 @@
-local ts = require("nvim-treesitter")
+require("tsf").setup()
 local targets = {
+  "authzed",
 	"bash",
 	"dockerfile",
 	"git_config",
@@ -21,26 +22,17 @@ local targets = {
 	"regex",
 	"toml",
 	"yaml",
+  "vim",
+  "vimdoc",
 	"zig",
 }
 
-ts.install(targets)
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = targets,
-	callback = function()
-		vim.treesitter.start()
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	callback = function(ev)
+		vim.treesitter.start(ev.buf)
 	end,
 })
 
 vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo[0][0].foldmethod = "expr"
-
-vim.keymap.set("n", "[c", function()
-	require("treesitter-context").go_to_context(vim.v.count1)
-end, { silent = true })
-
-vim.keymap.set("n", "]c", function()
-	require("treesitter-context").go_to_context(-vim.v.count1)
-end, { silent = true })

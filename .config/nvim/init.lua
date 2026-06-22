@@ -18,7 +18,6 @@ vim.pack.add({
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/kyazdani42/nvim-web-devicons",
-	"https://github.com/norcalli/nvim-colorizer.lua",
 	"https://github.com/mateusbraga/vim-spell-pt-br",
 	"https://github.com/tpope/vim-surround",
 	"https://github.com/tpope/vim-speeddating",
@@ -32,14 +31,12 @@ vim.pack.add({
 	"https://github.com/ray-x/go.nvim",
 	"https://github.com/ziglang/zig.vim",
 	"https://github.com/zk-org/zk-nvim",
+  "https://github.com/nanotee/sqls.nvim",
 
 	-- TMUX bindings
 	{ src = code .. "/vigemus/nvimux" },
 	-- { src = code .. "/vigemus/pointer.nvim" },
-	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.9.1" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+	{ src = "https://github.com/Saghen/blink.cmp", version = "v1.10.2" },
 
 	"https://github.com/OXY2DEV/markview.nvim",
 	"https://github.com/jiaoshijie/undotree",

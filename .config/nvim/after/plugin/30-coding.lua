@@ -2,8 +2,10 @@
 vim.lsp.enable("luals")
 vim.lsp.enable("gopls")
 vim.lsp.enable("zls")
+vim.lsp.enable("tsp")
 vim.lsp.enable("protols")
 vim.lsp.enable("pylsp")
+vim.lsp.enable("sqls")
 -- vim.lsp.enable("kotlinls")
 vim.lsp.enable("java")
 vim.lsp.enable("markdown-oxide")
@@ -15,14 +17,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.lsp.inlay_hint.enable(true)
 
 		vim.keymap.set("n", "gtr", telescope.lsp_references, { buffer = event.buf, desc = "LSP Reference" })
-		vim.keymap.set(
-			"n",
-			"<C-l>s",
-			telescope.lsp_document_symbols,
-			{ buffer = event.buf, desc = "LSP Document Symbols" }
-		)
-		vim.keymap.set("n", "<C-l>g", vim.lsp.buf.declaration, { buffer = event.buf, desc = "go to declaration" })
+		vim.keymap.set("n", "<C-l>s", telescope.lsp_document_symbols, { buffer = event.buf, desc = "LSP Document Symbols" })
 		vim.keymap.set("n", "<C-l>d", telescope.lsp_definitions, { buffer = event.buf, desc = "LSP Definitions" })
+		vim.keymap.set("n", "<C-l>g", vim.lsp.buf.declaration, { buffer = event.buf, desc = "go to declaration" })
 		vim.keymap.set("n", "<C-l>r", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP Rename" })
 		vim.keymap.set("n", "<C-l>a", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP Code Action" })
 	end,
@@ -84,7 +81,14 @@ require("todo-comments").setup({
 })
 
 require("blink.cmp").setup({
-	sources = { default = { "lsp", "path", "snippets", "buffer" } },
+	sources = { default = { "lsp", "path", "snippets", "buffer" } ,
+  per_filetype  = {
+    markdown = { "presenterm", "buffer",  },
+  },
+  providers = {
+    presenterm = { module = "blink-cmp-presenterm" },
+  },
+},
 	signature = { enabled = true },
 	completion = {
 		keyword = { range = "prefix" },

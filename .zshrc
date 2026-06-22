@@ -7,6 +7,8 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light joshskidmore/zsh-fzf-history-search
 zinit light Aloxaf/fzf-tab
+zinit ice from"codeberg.org"
+zinit load ziglang/shell-completions
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
